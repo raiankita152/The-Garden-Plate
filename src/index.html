@@ -5,112 +5,526 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>The Garden Plate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    .font-primary{
+        font-family:'Playfair Display', serif;
+    }
+
+    .font-secondary{
+        font-family:'Lato', sans-serif;
+    }
+</style>
 </head>
 <body>
-
-    <!-- Hero Section -->
     <section class="relative h-screen">
 
-        <!-- Background Image -->
-        <img
-            src="images/home page hero banner.png"
-            alt="Restaurant Banner"
-            class="absolute inset-0 w-full h-full object-cover"
-        >
+    <!-- Hero Image -->
+    <img
+        src="./images/home page hero banner.png"
+        alt="banner"
+        class="absolute inset-0 w-full h-full object-cover"
+    >
 
-        <!-- Dark Overlay -->
-        <div class="absolute inset-0 bg-black/50"></div>
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/25"></div>
 
-        <!-- Navbar -->
-        <nav class="absolute top-0 left-0 w-full z-20">
-            <div class="max-w-7xl mx-auto flex items-center justify-between px-10 py-5">
+    <!-- Glass Navbar -->
+    <nav class="fixed top-0 left-0 w-full z-50">
+
+        <div class="
+            bg-black/30
+            backdrop-blur-xl
+            border-b border-white/10
+            shadow-xl
+        ">
+
+            <div class="max-w-7xl mx-auto px-3 py-1 flex items-center justify-between relative">
 
                 <!-- Logo -->
-                <div>
-                    <img src="images/WHITE TRANSPARENT Restaurant Logo (1).png" alt="Logo" class="w-16 h-16 rounded-full">
+                <div class="flex items-center gap-4">
+
+                    <img
+                        src="./images/TRANSPARENT Restaurant Logo (1) - Copy.png"
+                        alt="logo"
+                        class="w-20 h-20 rounded-full object-cover"
+                    >
+
+                    
+
                 </div>
 
                 <!-- Menu -->
-                <ul class="hidden md:flex gap-20 text-white font-lato">
-                    <li><a href="#" class="hover:text-green-500">HOME</a></li>
-                    <li><a href="#" class="hover:text-green-500">MENU</a></li>
-                    <li><a href="#" class="hover:text-green-500">GALLERY</a></li>
-                    <li><a href="#" class="hover:text-green-500">ABOUT US</a></li>
-                    <li><a href="#" class="hover:text-green-500">CONTACT US</a></li>
+                <ul class="hidden md:flex gap-20 text-white font-secondary font-medium">
+
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">MENU</a></li>
+                    <li><a href="#">GALLERY</a></li>
+                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="#">CONTACT US</a></li>
+
                 </ul>
 
                 <!-- Button -->
-                <button class="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800 transition">
+                <button class="
+                    bg-[#153E17]
+                    px-6 py-3
+                    rounded-lg
+                    text-white
+                    font-secondary
+                    hover:bg-[#24482D]
+                    transition
+                ">
                     BOOK A TABLE
                 </button>
 
             </div>
-        </nav>
 
-        <!-- Hero Content -->
-       <div class="relative z-10 flex items-center h-full">
+        </div>
 
-    <div class="w-full pl-[30px]">
+    </nav>
 
-        <h1 class="playfair text-[#FFF0D2] text-5xl md:text-7xl font-bold mb-4">
-            THE GARDEN PLATE
-        </h1>
+    <!-- Hero Content -->
+    <div class="relative z-10 flex items-center h-full">
 
-        <h2 class="playfair text-[#E7D6B8] text-2xl md:text-4xl mb-8">
-            Taste Nature's Finest Creations
-        </h2>
+        <div class="max-w-7xl mx-auto w-full px-8">
 
-        <p class="text-white text-lg md:text-3xl font-semibold max-w-2xl leading-relaxed">
-            From fresh seasonal ingredients to expertly crafted dishes,
-            every meal is designed to delight your senses.
-        </p>
+            <h1 class="
+                font-primary
+                text-[#FFF0D2]
+                text-5xl
+                md:text-7xl
+                lg:text-8xl
+                font-bold
+                mb-4
+            ">
+                THE GARDEN PLATE
+            </h1>
+
+            <h2 class="
+                font-primary
+                text-[#E7D6B8]
+                text-2xl
+                md:text-4xl
+                mb-8
+            ">
+                Taste Nature's Finest Creations
+            </h2>
+
+            <p class="
+                font-secondary
+                text-white
+                text-lg
+                md:text-2xl
+                max-w-2xl
+                leading-relaxed
+            ">
+                From fresh seasonal ingredients to expertly crafted dishes,
+                every meal is designed to delight your senses.
+            </p>
+
+        </div>
 
     </div>
 
+</section>
+<section class="bg-white py-4">
+
+    <div class="max-w-7xl mx-auto">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+
+            <div class="text-center p-5 border-r">
+
+<div class="mb-3 flex justify-center">
+    <img
+        src="./images/fresh ingredinets.png"
+        alt="Fresh Ingredients"
+        class="w-16 h-16 object-contain"
+    >
+</div>
+                <h3 class="font-primary text-green-900 font-bold">
+                    FRESH INGREDIENTS
+                </h3>
+
+                <p class="font-secondary text-sm text-gray-600 mt-2">
+                    Handpicked from nature’s finest harvests to bring freshness to every bite.
+                </p>
+
+            </div>
+
+            <div class="text-center p-5 border-r">
+<div class="mb-3 flex justify-center">
+    <img
+        src="./images/chef hat.png"
+        alt="Master Chefs"
+        class="w-16 h-16 object-contain"
+    >
 </div>
 
-    </section>
-    <section class="bg-white py-8">
-    <div class="max-w-7xl mx-auto px-6">
+                <h3 class="font-primary text-green-900 font-bold">
+                    MASTER CHEFS
+                </h3>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 text-center">
-
-            <div class="p-6 border-r">
-                <div class="text-4xl mb-3">🧺</div>
-                <h3 class="font-bold text-green-900">FRESH INGREDIENTS</h3>
-                <p class="text-sm text-gray-600 mt-2">
-                   Handpicked from nature’s finest harvests to bring freshness to every bite.
+                <p class="font-secondary text-sm text-gray-600 mt-2">
+                    Driven by creativity, our chefs craft flavors that leave lasting impressions.
                 </p>
+
             </div>
 
-            <div class="p-6 border-r">
-                <div class="text-4xl mb-3">👨‍🍳</div>
-                <h3 class="font-bold text-green-900">MASTER CHEFS</h3>
-                <p class="text-sm text-gray-600 mt-2">
-                    Crafted by skilled culinary experts.
+            <div class="text-center p-5 border-r">
+
+                <div class="mb-3 flex justify-center">
+                    <img
+                        src="./images/cozy excellence.png"
+                        alt="Cozy Ambience"
+                        class="w-16 h-16 object-contain"
+                    >
+                </div>
+
+                <h3 class="font-primary text-green-900 font-bold">
+                    COZY AMBIENCE
+                </h3>
+
+                <p class="font-secondary text-sm text-gray-600 mt-2">
+                   A warm and elegant atmosphere designed for unforgettable dining moments.
                 </p>
+
             </div>
 
-            <div class="p-6 border-r">
-                <div class="text-4xl mb-3">🪑</div>
-                <h3 class="font-bold text-green-900">COZZY AMBIENCE</h3>
-                <p class="text-sm text-gray-600 mt-2">
-                    Elegant atmosphere for memorable dining.
-                </p>
-            </div>
+            <div class="text-center p-5">
 
-            <div class="p-6">
-                <div class="text-4xl mb-3">🍽️</div>
-                <h3 class="font-bold text-green-900">EXCEPTIONAL SERVICE</h3>
-                <p class="text-sm text-gray-600 mt-2">
-                    Personalized attention every visit.
+                <div class="mb-3 flex justify-center">
+                    <img
+                        src="./images/dining excellence.png"
+                        alt="Dining Excellence"
+                        class="w-16 h-16 object-contain"
+                    >
+                </div>
+
+                <h3 class="font-primary text-green-900 font-bold">
+                  DINING EXCELLENCE
+            
+                </h3>
+
+                <p class="font-secondary text-sm text-gray-600 mt-2">
+                   Thoughtful hospitality delivered with care, elegance, and genuine attention.
                 </p>
+
             </div>
 
         </div>
 
     </div>
-</section>
 
+</section>
+<section class="bg-[#F5EED8] py-20">
+
+    <div class="max-w-7xl mx-auto px-8">
+
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+
+            <div>
+
+                <h2 class="
+                    font-primary
+                    text-green-900
+                    text-6xl
+                    font-bold
+                    mb-11
+                    tracking-wide
+                ">
+                    A Place to Celebrate
+                    Nature & Flavor
+                </h2>
+
+                <p class="
+                    font-secondary
+                    text-gray-700
+                    leading-relaxed
+                    max-w-lg
+                    tracking-widest
+                    
+                ">
+                   Inspired by nature, The Garden Plate serves fresh and flavorful dishes crafted from carefully selected ingredients.
+                    With a warm ambiance and exceptional hospitality, we create a dining experience that brings people together and makes 
+                    every visit memorable.
+                </p>
+
+            </div>
+
+            <div>
+
+                <img
+                    src="./images/nature.png"
+                    class="rounded-lg shadow-xl"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="bg-gray-50 py-16">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <h2 class="text-center text-5xl text-[#C6A25A] font-primary font-bold mb-12">
+            Featured Dishes
+        </h2>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden max-w-[320px] min-h-[300px]">
+                <img src="./images/Berry Bliss Bowl.png" class="w-full h-56 object-cover">
+                <div class="p-5">
+                    <h3 class="font-primary font-bold">Berry Bliss Bowl</h3>
+                    <p class="text-sm text-gray-600 mt-2">
+                        A vibrant mix of strawberries, blueberries, and raspberries blended into a creamy smoothie base and finished 
+                        with chia seeds.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden max-w-[320px] min-h-[300px]">
+                <img src="./images/mediterranean salad.jpg" class="w-full h-56 object-cover">
+                <div class="p-5">
+                    <h3 class="font-primary font-bold">Mediterranean Harvest Salad</h3>
+                    <p class="text-sm text-gray-600 mt-2">
+                        Fresh greens, feta cheese, olives, and vegetables tossed in extra virgin olive oil and Mediterranean herbs.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden max-w-[320px] min-h-[300px]">
+                <img src="./images/Hazelnut Signature Brew.png" class="w-full h-56 object-cover">
+                <div class="p-5">
+                    <h3 class="font-primary font-bold">Hazelnut Signature Brew</h3>
+                    <p class="text-sm text-[#153E17] mt-2">
+                        Premium coffee infused with rich roasted hazelnut flavors, offering a smooth, aromatic, and delightfully nutty finish
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="bg-[#F4EFD8] py-20 mb-20">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <h2 class="text-center text-5xl text-green-900 font-primary font-bold">
+            Your Experience Matters
+        </h2>
+
+        <p class="text-center max-w-2xl mx-auto mt-4 text-gray-600">
+                   At The Garden Plate, every guest experience is important to us.
+                   We value your feedback and are committed to providing exceptionaldining and service standards.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-16">
+
+            <!-- Feedback Card -->
+            <div class="bg-green-900 rounded-xl p-10 text-center relative shadow-lg">
+
+                <div class="absolute -top-8 left-1/2 -translate-x-1/2
+                            w-16 h-16 rounded-full bg-[#EAD8A2]
+                            flex items-center justify-center text-3xl">
+                    💬
+                </div>
+
+                <h3 class="text-white text-2xl font-bold mt-8">
+                    SUBMIT FEEDBACK
+                </h3>
+
+                <p class="text-gray-300 mt-4">
+                   Share your dining experience, suggestions,or compliments to help us serve you better.
+                </p>
+
+                <button class="mt-8 bg-[#A6833E] text-white px-6 py-3 rounded-full">
+                    SEND FEEDBACK
+                </button>
+
+            </div>
+
+            <!-- Concern Card -->
+            <div class="bg-green-900 rounded-xl p-10 text-center relative shadow-lg">
+
+                <div class="absolute -top-8 left-1/2 -translate-x-1/2
+                            w-16 h-16 rounded-full bg-[#EAD8A2]
+                            flex items-center justify-center text-3xl">
+                    ⚠️
+                </div>
+
+                <h3 class="text-white text-2xl font-bold mt-8">
+                    RAISE A CONCERN
+                </h3>
+
+                <p class="text-gray-300 mt-4">
+                   Report any issue related to reservations,
+  service, food quality or payments and
+       our team will respond promptly.
+                </p>
+
+                <button class="mt-8 bg-[#A6833E] text-white px-6 py-3 rounded-full">
+                    CONTACT SUPPORT
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<footer class="bg-[#153E17] text-white">
+
+    <div class="max-w-7xl mx-auto px-6 py-16">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+            <!-- Logo -->
+            <div class="flex flex-col justify-center items-start">
+
+                <img
+                    src="./images/TRANSPARENT Restaurant Logo (1).png"
+                    alt="logo"
+                    class="w-32 mx-auto md:mx-0"
+                >
+
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+
+                <h3 class="font-primary text-2xl font-bold mb-6">
+                    QUICK LINKS
+                </h3>
+
+                <ul class="space-y-3 font-secondary">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+           <!-- Contact -->
+<div>
+
+    <h3 class="font-primary text-2xl font-bold mb-6">
+        CONTACT US
+    </h3>
+
+    <div class="space-y-4 font-secondary">
+
+        <p>📞 +91 7492000651</p>
+
+        <p>✉️ contact@tgp.com</p>
+
+        <p>
+            📍 Adarsh Nagar, Jaipur,<br>
+            Rajasthan, 302004 India
+        </p>
+
+        <!-- Social Media Icons -->
+        <div class="flex gap-4 pt-3">
+
+            <a href="#">
+                <img
+                    src="./images/twitter.png"
+                    alt="Twitter"
+                    class="w-8 h-8 hover:scale-110 transition"
+                >
+            </a>
+
+            <a href="#">
+                <img
+                    src="./images/facebook.png"
+                    alt="Facebook"
+                    class="w-8 h-8 hover:scale-110 transition"
+                >
+            </a>
+
+            <a href="#">
+                <img
+                    src="./images/Insta.png"
+                    alt="Instagram"
+                    class="w-8 h-8 hover:scale-110 transition"
+                >
+            </a>
+
+            <a href="#">
+                <img
+                    src="./images/utube.png"
+                    alt="youtube"
+                    class="w-8 h-8 hover:scale-110 transition"
+                >
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+            
+
+            <!-- Opening Hours -->
+            <div>
+
+                <h3 class="font-primary text-2xl font-bold mb-6">
+                    OPENING HOURS
+                </h3>
+
+                <div class="space-y-4 font-secondary">
+
+                    <p>Monday - Friday</p>
+                    <p>11:00 AM - 11:00 PM</p>
+
+                    <p>Saturday - Sunday</p>
+                    <p>11:00 AM - 12:00 PM</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bottom Footer -->
+
+    <div class="border-t border-white/20 py-4">
+
+        <div class="max-w-7xl mx-auto px-6
+                    flex flex-col md:flex-row
+                    justify-between items-center gap-4">
+
+            <p class="font-secondary text-sm">
+                © 2026 The Garden Plate. All Rights Reserved.
+            </p>
+
+            <div class="flex gap-6 text-sm font-secondary">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+    
+
+       
 </body>
 </html>
