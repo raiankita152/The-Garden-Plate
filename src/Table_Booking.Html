@@ -1,0 +1,298 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+    .font-primary{
+        font-family:'Playfair Display';
+    }
+
+    .font-secondary{
+        font-family:'Lato';
+    }
+</style>
+</head>
+<body class="font-secondary bg-white">
+
+    <!-- HERO SECTION -->
+    <section class="relative h-[450px] md:h-[350px] overflow-hidden">
+
+        <!-- Background Image -->
+        <img src="./images/Contact_Us Banner.png"
+            alt="Restaurant"
+            class="absolute inset-0 w-full h-full object-cover">
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/45"></div>
+          <!-- Glass Navbar -->
+    <nav class="fixed top-0 left-0 w-full z-50">
+
+        <div class="
+            bg-black/30
+            backdrop-blur-xl
+            border-b border-white/10
+            shadow-xl
+        ">
+
+            <div class="max-w-7xl mx-auto px-3 py-1 flex items-center justify-between relative">
+
+                <!-- Logo -->
+                <div class="flex items-center gap-4">
+
+                    <img
+                        src="./images/WHITE TRANSPARENT Restaurant Logo (1).png"
+                        alt="logo"
+                        class="w-20 h-20 rounded-full object-cover"
+                    >
+                </div>
+
+                <!-- Menu -->
+                <ul class="hidden md:flex gap-20 text-white font-secondary font-medium">
+
+                <li><a href="./index.html">HOME</a></li>
+                    <li><a href="./Menu.html">MENU</a></li>
+                    <li><a href="./Gallery.html">GALLERY</a></li>
+                    <li><a href="./About_us.html">ABOUT US</a></li>
+                    <li><a href="./Contact_Us.html">CONTACT US</a></li>
+
+
+                </ul>
+
+                <!-- Button -->
+                 <a href ="./Table_Booking.Html">
+                <button class="
+                    bg-[#153E17]
+                    px-6 py-3
+                    rounded-lg
+                    text-white
+                    font-secondary
+                    hover:bg-[#24482D]
+                    transition
+                ">
+                    BOOK A TABLE
+                </button>
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+       
+              
+        <!-- Hero Content -->
+        <div
+            class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+
+            <h1
+                class="font-primary text-[#FFF0D2] text-3xl md:text-5xl font-semibold">
+                Your Next Exceptional Meal Awaits </h1>
+
+            <div class="w-20 h-[2px] bg-[#D4AF37] my-4"></div>
+
+            <p class="text-[#FFF0D2] text-lg md:text-2xl">
+                Reserve your table for memorable dining experience.
+            </p>
+
+        </div>
+    </section>
+<!--<body class="bg-[#F5F5F5] font-secondary">-->
+
+<section class="py-10 md:py-20 px-4">
+
+    <div class="max-w-5xl mx-auto">
+
+        <!-- Reservation Card -->
+        <div class="bg-[#F5F0E4] border border-[#C8A85D] rounded-3xl shadow-md p-6 md:p-12">
+
+            <!-- Heading -->
+
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-10">
+
+                <img
+                    src="./images/calendar-icon.png"
+                    alt="Calendar"
+                    class="w-12 h-12 md:w-16 md:h-16 object-contain"
+                >
+
+                <div>
+
+                    <h1 class="font-primary text-3xl md:text-5xl font-bold text-black">
+                        RESERVE YOUR TABLE
+                    </h1>
+
+                    <p class="mt-2 text-gray-700 text-base md:text-xl">
+                        Fill the details below and we will confirm your reservation.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Form -->
+
+            <form class="space-y-8">
+
+                <!-- Full Name -->
+
+                <div>
+
+                    <label class="block text-xl font-medium mb-3">
+                        Full Name
+                    </label>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                        <select
+                            class="border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none"
+                        >
+                            <option>Mr.</option>
+                            <option>Mrs.</option>
+                            <option>Ms.</option>
+                        </select>
+
+                        <input
+                            type="text"
+                            placeholder="Enter your First Name"
+                            class="border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none"
+                        >
+
+                        <input
+                            type="text"
+                            placeholder="Enter your Last Name"
+                            class="border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none"
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- Phone + Date -->
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <div>
+
+                        <label class="block text-xl font-medium mb-3">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            placeholder="Enter Your Phone Number"
+                            class="w-full border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none"
+                        >
+
+                    </div>
+
+                    <div>
+
+                        <label class="block text-xl font-medium mb-3">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            class="w-full border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none"
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- Time + Members -->
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <div>
+
+                        <label class="block text-xl font-medium mb-3">
+                            Time
+                        </label>
+
+                        <select
+                            class="w-full border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none"
+                        >
+                            <option>Select Time</option>
+                            <option>10:00 AM</option>
+                            <option>11:00 AM</option>
+                            <option>12:00 PM</option>
+                            <option>01:00 PM</option>
+                            <option>02:00 PM</option>
+                        </select>
+
+                    </div>
+
+                    <div>
+
+                        <label class="block text-xl font-medium mb-3">
+                            Members
+                        </label>
+
+                        <select
+                            class="w-full border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none"
+                        >
+                            <option>Select number of members</option>
+                            <option>1 Member</option>
+                            <option>2 Members</option>
+                            <option>3 Members</option>
+                            <option>4 Members</option>
+                            <option>5+ Members</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <!-- Special Request -->
+
+                <div>
+
+                    <label class="block text-xl font-medium mb-3">
+                        Special Request
+                    </label>
+
+                    <textarea
+                        rows="4"
+                        placeholder="Any special request?"
+                        class="w-full border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none resize-none"
+                    ></textarea>
+
+                </div>
+
+                <!-- Button -->
+
+                <button
+                    type="submit"
+                    class="w-full bg-[#0B4D16] text-white text-xl md:text-3xl font-bold py-4 rounded hover:bg-[#083B11] transition"
+                >
+                    BOOK NOW
+                </button>
+
+                <!-- Security Text -->
+
+                <div class="text-center text-sm text-gray-600">
+
+                    🔒 Your information is secure and will not be shared.
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+    </body>
+    </html>

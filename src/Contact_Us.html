@@ -1,0 +1,512 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+    .font-primary{
+        font-family:'Playfair Display';
+    }
+
+    .font-secondary{
+        font-family:'Lato';
+    }
+</style>
+</head>
+<body class="font-secondary bg-white">
+
+    <!-- HERO SECTION -->
+    <section class="relative h-[450px] md:h-[350px] overflow-hidden">
+
+        <!-- Background Image -->
+        <img src="./images/Contact_Us Banner.png"
+            alt="Restaurant"
+            class="absolute inset-0 w-full h-full object-cover">
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/45"></div>
+          <!-- Glass Navbar -->
+    <nav class="fixed top-0 left-0 w-full z-50">
+
+        <div class="
+            bg-black/30
+            backdrop-blur-xl
+            border-b border-white/10
+            shadow-xl
+        ">
+
+            <div class="max-w-7xl mx-auto px-3 py-1 flex items-center justify-between relative">
+
+                <!-- Logo -->
+                <div class="flex items-center gap-4">
+
+                    <img
+                        src="./images/WHITE TRANSPARENT Restaurant Logo (1).png"
+                        alt="logo"
+                        class="w-20 h-20 rounded-full object-cover"
+                    >
+                </div>
+
+                <!-- Menu -->
+                <ul class="hidden md:flex gap-20 text-white font-secondary font-medium">
+
+                <li><a href="./index.html">HOME</a></li>
+                    <li><a href="./Menu.html">MENU</a></li>
+                    <li><a href="./Gallery.html">GALLERY</a></li>
+                    <li><a href="./About_us.html">ABOUT US</a></li>
+                    <li><a href="./Contact_Us.html">CONTACT US</a></li>
+
+
+                </ul>
+
+                <!-- Button -->
+                 <a href ="./Table_Booking.Html">
+                <button class="
+                    bg-[#153E17]
+                    px-6 py-3
+                    rounded-lg
+                    text-white
+                    font-secondary
+                    hover:bg-[#24482D]
+                    transition
+                ">
+                    BOOK A TABLE
+                </button>
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+       
+              
+        <!-- Hero Content -->
+        <div
+            class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+
+            <h1
+                class="font-primary text-white text-5xl md:text-7xl font-bold">
+                Contact Us
+            </h1>
+
+            <div class="w-20 h-[2px] bg-[#D4AF37] my-4"></div>
+
+            <p class="text-white text-lg md:text-2xl">
+                We would love to hear from you
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+    <section class="bg-[#FAF6EC] py-16 lg:py-24">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="grid lg:grid-cols-2 gap-8">
+
+                <!-- LEFT CARD -->
+                <div
+                    class="bg-[#FFF0D2]/30 border border-[#A6833E] rounded-xl p-8 md:p-10">
+
+                    <!-- Heading -->
+                    <div class="text-center mb-10">
+
+                        <h2
+                            class="font-primary text-3xl md:text-4xl font-bold text-[#000000]">
+                            ✦ SEND US A MESSAGE ✦
+                        </h2>
+
+                        <div
+                            class="flex justify-center items-center gap-4 mt-3">
+                            <div
+                                class="w-16 h-[1px] bg-[#A6833E]"></div>
+                            <span class="text-[#C8A85D]">♥</span>
+                            <div
+                                class="w-16 h-[1px] bg-[#A6833E]"></div>
+                        </div>
+
+                    </div>
+
+                    <!-- Form -->
+                    <form class="space-y-6">
+
+                        <div>
+                            <label
+                                class="block mb-2 font-medium text-gray-700">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="Enter your full Name"
+                                class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]">
+                        </div>
+
+                        <div>
+                            <label
+                                class="block mb-2 font-medium text-gray-700">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                placeholder="Enter your Email Address"
+                                class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]">
+                        </div>
+
+                        <div>
+                            <label
+                                class="block mb-2 font-medium text-gray-700">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                placeholder="Enter Your Phone Number"
+                                class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]">
+                        </div>
+
+                        <div>
+                            <label
+                                class="block mb-2 font-medium text-gray-700">
+                                Subject
+                            </label>
+
+                            <select
+                                class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]">
+
+                                <option>Select your Subject</option>
+                                <option>Reservation</option>
+                                <option>Feedback</option>
+                                <option>Support</option>
+
+                            </select>
+                        </div>
+
+                        <div>
+                            <label
+                                class="block mb-2 font-medium text-gray-700">
+                                Message
+                            </label>
+
+                            <textarea rows="5"
+                                placeholder="Type Your Message"
+                                class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]"></textarea>
+                        </div>
+
+                        <div class="text-center">
+
+                            <button
+                                class="bg-green-900 hover:bg-green-800 text-white px-10 py-3 font-semibold">
+                                SEND MESSAGE
+                            </button>
+
+                            <p
+                                class="text-xs text-gray-500 mt-4">
+                                Your information is secure and will not be shared.
+                            </p>
+
+                        </div>
+
+                    </form>
+                </div>
+
+
+                <!-- RIGHT CARD -->
+                <div
+                    class="bg-[#FFF0D2]/30 border border-[#A6833E] rounded-xl p-8 md:p-10">
+
+                    <!-- Heading -->
+                    <div class="text-center mb-10">
+
+                        <h2
+                            class="font-primary text-3xl md:text-4xl font-bold text-[#000000]">
+                            ✦ GET IN TOUCH ✦
+                        </h2>
+
+                        <div
+                            class="flex justify-center items-center gap-4 mt-3">
+                            <div
+                                class="w-16 h-[1px] bg-[#C8A85D]"></div>
+                            <span class="text-[#C8A85D]">♥</span>
+                            <div
+                                class="w-16 h-[1px] bg-[#C8A85D]"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="space-y-8">
+
+                        <!-- Address -->
+                        <div class="flex gap-5">
+                            <div
+                                class="w-12 h-12 rounded-full border border-[#C8A85D] flex items-center justify-center text-[#C8A85D] text-xl">
+                                📍
+                            </div>
+
+                            <div>
+                                <h4
+                                    class="font-bold text-xl text-[#333]">
+                                    ADDRESS
+                                </h4>
+
+                                <p class="text-gray-700">
+                                    Adarsh Nagar, Jaipur,<br>
+                                    Rajasthan, 302004 India
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr class="border-[#E5D8B4]">
+
+                        <!-- Phone -->
+                        <div class="flex gap-5">
+                            <div
+                                class="w-12 h-12 rounded-full border border-[#C8A85D] flex items-center justify-center text-[#C8A85D] text-xl">
+                                ☎
+                            </div>
+
+                            <div>
+                                <h4
+                                    class="font-bold text-xl text-[#333]">
+                                    PHONE
+                                </h4>
+
+                                <p>+91 7492000651</p>
+                            </div>
+                        </div>
+
+                        <hr class="border-[#E5D8B4]">
+
+                        <!-- Email -->
+                        <div class="flex gap-5">
+                            <div
+                                class="w-12 h-12 rounded-full border border-[#C8A85D] flex items-center justify-center text-[#C8A85D] text-xl">
+                                ✉
+                            </div>
+
+                            <div>
+                                <h4
+                                    class="font-bold text-xl text-[#333]">
+                                    EMAIL
+                                </h4>
+
+                                <p>contact@tgp.com</p>
+                            </div>
+                        </div>
+
+                        <hr class="border-[#E5D8B4]">
+
+                        <!-- Hours -->
+                        <div class="flex gap-5">
+                            <div
+                                class="w-12 h-12 rounded-full border border-[#C8A85D] flex items-center justify-center text-[#C8A85D] text-xl">
+                                🕒
+                            </div>
+
+                            <div>
+                                <h4
+                                    class="font-bold text-xl text-[#333]">
+                                    OPENING HOURS
+                                </h4>
+
+                                <p>
+                                    Mon - Fri 11:00 AM - 11:00 PM
+                                </p>
+
+                                <p>
+                                    Sat - Sun 11:00 AM - 12:00 PM
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr class="border-[#E5D8B4]">
+
+                        <!-- Social -->
+                        <div class="text-center">
+
+                            <h4
+                                class="text-[#C8A85D] font-bold text-xl mb-5">
+                                FOLLOW US
+                            </h4>
+
+                            <div
+                                class="flex justify-center gap-6 text-3xl text-[#B8913C]">
+
+                                <a href="#">𝕏</a>
+                                <a href="#">f</a>
+                                <a href="#">◎</a>
+                                <a href="#">▶</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <!--Google Map-->
+        <img src="./images/Map.png" alt="Google Map" class="w-[85%] h-[60%] ml-20 mr-20 mt-20 pd-20 ">
+    </section>
+
+<footer class="bg-[#153E17] text-white">
+
+    <div class="max-w-7xl mx-auto px-6 py-16">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+            <!-- Logo -->
+            <div class="flex flex-col justify-center items-start">
+
+                <img
+                    src="./images/TRANSPARENT Restaurant Logo (1).png"
+                    alt="logo"
+                    class="w-32 mx-auto md:mx-0"
+                >
+
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+
+                <h3 class="font-primary text-2xl font-bold mb-6">
+                    QUICK LINKS
+                </h3>
+
+                <ul class="space-y-3 font-secondary">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+           <!-- Contact -->
+<div>
+
+    <h3 class="font-primary text-2xl font-bold mb-6">
+        CONTACT US
+    </h3>
+
+    <div class="space-y-4 font-secondary">
+
+        <p>📞 +91 7492000651</p>
+
+        <p>✉️ contact@tgp.com</p>
+
+        <p>
+            📍 Adarsh Nagar, Jaipur,<br>
+            Rajasthan, 302004 India
+        </p>
+
+        <!-- Social Media Icons -->
+        <div class="flex gap-4 pt-3">
+
+            <a href="#">
+                <img
+                    src="./images/twitter.png"
+                    alt="Twitter"
+                    class="w-8 h-8 hover:scale-110 transition"
+                >
+            </a>
+
+            <a href="#">
+                <img
+                    src="./images/facebook.png"
+                    alt="Facebook"
+                    class="w-8 h-8 hover:scale-110 transition"
+                >
+            </a>
+
+            <a href="#">
+                <img
+                    src="./images/Insta.png"
+                    alt="Instagram"
+                    class="w-8 h-8 hover:scale-110 transition"
+                >
+            </a>
+
+            <a href="#">
+                <img
+                    src="./images/utube.png"
+                    alt="youtube"
+                    class="w-8 h-8 hover:scale-110 transition"
+                >
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+            
+
+            <!-- Opening Hours -->
+            <div>
+
+                <h3 class="font-primary text-2xl font-bold mb-6">
+                    OPENING HOURS
+                </h3>
+
+                <div class="space-y-4 font-secondary">
+
+                    <p>Monday - Friday</p>
+                    <p>11:00 AM - 11:00 PM</p>
+
+                    <p>Saturday - Sunday</p>
+                    <p>11:00 AM - 12:00 PM</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bottom Footer -->
+
+    <div class="border-t border-white/20 py-4">
+
+        <div class="max-w-7xl mx-auto px-6
+                    flex flex-col md:flex-row
+                    justify-between items-center gap-4">
+
+            <p class="font-secondary text-sm">
+                © 2026 The Garden Plate. All Rights Reserved.
+            </p>
+
+            <div class="flex gap-6 text-sm font-secondary">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>
