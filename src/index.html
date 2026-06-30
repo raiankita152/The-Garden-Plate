@@ -172,12 +172,13 @@ transform:scale(1);
 
             <!-- Logo -->
             <div class="flex items-center gap-4">
+                <a href="./index.html">
 
                 <img
                     src="./images/WHITE TRANSPARENT Restaurant Logo (1).png"
                     alt="logo"
                     class="w-20 h-20 rounded-full object-cover">
-
+                </a>
             </div>
 
             <!-- Desktop Menu -->
@@ -991,6 +992,36 @@ class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-a
 
 </div>
 
+<!-- ================= FEEDBACK SUCCESS POPUP ================= -->
+
+<div
+id="feedbackSuccess"
+class="fixed inset-0 hidden items-center justify-center bg-black/40 z-[1000]">
+
+    <div class="bg-white rounded-2xl shadow-2xl w-[90%] max-w-sm p-8 text-center animate-popup">
+
+        <!-- Success Image -->
+        <img
+        src="./images/Successful.png"
+        alt="Success"
+        class="w-20 mx-auto mb-5">
+
+        <h2 class="font-primary text-3xl font-bold text-[#153E17]">
+
+            Thank You!
+
+        </h2>
+
+        <p class="mt-3 text-black">
+
+            Your feedback has been submitted successfully.
+
+        </p>
+
+    </div>
+
+</div>
+
 <footer class="bg-[#153E17] text-white">
 
     <div class="max-w-7xl mx-auto px-6 py-16">
@@ -1210,6 +1241,7 @@ class="w-8 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"    
 
 </footer>
 
+
 <!-- JAVASCRIPT -->
 
 <script>
@@ -1281,6 +1313,8 @@ const closePopup = document.getElementById("closePopup");
 
 const feedbackForm = document.getElementById("feedbackForm");
 const feedbackName = document.getElementById("feedbackName");
+
+const successPopup = document.getElementById("feedbackSuccess");
 
 feedbackName.addEventListener("input", function () {
 
@@ -1381,37 +1415,46 @@ document.querySelectorAll(".rating").forEach(group=>{
 
 /* Submit */
 
-
 feedbackForm.addEventListener("submit", function(e){
 
     e.preventDefault();
+
     const name = feedbackName.value.trim();
 
-feedbackName.setCustomValidity("");
+    feedbackName.setCustomValidity("");
 
-if (!/^[A-Za-z ]+$/.test(name)) {
+    if (!/^[A-Za-z ]+$/.test(name)) {
 
-    feedbackName.setCustomValidity("Only alphabets and spaces are allowed.");
+        feedbackName.setCustomValidity("Only alphabets and spaces are allowed.");
+        feedbackName.reportValidity();
+        return;
 
-    feedbackName.reportValidity();
+    }
 
-    return;
-
-}
-
-    // Here you can later send the data to your backend
-
+    // Reset the form
     feedbackForm.reset();
 
-    // Reset all stars
+    // Remove selected stars
     document.querySelectorAll(".rating span").forEach(star=>{
         star.classList.remove("active");
     });
 
+    // Close feedback popup
     closeFeedback();
 
-});
+    // Show success popup
+    successPopup.classList.remove("hidden");
+    successPopup.classList.add("flex");
 
+    // Hide success popup after 3 seconds
+    setTimeout(() => {
+
+        successPopup.classList.remove("flex");
+        successPopup.classList.add("hidden");
+
+    }, 3000);
+
+});
 
 
 </script>
