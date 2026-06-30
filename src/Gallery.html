@@ -1,6 +1,10 @@
-<head>
+,<html>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery</title>
+<link rel="icon" type="image/png" href="./images/favicon.png">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,58 +31,182 @@
         <img src="./images/Gallery Banner.png"
             alt="Restaurant"
             class="absolute inset-0 w-full h-full object-cover">
+<!-- Overlay -->
 
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-black/45"></div>
+<div class="absolute inset-0 bg-black/45"></div>
           <!-- Glass Navbar -->
-    <nav class="fixed top-0 left-0 w-full z-50">
+<nav class="fixed top-0 left-0 w-full z-50">
 
-        <div class="
-            bg-black/30
-            backdrop-blur-xl
-            border-b border-white/10
-            shadow-xl
-        ">
+    <div class="bg-black/30 backdrop-blur-xl border-b border-white/10 shadow-xl">
 
-            <div class="max-w-7xl mx-auto px-3 py-1 flex items-center justify-between relative">
+        <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
 
-                <!-- Logo -->
-                <div class="flex items-center gap-4">
+            <!-- Logo -->
+            <div class="flex items-center gap-4">
 
-                    <img
-                        src="./images/WHITE TRANSPARENT Restaurant Logo (1).png"
-                        alt="logo"
-                        class="w-20 h-20 rounded-full object-cover"
-                    >
-                </div>
+                <img
+                    src="./images/WHITE TRANSPARENT Restaurant Logo (1).png"
+                    alt="logo"
+                    class="w-20 h-20 rounded-full object-cover">
 
-                <!-- Menu -->
-                <ul class="hidden md:flex gap-20 text-white font-secondary font-medium">
+            </div>
+            
 
-                <li><a href="./index.html">HOME</a></li>
-                    <li><a href="./Menu.html">MENU</a></li>
-                    <li><a href="./Gallery.html">GALLERY</a></li>
-                    <li><a href="./About_us.html">ABOUT US</a></li>
-                    <li><a href="./Contact_Us.html">CONTACT US</a></li>
-                </ul>
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex gap-14 text-white font-secondary font-medium ">
 
-                <!-- Button -->
-                 <a href ="./Table_Booking.Html">
-                <button class="
+                <li>
+                    <a href="./index.html"
+                        class="transition duration-300 hover:text-[#A6833E]">
+                        HOME
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./Menu.html"
+                        class="transition duration-300 hover:text-[#A6833E]">
+                        MENU
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./Gallery.html"
+                        class="text-[#A6833E] font-semibold">
+                        GALLERY
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./About_us.html"
+                        class="transition duration-300 hover:text-[#A6833E]">
+                        ABOUT US
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./Contact_Us.html"
+                        class="transition duration-300 hover:text-[#A6833E]">
+                        CONTACT US
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- Book Button -->
+            <div class="hidden md:block">
+
+                <a href="./Table_Booking.html">
+
+                    <button class="
                     bg-[#153E17]
                     px-6 py-3
                     rounded-lg
                     text-white
-                    font-secondary
-                    hover:bg-[#24482D]
+                    hover:bg-[#A6833E]
                     transition
-                ">
-                    BOOK A TABLE
-                </button>
+                    duration-300">
+
+                        BOOK A TABLE
+
+                    </button>
+
                 </a>
+
             </div>
+
+            <!-- Hamburger -->
+            <button
+                id="menu-btn"
+                class="md:hidden text-white">
+
+                <svg
+                    class="w-8 h-8"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16"/>
+
+                </svg>
+
+            </button>
+
         </div>
-    </nav>
+
+        <!-- Mobile Menu -->
+
+        <div
+            id="mobile-menu"
+            class="hidden md:hidden bg-black/80 backdrop-blur-xl">
+
+            <ul class="flex flex-col text-center text-white font-medium">
+
+                <li class="border-b border-white/10">
+                    <a href="./index.html"
+                        class="block py-4 hover:bg-[#153E17] transition">
+                        HOME
+                    </a>
+                </li>
+
+                <li class="border-b border-white/10">
+                    <a href="./Menu.html"
+                        class="block py-4 hover:bg-[#153E17] transition">
+                        MENU
+                    </a>
+                </li>
+
+                <li class="border-b border-white/10">
+                    <a href="./Gallery.html"
+                        class="block py-4 hover:bg-[#153E17] transition">
+                        GALLERY
+                    </a>
+                </li>
+
+                <li class="border-b border-white/10">
+                    <a href="./About_us.html"
+                        class="block py-4 hover:bg-[#153E17] transition">
+                        ABOUT US
+                    </a>
+                </li>
+
+                <li class="border-b border-white/10">
+                    <a href="./Contact_Us.html"
+                        class="block py-4 hover:bg-[#153E17] transition">
+                        CONTACT US
+                    </a>
+                </li>
+
+                <li class="py-5">
+
+                    <a href="./Table_Booking.html">
+
+                        <button class="
+                        bg-[#153E17]
+                        px-6 py-3
+                        rounded-lg
+                        text-white
+                        hover:bg-[#24482D]
+                        transition">
+
+                            BOOK A TABLE
+
+                        </button>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
 
     
         <!-- Hero Content -->
@@ -90,11 +218,387 @@
                 Gallery
             </h1>
 
-            <div class="w-20 h-[2px] bg-[#FFF0D2] my-4"></div>
+<div class="flex items-center justify-center gap-3 mt-4">
 
+    <div class="w-20 h-[2px] bg-[#FFF0D2]"></div>
+
+    <img src="./images/G_Vector.png" class="w-7 h-8">
+
+    <div class="w-20 h-[2px] bg-[#FFF0D2]"></div>
+
+</div>
             <p class="text-[#FFF0D2] text-lg md:text-2xl text-center">
                 A glimpse into our world of flavor, elegance, and unforgettable moments.
             </p>
 
         </div>
     </section>
+
+    <section class="bg-white py-16">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-5 mb-12">
+
+            <button class="px-8 py-2 border border-[#C8A85D] hover:bg-[#0A4A14] hover:text-white hover:scale-105 transition">
+                ALL
+            </button>
+
+            <button class="px-8 py-2 border border-[#C8A85D] hover:bg-[#0A4A14] hover:text-white hover:scale-105 transition">
+                FACADE
+            </button>
+
+            <button class="px-8 py-2 border border-[#C8A85D] hover:bg-[#0A4A14] hover:text-white hover:scale-105 transition">
+                FOOD
+            </button>
+
+            <button class="px-8 py-2 border border-[#C8A85D] hover:bg-[#0A4A14] hover:text-white hover:scale-105 transition">
+                AMBIENCE
+            </button>
+
+            <button class="px-8 py-2 border border-[#C8A85D] hover:bg-[#0A4A14] hover:text-white hover:scale-105 transition">
+                EVENTS
+            </button>
+
+        </div>
+
+        <!-- Gallery Grid -->
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4">
+
+            <!-- Top Row -->
+
+            <div class="lg:col-span-4 overflow-hidden rounded-lg">
+                <img src="./images/G1.png"
+                    onclick="openModal(this.src)"
+                    class="w-full h-64 object-cover cursor-pointer hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="lg:col-span-4 overflow-hidden rounded-lg">
+                <img src="./images/G2.png"
+                    onclick="openModal(this.src)"
+                    class="w-full h-64 object-cover cursor-pointer hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="lg:col-span-4 overflow-hidden rounded-lg">
+                <img src="./images/G3.png"
+                    onclick="openModal(this.src)"
+                    class="w-full h-64 object-cover cursor-pointer hover:scale-110 transition duration-500">
+            </div>
+
+            <!-- Left Tall Image -->
+
+            <div class="lg:col-span-2 lg:row-span-2 overflow-hidden rounded-lg">
+                <img src="./images/G4.png"
+                    onclick="openModal(this.src)"
+                    class="w-full h-full object-cover cursor-pointer hover:scale-110 transition duration-500">
+            </div>
+
+            <!-- Center Food Images -->
+
+            <div class="lg:col-span-4 overflow-hidden rounded-lg">
+                <img src="./images/G5.png"
+                    onclick="openModal(this.src)"
+                    class="w-full h-56 object-cover cursor-pointer hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="lg:col-span-4 overflow-hidden rounded-lg">
+                <img src="./images/G6.png"
+                    onclick="openModal(this.src)"
+                    class="w-full h-56 object-cover cursor-pointer hover:scale-110 transition duration-500">
+            </div>
+
+            <!-- Right Tall Image -->
+
+            <div class="lg:col-span-2 lg:row-span-2 overflow-hidden rounded-lg">
+                <img src="./images/G10.png"
+                    onclick="openModal(this.src)"
+                    class="w-full h-full object-cover cursor-pointer hover:scale-110 transition duration-500">
+            </div>
+
+            <!-- Bottom Food Row -->
+
+            <div class="lg:col-span-2 overflow-hidden rounded-lg">
+                <img src="./images/G8.png"
+                    onclick="openModal(this.src)"
+                    class="w-full h-40 object-cover cursor-pointer hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="lg:col-span-2 overflow-hidden rounded-lg">
+                <img src="./images/G9.png"
+                    onclick="openModal(this.src)"
+                    class="w-full h-40 object-cover cursor-pointer hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="lg:col-span-2 overflow-hidden rounded-lg">
+                <img src="./images/G7.png"
+                    onclick="openModal(this.src)"
+                    class="w-full h-40 object-cover cursor-pointer hover:scale-110 transition duration-500">
+            </div>
+
+            <!-- Bottom Restaurant Images -->
+
+            <div class="lg:col-span-4 overflow-hidden rounded-lg">
+                <img src="./images/G11.png"
+                    onclick="openModal(this.src)"
+                    class="w-full h-56 object-cover cursor-pointer hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="lg:col-span-4 overflow-hidden rounded-lg">
+                <img src="./images/G12.png"
+                    onclick="openModal(this.src)"
+                    class="w-full h-56 object-cover cursor-pointer hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="lg:col-span-4 overflow-hidden rounded-lg">
+                <img src="./images/G13.png"
+                    onclick="openModal(this.src)"
+                    class="w-full h-56 object-cover cursor-pointer hover:scale-110 transition duration-500">
+            </div>
+
+        </div>
+
+        <!-- Bottom Quote -->
+
+        <div class="bg-[#F5F0E4] mt-16 py-12 rounded-lg relative overflow-hidden">
+
+            <div class="text-center">
+
+                <h2 class="font-primary text-3xl md:text-5xl text-[#2F5D3A]">
+                    Every Moment, Beautifully Served
+                </h2>
+
+                <p class="font-secondary text-[#C8A85D] mt-4">
+                    Savor the ambiance, enjoy the flavours,
+                    and cherish the memories.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="bg-[#153E17] text-white">
+
+    <div class="max-w-7xl mx-auto px-6 py-16">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+            <!-- Logo -->
+            <div class="flex flex-col justify-center items-start">
+
+                <img
+                    src="./images/TRANSPARENT Restaurant Logo (1).png"
+                    alt="logo"
+                    class="w-32 mx-auto md:mx-0"
+                >
+
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+
+                <h3 class="font-primary text-2xl font-bold mb-6">
+                    QUICK LINKS
+                </h3>
+
+                <ul class="space-y-3 font-secondary">
+                     <li><a href="./index.html">HOME</a></li>
+                    <li><a href="./Menu.html">MENU</a></li>
+                    <li><a href="./Gallery.html">GALLERY</a></li>
+                    <li><a href="./About_us.html">ABOUT US</a></li>
+                    <li><a href="./Contact_Us.html">CONTACT US</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+           
+<div>
+
+    <h3 class="font-primary text-2xl font-bold mb-6">
+        CONTACT US
+    </h3>
+
+    <div class="space-y-4 font-secondary">
+<!-- Phone -->
+<div class="flex items-center gap-5">
+    <img
+        src="./images/F_Phone.png"
+        alt="Phone"
+        class="w-5 h-5"
+    >
+    <p>+91 7492003870</p>
+</div>
+
+<!-- Email -->
+<div class="flex items-center gap-5">
+    <img
+        src="./images/F_Gmail.png"
+        alt="Email"
+        class="w-6 h-5"
+        
+    >
+    <p>contact@tgp.com</p>
+</div>
+
+<!-- Location -->
+<div class="flex items-start gap-5">
+    <img
+        src="./images/F_Location.png"
+        alt="Location"
+        class="w-7 h-9 mt-1"
+    >
+    <p>
+        Adarsh Nagar, Jaipur,<br>
+        Rajasthan, 302004 India
+    </p>
+</div>
+
+        <!-- Social Media Icons -->
+        <div class="flex gap-4 pt-3">
+
+            <a href="#">
+                <img
+                    src="./images/twitter.png"
+                    alt="Twitter"
+                    class="w-8 h-8 hover:scale-110 transition"
+                >
+            </a>
+
+            <a href="#">
+                <img
+                    src="./images/facebook.png"
+                    alt="Facebook"
+                    class="w-8 h-8 hover:scale-110 transition"
+                >
+            </a>
+
+            <a href="#">
+                <img
+                    src="./images/Insta.png"
+                    alt="Instagram"
+                    class="w-8 h-8 hover:scale-110 transition"
+                >
+            </a>
+
+            <a href="#">
+                <img
+                    src="./images/utube.png"
+                    alt="youtube"
+                    class="w-10 h-8 hover:scale-110 transition"
+                >
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+            
+
+            <!-- Opening Hours -->
+            <div>
+
+                <h3 class="font-primary text-2xl font-bold mb-6">
+                    OPENING HOURS
+                </h3>
+
+                <div class="space-y-4 font-secondary">
+
+                    <p>Monday - Friday</p>
+                    <p>11:00 AM - 11:00 PM</p>
+
+                   <div
+                class="mt-8
+                 p-1">
+
+                    <h4
+                    class="font-primary
+                    text-xl
+                    mb-2
+                    text-[#FFF0D2]">
+
+                        Reserve Early
+
+                    </h4>
+
+                    <p class="text-gray-300 text-sm">
+
+                        Weekend tables fill up quickly.
+                        Reserve in advance for the best experience.
+
+                    </p>
+
+                </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bottom Footer -->
+
+    <div class="border-t border-white/20 py-4">
+
+        <div class="max-w-7xl mx-auto px-6
+                    flex flex-col md:flex-row
+                    justify-between items-center gap-4">
+
+            <p class="font-secondary text-sm">
+                © 2026 The Garden Plate. All Rights Reserved.
+            </p>
+
+            <div class="flex gap-6 text-sm font-secondary">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+<div id="imageModal"
+    class="fixed inset-0 bg-black/95 hidden z-50 flex items-center justify-center p-4">
+
+    <span onclick="closeModal()"
+        class="absolute top-6 right-8 text-white text-6xl cursor-pointer">
+        &times;
+    </span>
+
+    <img id="modalImage"
+        class="max-w-full max-h-full rounded-lg">
+</div>
+<script>
+function openModal(imageSrc) {
+    document.getElementById('imageModal').classList.remove('hidden');
+    document.getElementById('modalImage').src = imageSrc;
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    document.getElementById('imageModal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside image
+document.getElementById('imageModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeModal();
+    }
+});
+</script>
+
+
+    </body>
+    </html>

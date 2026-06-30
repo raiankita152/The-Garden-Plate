@@ -1,298 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Book A Table | The Garden Plate</title>
+<link rel="icon" type="image/png" href="./images/favicon.png">
 
-    <style>
-    .font-primary{
-        font-family:'Playfair Display';
-    }
+<!-- Google Fonts -->
 
-    .font-secondary{
-        font-family:'Lato';
-    }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Lato',
+
+overflow-x:hidden;
+}
+
+.font-primary{
+font-family:'Playfair Display',serif;
+}
+
+.font-secondary{
+font-family:'Lato',sans-serif;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#153E17;
+border-radius:20px;
+}
+
+::-webkit-scrollbar-track{
+background:#FFF0D2;
+}
+
+/* Input Animation */
+
+.input-field{
+
+transition:.35s;
+
+}
+
+.input-field:focus{
+
+transform:translateY(-2px);
+
+box-shadow:0 10px 25px rgba(21,62,23,.15);
+
+}
+
+/* Card Hover */
+
+.card-hover{
+
+transition:.45s;
+
+}
+
+.card-hover:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+}
+
+/* Button */
+
+.book-btn{
+
+transition:.4s;
+
+}
+
+.book-btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 15px 30px rgba(21,62,23,.3);
+
+}
+
+/* Fade */
+
+.fade-up{
+
+animation:fadeUp .9s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
 </style>
+
 </head>
-<body class="font-secondary bg-white">
 
-    <!-- HERO SECTION -->
-    <section class="relative h-[450px] md:h-[350px] overflow-hidden">
+<body>
 
-        <!-- Background Image -->
-        <img src="./images/Contact_Us Banner.png"
-            alt="Restaurant"
-            class="absolute inset-0 w-full h-full object-cover">
+<!-- ============================= -->
+<!-- HERO SECTION -->
+<!-- ============================= -->
 
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-black/45"></div>
-          <!-- Glass Navbar -->
-    <nav class="fixed top-0 left-0 w-full z-50">
+<section class="relative h-[50vh] md:h-[65vh] overflow-hidden">
 
-        <div class="
-            bg-black/30
-            backdrop-blur-xl
-            border-b border-white/10
-            shadow-xl
-        ">
+<!-- Background -->
 
-            <div class="max-w-7xl mx-auto px-3 py-1 flex items-center justify-between relative">
+<img
+src="./images/Booking Banner.png"
+class="absolute inset-0 w-full h-full object-cover"
+alt="banner">
 
-                <!-- Logo -->
-                <div class="flex items-center gap-4">
+<div class="absolute inset-0 bg-black/55"></div>
 
-                    <img
-                        src="./images/WHITE TRANSPARENT Restaurant Logo (1).png"
-                        alt="logo"
-                        class="w-20 h-20 rounded-full object-cover"
-                    >
-                </div>
+<!-- ============================= -->
+<!-- NAVBAR -->
+<!-- ============================= -->
 
-                <!-- Menu -->
-                <ul class="hidden md:flex gap-20 text-white font-secondary font-medium">
+<nav class="fixed top-0 left-0 w-full z-50">
 
-                <li><a href="./index.html">HOME</a></li>
-                    <li><a href="./Menu.html">MENU</a></li>
-                    <li><a href="./Gallery.html">GALLERY</a></li>
-                    <li><a href="./About_us.html">ABOUT US</a></li>
-                    <li><a href="./Contact_Us.html">CONTACT US</a></li>
+<div class="bg-black/30 backdrop-blur-xl border-b border-white/10 shadow-xl">
 
+<div class="max-w-7xl mx-auto px-5 py-2 flex justify-between items-center">
+
+<!-- Logo -->
+
+<a href="./index.html">
+
+<img
+src="./images/WHITE TRANSPARENT Restaurant Logo (1).png"
+class="w-20 h-20 object-cover"
+alt="logo">
+
+</a>
+
+<!-- Desktop Menu -->
+
+<ul class="hidden lg:flex gap-12 text-white font-medium">
+
+<li>
+<a href="./index.html" class="hover:text-[#A6833E] duration-300">
+HOME
+</a>
+</li>
+
+<li>
+<a href="./Menu.html" class="hover:text-[#A6833E] duration-300">
+MENU
+</a>
+</li>
+
+<li>
+<a href="./Gallery.html" class="hover:text-[#A6833E] duration-300">
+GALLERY
+</a>
+</li>
+
+<li>
+<a href="./About_us.html" class="hover:text-[#A6833E] duration-300">
+ABOUT US
+</a>
+</li>
+
+<li>
+<a href="./Contact_Us.html" class="hover:text-[#A6833E] duration-300">
+CONTACT US
+</a>
+</li>
+
+</ul>
+
+<!-- Button -->
+
+<a href="./Table_Booking.html"
+class="hidden lg:block">
+
+<button
+class="bg-[#153E17]
+hover:bg-[#24482D]
+duration-300
+text-white
+font-semibold
+px-7
+py-3
+rounded-lg">
+
+BOOK A TABLE
+
+</button>
+
+</a>
+
+<!-- Mobile -->
+
+<button
+id="menu-btn"
+class="lg:hidden text-white">
+
+<svg
+class="w-8 h-8"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+viewBox="0 0 24 24">
+
+<path
+stroke-linecap="round"
+stroke-linejoin="round"
+d="M4 6h16M4 12h16M4 18h16"/>
+
+</svg>
+
+</button>
+
+</div>
+
+<!-- Mobile Menu -->
+
+<div
+id="mobile-menu"
+class="hidden lg:hidden bg-black/80 backdrop-blur-xl">
+
+<ul class="text-center text-white">
+
+<li><a href="./index.html" class="block py-4 hover:bg-[#153E17]">HOME</a></li>
+
+<li><a href="./Menu.html" class="block py-4 hover:bg-[#153E17]">MENU</a></li>
+
+<li><a href="./Gallery.html" class="block py-4 hover:bg-[#153E17]">GALLERY</a></li>
+
+<li><a href="./About_us.html" class="block py-4 hover:bg-[#153E17]">ABOUT US</a></li>
+
+<li><a href="./Contact_Us.html" class="block py-4 hover:bg-[#153E17]">CONTACT US</a></li>
+
+<li class="py-5">
+
+<a href="./Table_Booking.html">
+
+<button
+class="bg-[#153E17]
+px-6
+py-3
+rounded-lg">
+
+BOOK A TABLE
+
+</button>
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- ============================= -->
+<!-- HERO CONTENT -->
+<!-- ============================= -->
+
+<div class="relative z-10 h-full flex items-center justify-center">
+
+<div class="text-center fade-up">
+
+<h1
+class="font-primary
+text-[#FFF0D2]
+font-bold
+text-5xl
+md:text-7xl">
+
+Book a Table
+
+</h1>
+
+<div class="flex items-center justify-center gap-5 mt-5">
+
+<div class="w-20 md:w-40 h-[2px] bg-[#A6833E]"></div>
+
+<img
+src="./images/Bow.png"
+class="w-9 h-6">
+
+<div class="w-20 md:w-40 h-[2px] bg-[#A6833E]"></div>
+
+</div>
+
+<p class="text-white mt-6 text-lg">
+
+Reserve your table for an unforgettable dining experience.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BOOKING SECTION -->
+
+<section
+class="py-20 bg-[#ffffff]">
+
+<div
+class="max-w-7xl
+mx-auto
+px-5">
+
+<div
+class="grid
+grid-cols-1
+lg:grid-cols-3
+gap-10">
+
+<!-- ================================= -->
+<!-- LEFT FORM -->
+<!-- ================================= -->
+
+<div
+class="lg:col-span-2">
+
+<div
+class="bg-[#FFF0D2]/25
+rounded-2xl
+border border-[#A6833E]
+shadow-xl
+p-8
+card-hover">
+
+<div class="flex items-center gap-4">
+
+<div
+class="w-14
+h-14
+rounded-xl
+bg-[#153E17]
+flex
+items-center
+justify-center">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+fill="none"
+viewBox="0 0 24 24"
+stroke="currentColor"
+class="w-7 h-7 text-[#FFF0D2]">
+
+<path stroke-linecap="round"
+stroke-linejoin="round"
+stroke-width="2"
+d="M8 7V3m8 4V3m-9 8h10m-12 9h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v11a2 2 0 002 2z"/>
+
+</svg>
+
+</div>
+
+<div>
+
+<h2
+class="font-primary
+text-3xl
+text-[#153E17]
+font-bold">
+
+Reserve Your Table
+
+</h2>
+
+<p class="text-black mt-1">
+
+Fill the details below and we'll confirm your reservation.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- FORM -->
+
+<form
+id="bookingForm"
+class="mt-10
+space-y-6">
+
+<div
+class="grid
+grid-cols-1
+md:grid-cols-2
+gap-6">
+
+<!-- ========================= -->
+<!-- Guest Name -->
+<!-- ========================= -->
+
+<div class="md:col-span-2">
+
+    <label class="text-sm font-semibold text-[#000000]">
+        Name
+          <span class="text-red-600">*</span>
+    </label>
+
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-2">
+
+        <!-- Title -->
+
+        <select
+            required
+            class="input-field
+            border
+            border-[#A6833E]
+            rounded-lg
+            px-4
+            py-3
+            outline-none
+            focus:border-[#153E17]
+            focus:ring-2
+            focus:ring-[#A6833E]/30">
+
+            <option value="">Title</option>
+
+            <option>Mr.</option>
+
+            <option>Mrs.</option>
+
+            <option>Ms.</option>
+
+
+        </select>
+
+        <!-- First Name -->
+
+        <input
+           type="text"
+           required
+           maxlength="30"
+           pattern="[A-Za-z ]{2,30}"
+           title="Only letters are allowed (2-30 characters)."
+            placeholder="First Name"
+            class="input-field
+            sm:col-span-2
+            border
+            border-[#A6833E]
+            rounded-lg
+            px-4
+            py-3
+            outline-none
+            focus:border-[#153E17]
+            focus:ring-2
+            focus:ring-[#A6833E]/30">
+
+        <!-- Last Name -->
+
+        <input
+            type="text"
+             required
+             maxlength="30"
+             pattern="[A-Za-z ]{2,30}"
+             title="Only letters are allowed (2-30 characters)."
+
+            placeholder="Last Name"
+            class="input-field
+            border
+            border-[#A6833E]
+            rounded-lg
+            px-4
+            py-3
+            outline-none
+            focus:border-[#153E17]
+            focus:ring-2
+            focus:ring-[#A6833E]/30">
+
+    </div>
+
+</div>
+
+
+
+
+<!-- Phone -->
+
+<div>
+
+<label class="text-sm font-semibold">
+Phone Number
+  <span class="text-red-600">*</span>
+</label>
+
+<input
+
+type="tel"
+
+required
+
+placeholder="Enter phone number"
+
+class="input-field
+mt-2
+w-full
+border
+border-[#A6833E]
+rounded-lg
+px-4
+py-3
+outline-none
+focus:border-[#153E17]">
+
+</div>
+
+<!-- Date -->
+
+<div>
+
+<label class="text-sm font-semibold">
+
+Date
+  <span class="text-red-600">*</span>
+</label>
+
+<input
+
+type="date"
+
+required
+
+class="input-field
+mt-2
+w-full
+border
+border-[#A6833E]
+rounded-lg
+px-4
+py-3
+outline-none
+focus:border-[#153E17]">
+
+</div>
+<!-- Time -->
+
+<div>
+
+<label class="text-sm font-semibold">
+
+Time
+  <span class="text-red-600">*</span>
+</label>
+
+<select
+required
+class="input-field
+mt-2
+w-full
+border
+border-[#A6833E]
+rounded-lg
+px-4
+py-3
+outline-none
+focus:border-[#153E17]">
+
+<option value="">Select Time Slot</option>
+
+<option>11:00 AM - 12:00 PM</option>
+
+<option>12:00 PM - 1:00 PM</option>
+
+<option>1:00 PM - 2:00 PM</option>
+
+<option>2:00 PM - 3:00 PM</option>
+
+<option>3:00 PM - 4:00 PM</option>
+
+<option>4:00 PM - 5:00 PM</option>
+
+<option>5:00 PM - 6:00 PM</option>
+
+<option>6:00 PM - 7:00 PM</option>
+
+<option>7:00 PM - 8:00 PM</option>
+
+<option>8:00 PM - 9:00 PM</option>
+
+<option>9:00 PM - 10:00 PM</option>
+
+<option>10:00 PM - 11:00 PM</option>
+
+</select>
+
+</div>
+
+
+
+<div>
+
+
+<!-- Guests -->
+
+<div>
+
+<label class="text-sm font-semibold">
+
+Member
+  <span class="text-red-600">*</span>
+
+</label>
+
+<input
+type="number"
+required
+min="1"
+max="20"
+placeholder="Enter number of member"
+
+class="input-field
+mt-2
+w-full
+border
+border-[#A6833E]
+rounded-lg
+px-4
+py-3
+outline-none
+focus:border-[#153E17]
+focus:ring-2
+focus:ring-[#A6833E]/30">
+
+</div>
+</div>
+
+</div>
+
+<!-- Special Request -->
+
+<div>
+
+<label class="text-sm font-semibold">
+
+Special Request (Optional)
+
+</label>
+
+<input
+type="text"
+placeholder="Birthday, Anniversary, Window Seat..."
+class="input-field
+mt-2
+w-full
+border
+border-[#A6833E]
+rounded-lg
+px-4
+py-3
+outline-none
+focus:border-[#153E17]">
+
+</div>
+
+<!-- Message -->
+
+<div>
+
+<label class="text-sm font-semibold">
+
+Message (Optional)
+
+</label>
+
+<textarea
+rows="5"
+placeholder="Write your message..."
+class="input-field
+mt-2
+w-full
+border
+border-[#A6833E]
+rounded-lg
+px-4
+py-3
+resize-none
+outline-none
+focus:border-[#153E17]"></textarea>
+
+</div>
+
+<!-- Book Button -->
+
+<button
+type="submit"
+class="book-btn
+w-full
+bg-[#153E17]
+hover:bg-[#153E17]/85
+text-white
+font-semibold
+py-4
+rounded-lg
+text-lg">
+
+BOOK NOW
+
+</button>
+
+<!-- Bottom Text -->
+
+<div class="flex items-center justify-center gap-2 mt-2">
+
+    <img
+        src="./images/Secure.png"
+        alt="Secure"
+        class="w-4 h-4 object-contain">
+
+    <p class="text-sm text-black font-secondary">
+
+        Your information is secure and will never be shared.
+
+    </p>
+
+</div>
+</form>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- RIGHT SIDE -->
+<!-- ========================= -->
+
+<div class="space-y-8 flex flex-col h-full">
+
+<!-- Restaurant Image -->
+
+<div
+class="bg-white
+rounded-2xl
+shadow-xl
+overflow-hidden
+card-hover
+flex-1">
+
+<img
+src="./images/About The Garden Plate.png"
+alt="Restaurant"
+class="w-full
+h-[420px]
+object-cover">
+
+<div class="p-6">
+
+<h3
+class="font-primary
+text-3xl
+text-[#153E17]
+font-bold">
+
+The Garden Plate
+
+</h3>
+
+<p class="mt-3 text-gray-600 leading-relaxed">
+
+Experience elegant interiors, warm lighting,
+premium cuisine and unforgettable hospitality.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Opening Hours -->
+
+<div
+class="bg-white
+rounded-2xl
+shadow-xl
+p-7
+card-hover
+relative
+overflow-hidden
+">
+
+<div
+class="absolute
+bottom-0
+right-0
+w-28
+opacity-10">
+
+<img
+src="./images/Gallery_Leave 2.png"
+alt="leaf">
+
+</div>
+<div
+class="absolute
+bottom-0
+left-0
+w-28
+opacity-10">
+
+    <img
+    src="./images/Gallery_Leave 1.png"
+    alt="Left Leaf">
+
+</div>
+<div class="flex items-center gap-4 mb-6">
+
+    <!-- Icon -->
+
+    <img
+        src="./images/opening hr.png"
+        alt="Opening Hours"
+        class="w-12 h-12 object-contain">
+
+    <!-- Heading -->
+
+    <h3
+        class="font-primary
+        text-3xl
+        text-[#153E17]
+        font-bold">
+
+        Opening Hours
+
+    </h3>
+
+</div>
+
+<div class="mt-8 space-y-5">
+
+<div class="mt-10">
+
+<div class="flex justify-between items-center
+border-b border-gray-200
+pb-4">
+
+<span class="font-semibold text-[#153E17]">
+
+Monday - Sunday
+
+</span>
+
+<span class="font-semibold text-[#A6833E]">
+
+
+11:00 AM - 11:00 PM
+
+</span>
+
+</div>
+
+</div>
+
+<div
+class="mt-8
+border-t
+pt-6
+text-center">
+
+<p class="text-[#A6833E] font-semibold">
+
+We recommend booking in advance,
+especially on weekends.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =================================== -->
+<!-- SUCCESS POPUP -->
+<!-- =================================== -->
+
+<div
+id="successModal"
+class="fixed
+inset-0
+hidden
+bg-black/60
+backdrop-blur-sm
+flex
+items-center
+justify-center
+z-[999]">
+
+<div
+class="relative
+bg-white
+rounded-3xl
+shadow-2xl
+w-[92%]
+max-w-md
+p-10
+text-center
+text-center">
+<button
+id="closeIcon"
+class="absolute
+top-5
+right-5
+text-gray-500
+hover:text-red-500
+text-3xl
+font-light
+duration-300">
+
+&times;
+
+</button>
+
+<div
+class="w-24
+h-24
+rounded-full
+bg-green-100
+mx-auto
+flex
+items-center
+justify-center
+text-5xl">
+
+✅
+
+</div>
+
+<h2
+class="font-primary
+text-4xl
+text-[#153E17]
+mt-6
+font-bold">
+
+Booking Confirmed
+
+</h2>
+
+<p
+class="mt-5
+text-gray-600
+leading-relaxed">
+
+Thank you for choosing
+
+<b>The Garden Plate.</b>
+
+<br><br>
+
+Your reservation has been successfully received.
+
+We are excited to welcome you and look forward to serving you.
+
+</p>
+
+<button
+id="closeModal"
+class="mt-8
+bg-[#153E17]
+hover:bg-[#24482D]
+text-white
+px-8
+py-3
+rounded-lg
+duration-300">
+
+Close
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ============================= -->
+<!-- JAVASCRIPT -->
+<!-- ============================= -->
+
+<script>
+
+const bookingForm=document.getElementById("bookingForm");
+
+const successModal=document.getElementById("successModal");
+
+const closeModal=document.getElementById("closeModal");
+const closeIcon=document.getElementById("closeIcon");
+
+bookingForm.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+successModal.classList.remove("hidden");
+
+bookingForm.reset();
+
+});
+
+closeModal.addEventListener("click",()=>{
+
+successModal.classList.add("hidden");
+});
+closeIcon.addEventListener("click",()=>{
+
+successModal.classList.add("hidden");
+
+
+});
+
+window.addEventListener("click",(e)=>{
+
+if(e.target===successModal){
+
+successModal.classList.add("hidden");
+
+}
+
+});
+
+
+</script>
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
+
+<footer class="bg-[#153E17] text-white">
+
+    <div class="max-w-7xl mx-auto px-6 py-16">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+            <!-- Logo -->
+
+            <div class="flex flex-col justify-center h-full">
+
+    <img
+        src="./images/TRANSPARENT Restaurant Logo (1).png"
+        alt="logo"
+        class="w-36">
+
+</div>
+
+            <!-- Quick Links -->
+
+            <div>
+
+                <h3 class="font-primary text-2xl mb-6">
+
+                    QUICK LINKS
+
+                </h3>
+
+                <ul class="space-y-4">
+
+                    <li>
+                        <a href="./index.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./Menu.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        Menu
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./Gallery.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        Gallery
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./About_us.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./Contact_Us.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        Contact Us
+                        </a>
+                    </li>
 
                 </ul>
 
-                <!-- Button -->
-                 <a href ="./Table_Booking.Html">
-                <button class="
-                    bg-[#153E17]
-                    px-6 py-3
-                    rounded-lg
-                    text-white
-                    font-secondary
-                    hover:bg-[#24482D]
-                    transition
-                ">
-                    BOOK A TABLE
-                </button>
-                </a>
+            </div>
+
+            <!-- Contact -->
+
+            <div>
+
+                <h3 class="font-primary text-2xl mb-6">
+
+                    CONTACT US
+
+                </h3>
+
+                <div class="space-y-5">
+
+                    <div class="flex items-center gap-4">
+
+                        <img
+                        src="./images/F_Phone.png"
+                        class="w-5">
+
+                        <p>+91 7492003870</p>
+
+                    </div>
+
+                    <div class="flex items-center gap-4">
+
+                        <img
+                        src="./images/F_Gmail.png"
+                        class="w-6">
+
+                        <p>contact@tgp.com</p>
+
+                    </div>
+
+                    <div class="flex items-start gap-4">
+
+                        <img
+                        src="./images/F_Location.png"
+                        class="w-6 mt-1">
+
+                        <p>
+
+                            Adarsh Nagar,
+
+                            Jaipur,
+
+                            Rajasthan,
+
+                            India
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Social -->
+
+                <div class="flex gap-5 mt-8">
+
+                    <a href="#">
+
+                        <img
+                        src="./images/facebook.png"
+                        class="w-9 hover:scale-110 duration-300">
+
+                    </a>
+
+                    <a href="#">
+
+                        <img
+                        src="./images/Insta.png"
+                        class="w-9 hover:scale-110 duration-300">
+
+                    </a>
+
+                    <a href="#">
+
+                        <img
+                        src="./images/twitter.png"
+                        class="w-9 hover:scale-110 duration-300">
+
+                    </a>
+
+                    <a href="#">
+
+                        <img
+                        src="./images/utube.png"
+                        class="w-9 hover:scale-110 duration-300">
+
+                    </a>
+
+                </div>
 
             </div>
 
-        </div>
+            <!-- Opening Hours -->
 
-    </nav>
+            <div>
 
-       
-              
-        <!-- Hero Content -->
-        <div
-            class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+                <h3 class="font-primary text-2xl mb-6">
 
-            <h1
-                class="font-primary text-[#FFF0D2] text-3xl md:text-5xl font-semibold">
-                Your Next Exceptional Meal Awaits </h1>
+                    OPENING HOURS
 
-            <div class="w-20 h-[2px] bg-[#D4AF37] my-4"></div>
+                </h3>
 
-            <p class="text-[#FFF0D2] text-lg md:text-2xl">
-                Reserve your table for memorable dining experience.
-            </p>
+                <div class="space-y-3">
 
-        </div>
-    </section>
-<!--<body class="bg-[#F5F5F5] font-secondary">-->
+                    <p>
 
-<section class="py-10 md:py-20 px-4">
+                        Monday - Sunday
 
-    <div class="max-w-5xl mx-auto">
+                    </p>
 
-        <!-- Reservation Card -->
-        <div class="bg-[#F5F0E4] border border-[#C8A85D] rounded-3xl shadow-md p-6 md:p-12">
+                    <p>
 
-            <!-- Heading -->
+                        11:00 AM - 11:00 PM
 
-            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-10">
+                    </p>
 
-                <img
-                    src="./images/calendar-icon.png"
-                    alt="Calendar"
-                    class="w-12 h-12 md:w-16 md:h-16 object-contain"
-                >
+                </div>
 
-                <div>
+                <div
+                class="mt-8
+                 p-1">
 
-                    <h1 class="font-primary text-3xl md:text-5xl font-bold text-black">
-                        RESERVE YOUR TABLE
-                    </h1>
+                    <h4
+                    class="font-primary
+                    text-xl
+                    mb-2
+                    text-[#FFF0D2]">
 
-                    <p class="mt-2 text-gray-700 text-base md:text-xl">
-                        Fill the details below and we will confirm your reservation.
+                        Reserve Early
+
+                    </h4>
+
+                    <p class="text-gray-300 text-sm">
+
+                        Weekend tables fill up quickly.
+                        Reserve in advance for the best experience.
+
                     </p>
 
                 </div>
 
             </div>
 
-            <!-- Form -->
+        </div>
 
-            <form class="space-y-8">
+    </div>
 
-                <!-- Full Name -->
+    <!-- Bottom Footer -->
 
-                <div>
+    <div class="border-t border-white/20">
 
-                    <label class="block text-xl font-medium mb-3">
-                        Full Name
-                    </label>
+        <div
+        class="max-w-7xl
+        mx-auto
+        px-6
+        py-5
+        flex
+        flex-col
+        md:flex-row
+        justify-between
+        items-center
+        gap-4">
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <p>
 
-                        <select
-                            class="border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none"
-                        >
-                            <option>Mr.</option>
-                            <option>Mrs.</option>
-                            <option>Ms.</option>
-                        </select>
+                © 2026 The Garden Plate.
 
-                        <input
-                            type="text"
-                            placeholder="Enter your First Name"
-                            class="border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none"
-                        >
+                All Rights Reserved.
 
-                        <input
-                            type="text"
-                            placeholder="Enter your Last Name"
-                            class="border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none"
-                        >
+            </p>
 
-                    </div>
+            <div class="flex gap-6">
 
-                </div>
+                <a href="#"
+                class="hover:text-[#A6833E]">
 
-                <!-- Phone + Date -->
+                    Privacy Policy
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                </a>
 
-                    <div>
+                <a href="#"
+                class="hover:text-[#A6833E]">
 
-                        <label class="block text-xl font-medium mb-3">
-                            Phone Number
-                        </label>
+                    Terms & Conditions
 
-                        <input
-                            type="tel"
-                            placeholder="Enter Your Phone Number"
-                            class="w-full border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none"
-                        >
+                </a>
 
-                    </div>
-
-                    <div>
-
-                        <label class="block text-xl font-medium mb-3">
-                            Date
-                        </label>
-
-                        <input
-                            type="date"
-                            class="w-full border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none"
-                        >
-
-                    </div>
-
-                </div>
-
-                <!-- Time + Members -->
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                    <div>
-
-                        <label class="block text-xl font-medium mb-3">
-                            Time
-                        </label>
-
-                        <select
-                            class="w-full border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none"
-                        >
-                            <option>Select Time</option>
-                            <option>10:00 AM</option>
-                            <option>11:00 AM</option>
-                            <option>12:00 PM</option>
-                            <option>01:00 PM</option>
-                            <option>02:00 PM</option>
-                        </select>
-
-                    </div>
-
-                    <div>
-
-                        <label class="block text-xl font-medium mb-3">
-                            Members
-                        </label>
-
-                        <select
-                            class="w-full border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none"
-                        >
-                            <option>Select number of members</option>
-                            <option>1 Member</option>
-                            <option>2 Members</option>
-                            <option>3 Members</option>
-                            <option>4 Members</option>
-                            <option>5+ Members</option>
-                        </select>
-
-                    </div>
-
-                </div>
-
-                <!-- Special Request -->
-
-                <div>
-
-                    <label class="block text-xl font-medium mb-3">
-                        Special Request
-                    </label>
-
-                    <textarea
-                        rows="4"
-                        placeholder="Any special request?"
-                        class="w-full border border-[#C8A85D] bg-transparent rounded px-4 py-3 outline-none resize-none"
-                    ></textarea>
-
-                </div>
-
-                <!-- Button -->
-
-                <button
-                    type="submit"
-                    class="w-full bg-[#0B4D16] text-white text-xl md:text-3xl font-bold py-4 rounded hover:bg-[#083B11] transition"
-                >
-                    BOOK NOW
-                </button>
-
-                <!-- Security Text -->
-
-                <div class="text-center text-sm text-gray-600">
-
-                    🔒 Your information is secure and will not be shared.
-
-                </div>
-
-            </form>
+            </div>
 
         </div>
 
     </div>
 
-</section>
+</footer>
 
+<!-- ================================================= -->
+<!-- MOBILE NAVBAR -->
+<!-- ================================================= -->
 
+<script>
 
-    </body>
-    </html>
+const menuBtn=document.getElementById("menu-btn");
+
+const mobileMenu=document.getElementById("mobile-menu");
+
+menuBtn.addEventListener("click",()=>{
+
+mobileMenu.classList.toggle("hidden");
+
+});
+
+document.querySelectorAll("#mobile-menu a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+mobileMenu.classList.add("hidden");
+
+});
+
+});
+
+</script>
+
+<!-- ================================================= -->
+<!-- SCROLL REVEAL ANIMATION -->
+<!-- ================================================= -->
+
+<script>
+
+const reveals=document.querySelectorAll(".card-hover");
+
+function reveal(){
+
+const windowHeight=window.innerHeight;
+
+reveals.forEach(card=>{
+
+const top=card.getBoundingClientRect().top;
+
+if(top<windowHeight-100){
+
+card.classList.add("fade-up");
+
+}
+
+});
+
+}
+
+window.addEventListener("scroll",reveal);
+
+reveal();
+
+</script>
+
+<!-- ================================================= -->
+<!-- ACTIVE NAVBAR -->
+<!-- ================================================= -->
+
+<script>
+
+const links=document.querySelectorAll("nav a");
+
+const currentPage=window.location.pathname.split("/").pop();
+
+links.forEach(link=>{
+
+if(link.getAttribute("href")===currentPage){
+
+link.classList.add(
+
+"text-[#A6833E]",
+
+"font-bold"
+
+);
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>

@@ -2,6 +2,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Contact Us</title>
+<link rel="icon" type="image/png" href="./images/favicon.png">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -16,6 +19,51 @@
     .font-secondary{
         font-family:'Lato';
     }
+    
+/* ========================= */
+/* Premium Card Animation */
+/* ========================= */
+
+.card-hover{
+    transition: all 0.35s ease;
+    cursor: pointer;
+}
+
+.card-hover:hover{
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 20px 45px rgba(0,0,0,.18);
+
+}
+
+/* Smooth fade animation */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.fade-up{
+
+    animation:fadeUp .8s ease forwards;
+
+}
 </style>
 </head>
 <body class="font-secondary bg-white">
@@ -30,75 +78,175 @@
 
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/45"></div>
-          <!-- Glass Navbar -->
-    <nav class="fixed top-0 left-0 w-full z-50">
+      <!-- NAVBAR -->
+<!-- ============================= -->
 
-        <div class="
-            bg-black/30
-            backdrop-blur-xl
-            border-b border-white/10
-            shadow-xl
-        ">
+<nav class="fixed top-0 left-0 w-full z-50">
 
-            <div class="max-w-7xl mx-auto px-3 py-1 flex items-center justify-between relative">
+<div class="bg-black/30 backdrop-blur-xl border-b border-white/10 shadow-xl">
 
-                <!-- Logo -->
-                <div class="flex items-center gap-4">
+<div class="max-w-7xl mx-auto px-5 py-2 flex justify-between items-center">
 
-                    <img
-                        src="./images/WHITE TRANSPARENT Restaurant Logo (1).png"
-                        alt="logo"
-                        class="w-20 h-20 rounded-full object-cover"
-                    >
-                </div>
+<!-- Logo -->
 
-                <!-- Menu -->
-                <ul class="hidden md:flex gap-20 text-white font-secondary font-medium">
+<a href="./index.html">
 
-                <li><a href="./index.html">HOME</a></li>
-                    <li><a href="./Menu.html">MENU</a></li>
-                    <li><a href="./Gallery.html">GALLERY</a></li>
-                    <li><a href="./About_us.html">ABOUT US</a></li>
-                    <li><a href="./Contact_Us.html">CONTACT US</a></li>
+<img
+src="./images/WHITE TRANSPARENT Restaurant Logo (1).png"
+class="w-20 h-20 object-cover"
+alt="logo">
 
+</a>
 
-                </ul>
+<!-- Desktop Menu -->
 
-                <!-- Button -->
-                 <a href ="./Table_Booking.Html">
-                <button class="
-                    bg-[#153E17]
-                    px-6 py-3
-                    rounded-lg
-                    text-white
-                    font-secondary
-                    hover:bg-[#24482D]
-                    transition
-                ">
-                    BOOK A TABLE
-                </button>
-                </a>
+<ul class="hidden lg:flex gap-12 text-white font-medium">
 
-            </div>
+<li>
+<a href="./index.html" class="hover:text-[#A6833E] duration-300">
+HOME
+</a>
+</li>
 
-        </div>
+<li>
+<a href="./Menu.html" class="hover:text-[#A6833E] duration-300">
+MENU
+</a>
+</li>
 
-    </nav>
+<li>
+<a href="./Gallery.html" class="hover:text-[#A6833E] duration-300">
+GALLERY
+</a>
+</li>
+
+<li>
+<a href="./About_us.html" class="hover:text-[#A6833E] duration-300">
+ABOUT US
+</a>
+</li>
+
+<li>
+<a href="./Contact_Us.html"class="text-[#A6833E] font-semibold">
+CONTACT US
+</a>
+</li>
+
+</ul>
+
+<!-- Button -->
+
+<a href="./Table_Booking.html"
+class="hidden lg:block">
+
+<button
+class="bg-[#153E17]
+hover:bg-[#24482D]
+duration-300
+text-white
+font-semibold
+px-7
+py-3
+rounded-lg">
+
+BOOK A TABLE
+
+</button>
+
+</a>
+
+<!-- Mobile -->
+
+<button
+id="menu-btn"
+class="lg:hidden text-white">
+
+<svg
+class="w-8 h-8"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+viewBox="0 0 24 24">
+
+<path
+stroke-linecap="round"
+stroke-linejoin="round"
+d="M4 6h16M4 12h16M4 18h16"/>
+
+</svg>
+
+</button>
+
+</div>
+
+<!-- Mobile Menu -->
+
+<div
+id="mobile-menu"
+class="hidden lg:hidden bg-black/80 backdrop-blur-xl">
+
+<ul class="text-center text-white">
+
+<li><a href="./index.html" class="block py-4 hover:bg-[#153E17]">HOME</a></li>
+
+<li><a href="./Menu.html" class="block py-4 hover:bg-[#153E17]">MENU</a></li>
+
+<li><a href="./Gallery.html" class="block py-4 hover:bg-[#153E17]">GALLERY</a></li>
+
+<li><a href="./About_us.html" class="block py-4 hover:bg-[#153E17]">ABOUT US</a></li>
+
+<li><a href="./Contact_Us.html" class="block py-4 hover:bg-[#153E17]">CONTACT US</a></li>
+
+<li class="py-5">
+
+<a href="./Table_Booking.html">
+
+<button
+class="bg-[#153E17]
+px-6
+py-3
+rounded-lg">
+
+BOOK A TABLE
+
+</button>
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
 
        
               
         <!-- Hero Content -->
         <div
-            class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-
+class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 fade-up">
             <h1
                 class="font-primary text-white text-5xl md:text-7xl font-bold">
                 Contact Us
             </h1>
+<div class="flex justify-center items-center gap-4 mt-4">
 
-            <div class="w-20 h-[2px] bg-[#D4AF37] my-4"></div>
+    <div class="w-16 md:w-24 h-[2px] bg-[#A6833E]"></div>
 
-            <p class="text-white text-lg md:text-2xl">
+    <img
+        src="./images/Butterfly1.png"
+        alt="Decoration"
+        class="w-8 h-5 object-contain">
+
+    <div class="w-16 md:w-24 h-[2px] bg-[#A6833E]"></div>
+
+</div>
+
+            <p class="text-white text-lg mt-3 md:text-xl">
                 We would love to hear from you
             </p>
 
@@ -107,16 +255,14 @@
 
 
     <!-- CONTACT SECTION -->
-    <section class="bg-[#FAF6EC] py-16 lg:py-24">
-
+<section class="bg-[#ffffff] pt-16 pb-8 lg:pt-20 lg:pb-10">
         <div class="max-w-7xl mx-auto px-6">
 
             <div class="grid lg:grid-cols-2 gap-8">
 
                 <!-- LEFT CARD -->
                 <div
-                    class="bg-[#FFF0D2]/30 border border-[#A6833E] rounded-xl p-8 md:p-10">
-
+class="card-hover bg-[#FFF0D2]/30 border border-[#A6833E] rounded-xl p-8 md:p-10">
                     <!-- Heading -->
                     <div class="text-center mb-10">
 
@@ -125,66 +271,88 @@
                             ✦ SEND US A MESSAGE ✦
                         </h2>
 
-                        <div
-                            class="flex justify-center items-center gap-4 mt-3">
-                            <div
-                                class="w-16 h-[1px] bg-[#A6833E]"></div>
-                            <span class="text-[#C8A85D]">♥</span>
-                            <div
-                                class="w-16 h-[1px] bg-[#A6833E]"></div>
-                        </div>
+                        <div class="flex justify-center items-center gap-4 mt-4">
+
+    <div class="w-16 md:w-24 h-[2px] bg-[#A6833E]"></div>
+
+    <img
+        src="./images/Small butterfly.png"
+        alt="Decoration"
+        class="w-8 h-5 object-contain">
+
+    <div class="w-16 md:w-24 h-[2px] bg-[#A6833E]"></div>
+
+</div>
 
                     </div>
 
                     <!-- Form -->
-                    <form class="space-y-6">
+                   <form id="contactForm" class="space-y-6">
 
                         <div>
                             <label
-                                class="block mb-2 font-medium text-gray-700">
+                                class="block mb-2 font-medium text-black">
                                 Full Name
+                                  <span class="text-red-600">*</span>
                             </label>
 
                             <input
                                 type="text"
-                                placeholder="Enter your full Name"
+id="name"
+name="name"
+placeholder="Enter your Name"
+required
+maxlength="50"
+
                                 class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]">
                         </div>
 
                         <div>
                             <label
-                                class="block mb-2 font-medium text-gray-700">
+                                class="block mb-2 font-medium text-black">
                                 Email
+                                  <span class="text-red-600">*</span>
                             </label>
 
                             <input
                                 type="email"
+                                id="email"
+                                name="email"
                                 placeholder="Enter your Email Address"
+                                required
                                 class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]">
                         </div>
 
                         <div>
                             <label
-                                class="block mb-2 font-medium text-gray-700">
+                                class="block mb-2 font-medium text-black">
                                 Phone Number
+                                  <span class="text-red-600">*</span>
                             </label>
 
                             <input
                                 type="tel"
+                                id="phone"
+                                name="phone"
                                 placeholder="Enter Your Phone Number"
+                                required
+                                maxlength="10"
                                 class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]">
                         </div>
 
                         <div>
                             <label
-                                class="block mb-2 font-medium text-gray-700">
+                                class="block mb-2 font-medium text-black">
                                 Subject
+                                  <span class="text-red-600">*</span>
                             </label>
 
                             <select
+                                id="subject"
+                                required
                                 class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]">
 
-                                <option>Select your Subject</option>
+                                <option value="">Select your Subject</option>
                                 <option>Reservation</option>
                                 <option>Feedback</option>
                                 <option>Support</option>
@@ -194,24 +362,29 @@
 
                         <div>
                             <label
-                                class="block mb-2 font-medium text-gray-700">
+                                class="block mb-2 font-medium text-black">
                                 Message
+                                  <span class="text-red-600">*</span>
                             </label>
 
-                            <textarea rows="5"
-                                placeholder="Type Your Message"
+                            <textarea 
+                            id="message"
+                            rows="5"
+                            required
+                            maxlength="500"
+                            placeholder="Type Your Message"
                                 class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]"></textarea>
                         </div>
 
                         <div class="text-center">
 
-                            <button
+                            <button type ="submit"
                                 class="bg-green-900 hover:bg-green-800 text-white px-10 py-3 font-semibold">
                                 SEND MESSAGE
                             </button>
 
                             <p
-                                class="text-xs text-gray-500 mt-4">
+                                class="text-xs text-black-800 mt-4">
                                 Your information is secure and will not be shared.
                             </p>
 
@@ -223,8 +396,7 @@
 
                 <!-- RIGHT CARD -->
                 <div
-                    class="bg-[#FFF0D2]/30 border border-[#A6833E] rounded-xl p-8 md:p-10">
-
+class="card-hover bg-[#FFF0D2]/30 border border-[#A6833E] rounded-xl p-8 md:p-10">
                     <!-- Heading -->
                     <div class="text-center mb-10">
 
@@ -233,14 +405,19 @@
                             ✦ GET IN TOUCH ✦
                         </h2>
 
-                        <div
-                            class="flex justify-center items-center gap-4 mt-3">
-                            <div
-                                class="w-16 h-[1px] bg-[#C8A85D]"></div>
-                            <span class="text-[#C8A85D]">♥</span>
-                            <div
-                                class="w-16 h-[1px] bg-[#C8A85D]"></div>
-                        </div>
+                        <div class="flex justify-center items-center gap-4 mt-4">
+
+    <div class="w-16 md:w-24 h-[2px] bg-[#A6833E]"></div>
+
+    <img
+        src="./images/Small butterfly.png"
+        alt="Decoration"
+        class="w-8 h-5 object-contain">
+
+    <div class="w-16 md:w-24 h-[2px] bg-[#A6833E]"></div>
+
+</div>
+
 
                     </div>
 
@@ -331,25 +508,69 @@
 
                         <hr class="border-[#E5D8B4]">
 
-                        <!-- Social -->
-                        <div class="text-center">
+                       <!-- Social -->
+<div class="text-center">
 
-                            <h4
-                                class="text-[#C8A85D] font-bold text-xl mb-5">
-                                FOLLOW US
-                            </h4>
+    <h4
+        class="font-primary
+        text-2xl
+        text-[#153E17]
+        font-bold
+        mb-6">
 
-                            <div
-                                class="flex justify-center gap-6 text-3xl text-[#B8913C]">
+        FOLLOW US
 
-                                <a href="#">𝕏</a>
-                                <a href="#">f</a>
-                                <a href="#">◎</a>
-                                <a href="#">▶</a>
+    </h4>
 
-                            </div>
+    <div class="flex justify-center gap-7">
 
-                        </div>
+        <!-- Twitter -->
+        <a href="#"
+        class="transition-all duration-300 hover:scale-110">
+
+            <img
+            src="./images\Contact_Us\Twitter.png"
+            alt="Twitter"
+            class="w-9 h-9">
+
+        </a>
+
+        <!-- Facebook -->
+        <a href="#"
+        class="transition-all duration-300 hover:scale-110">
+
+            <img
+            src="./images/Contact_Us/Facebook.png"
+            alt="Facebook"
+            class="w-10 h-10">
+
+        </a>
+
+        <!-- Instagram -->
+        <a href="#"
+        class="transition-all duration-300 hover:scale-110">
+
+            <img
+            src="./images/Contact_Us/Instagram.png"
+            alt="Instagram"
+            class="w-10 h-10">
+
+        </a>
+
+        <!-- YouTube -->
+        <a href="#"
+        class="transition-all duration-300 hover:scale-110">
+
+            <img
+            src="./images/Contact_Us/Youtube.png"
+            alt="YouTube"
+            class="w-13 h-10">
+
+        </a>
+
+    </div>
+
+</div>
 
                     </div>
                 </div>
@@ -360,11 +581,41 @@
 
     </section>
 
-    <section>
+  <section class="bg-[#F5F0E4] py-8 mb-[100px]">
 
-        <!--Google Map-->
-        <img src="./images/Map.png" alt="Google Map" class="w-[85%] h-[60%] ml-20 mr-20 mt-20 pd-20 ">
-    </section>
+    <div class="max-w-7xl mx-auto px-6">
+
+        <h2 class="font-primary text-5xl text-center text-[#153E17] font-bold">
+
+            Find Us
+
+        </h2>
+
+        <div class="flex justify-center items-center gap-4 mt-4 mb-8">
+
+            <div class="w-24 h-[2px] bg-[#A6833E]"></div>
+
+            <img src="./images/Bow.png" class="w-8">
+
+            <div class="w-24 h-[2px] bg-[#A6833E]"></div>
+
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-2xl border-2 border-[#A6833E]">
+
+<iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227749.05321101635!2d75.62574595312087!3d26.885115144570598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1782754331340!5m2!1sen!2sin"
+    class="w-full h-[350px] md:h-[450px]"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin">
+</iframe>
+        </div>
+
+    </div>
+
+</section>
 
 <footer class="bg-[#153E17] text-white">
 
@@ -384,23 +635,56 @@
             </div>
 
             <!-- Quick Links -->
+
             <div>
 
-                <h3 class="font-primary text-2xl font-bold mb-6">
+                <h3 class="font-primary text-2xl mb-6">
+
                     QUICK LINKS
+
                 </h3>
 
-                <ul class="space-y-3 font-secondary">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Menu</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
+                <ul class="space-y-4">
+
+                    <li>
+                        <a href="./index.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./Menu.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        Menu
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./Gallery.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        Gallery
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./About_us.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./Contact_Us.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        Contact
+                        </a>
+                    </li>
+
                 </ul>
 
             </div>
 
-            <!-- Contact -->
            <!-- Contact -->
 <div>
 
@@ -410,14 +694,39 @@
 
     <div class="space-y-4 font-secondary">
 
-        <p>📞 +91 7492000651</p>
+       <div class="flex items-center gap-5">
+    <img
+        src="./images/F_Phone.png"
+        alt="Phone"
+        class="w-5 h-5"
+    >
+    <p>+91 7492003870</p>
+</div>
 
-        <p>✉️ contact@tgp.com</p>
+<!-- Email -->
+<div class="flex items-center gap-5">
+    <img
+        src="./images/F_Gmail.png"
+        alt="Email"
+        class="w-6 h-5"
+        
+    >
+    <p>contact@tgp.com</p>
+</div>
 
-        <p>
-            📍 Adarsh Nagar, Jaipur,<br>
-            Rajasthan, 302004 India
-        </p>
+<!-- Location -->
+<div class="flex items-start gap-5">
+    <img
+        src="./images/F_Location.png"
+        alt="Location"
+        class="w-7 h-9 mt-1"
+    >
+    <p>
+        Adarsh Nagar, Jaipur,<br>
+        Rajasthan, 302004 India
+    </p>
+</div>
+
 
         <!-- Social Media Icons -->
         <div class="flex gap-4 pt-3">
@@ -474,9 +783,29 @@
                     <p>Monday - Friday</p>
                     <p>11:00 AM - 11:00 PM</p>
 
-                    <p>Saturday - Sunday</p>
-                    <p>11:00 AM - 12:00 PM</p>
+                  
+                <div
+                class="mt-8
+                 p-1">
 
+                    <h4
+                    class="font-primary
+                    text-xl
+                    mb-2
+                    text-[#FFF0D2]">
+
+                        Reserve Early
+
+                    </h4>
+
+                    <p class="text-gray-300 text-sm">
+
+                        Weekend tables fill up quickly.
+                        Reserve in advance for the best experience.
+
+                    </p>
+
+                </div>
                 </div>
 
             </div>
@@ -507,6 +836,247 @@
     </div>
 
 </footer>
+<!-- ===================================== -->
+<!-- SUCCESS POPUP -->
+<!-- ===================================== -->
+
+<div
+id="successModal"
+class="fixed inset-0 bg-black/50 hidden flex items-center justify-center z-[100]">
+
+    <div
+    class="relative bg-white rounded-3xl shadow-2xl w-[90%] max-w-md p-10 text-center">
+
+        <!-- Close Icon -->
+
+        <button
+        id="closeIcon"
+        class="absolute top-4 right-5 text-4xl text-gray-400 hover:text-red-500 duration-300">
+
+            &times;
+
+        </button>
+
+        <!-- Success Icon -->
+
+        <img
+        src="./images/Successful.png"
+        alt="Success"
+        class="w-20 mx-auto mb-6">
+
+        <h2
+        class="font-primary
+        text-3xl
+        text-[#153E17]
+        font-bold">
+
+            Message Sent Successfully!
+
+        </h2>
+
+        <p
+        class="font-secondary
+        text-gray-600
+        mt-4
+        leading-relaxed">
+
+            Thank you for contacting The Garden Plate.
+
+            <br><br>
+
+            Our team will get back to you as soon as possible.
+
+        </p>
+
+        <button
+        id="closeModal"
+        class="mt-8
+        bg-[#153E17]
+        hover:bg-[#24482D]
+        text-white
+        px-8
+        py-3
+        rounded-lg
+        duration-300">
+
+            Close
+
+        </button>
+
+    </div>
+
+</div>
+<script>
+
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+
+menuBtn.addEventListener("click", () => {
+
+    mobileMenu.classList.toggle("hidden");
+
+});
+
+document.querySelectorAll("#mobile-menu a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        mobileMenu.classList.add("hidden");
+
+    });
+
+});
+
+</script>
+
+<script>
+const contactForm = document.getElementById("contactForm");
+
+const successModal = document.getElementById("successModal");
+const closeModal = document.getElementById("closeModal");
+const closeIcon = document.getElementById("closeIcon");
+
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const phoneInput = document.getElementById("phone");
+const subjectInput = document.getElementById("subject");
+const messageInput = document.getElementById("message");
+
+/* --------------------------
+   LIVE INPUT RESTRICTIONS
+-------------------------- */
+
+// Name → only letters & spaces
+nameInput.addEventListener("input", function () {
+    this.value = this.value.replace(/[^A-Za-z ]/g, "");
+});
+
+// Phone → only digits, max 10
+phoneInput.addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, "").slice(0, 10);
+});
+
+/* Clear validation whenever user edits */
+[nameInput, emailInput, phoneInput, subjectInput, messageInput].forEach(input => {
+    input.addEventListener("input", () => {
+        input.setCustomValidity("");
+    });
+
+    input.addEventListener("change", () => {
+        input.setCustomValidity("");
+    });
+});
+
+/* --------------------------
+   FORM SUBMIT
+-------------------------- */
+
+contactForm.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const phone = phoneInput.value.trim();
+    const subject = subjectInput.value;
+    const message = messageInput.value.trim();
+
+    // Name
+    if (!/^[A-Za-z ]+$/.test(name)) {
+        nameInput.setCustomValidity("Only alphabets are allowed.");
+        nameInput.reportValidity();
+        nameInput.focus();
+        return;
+    }
+
+    // Email
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        emailInput.setCustomValidity("Enter a valid email address.");
+        emailInput.reportValidity();
+        emailInput.focus();
+        return;
+    }
+
+    // Phone
+    if (!/^\d{10}$/.test(phone)) {
+        phoneInput.setCustomValidity("Enter exactly 10 digits.");
+        phoneInput.reportValidity();
+        phoneInput.focus();
+        return;
+    }
+
+    // Subject
+    if (subject === "") {
+        subjectInput.setCustomValidity("Please select a subject.");
+        subjectInput.reportValidity();
+        subjectInput.focus();
+        return;
+    }
+
+    // Message
+    if (message.length < 10) {
+        messageInput.setCustomValidity("Message must contain at least 10 characters.");
+        messageInput.reportValidity();
+        messageInput.focus();
+        return;
+    }
+
+    // Everything is valid
+
+    contactForm.reset();
+
+    successModal.classList.remove("hidden");
+    successModal.classList.add("flex");
+
+});
+
+/* --------------------------
+   CLOSE POPUP
+-------------------------- */
+
+function closeSuccessPopup() {
+    successModal.classList.add("hidden");
+    successModal.classList.remove("flex");
+}
+
+closeModal.addEventListener("click", closeSuccessPopup);
+closeIcon.addEventListener("click", closeSuccessPopup);
+
+window.addEventListener("click", function (e) {
+    if (e.target === successModal) {
+        closeSuccessPopup();
+    }
+});
+</script>
+<script>
+
+const reveals=document.querySelectorAll(".card-hover");
+
+function reveal(){
+
+    const windowHeight=window.innerHeight;
+
+    reveals.forEach(card=>{
+
+        const top=card.getBoundingClientRect().top;
+
+        if(top<windowHeight-100){
+
+            card.classList.add("fade-up");
+
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll",reveal);
+
+reveal();
+
+</script>
+
+
     
 </body>
 </html>
