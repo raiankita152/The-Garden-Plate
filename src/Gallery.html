@@ -20,6 +20,520 @@
     .font-secondary{
         font-family:'Lato';
     }
+
+    /* =====================================================
+                GALLERY BUTTONS
+===================================================== */
+
+.filter-btn{
+
+    padding:12px 34px;
+    border:2px solid #C8A85D;
+    border-radius:8px;
+    background:#fff;
+    color:#153E17;
+    font-weight:600;
+    letter-spacing:1px;
+    transition:all .35s ease;
+}
+
+.filter-btn:hover{
+
+    background:#153E17;
+    color:white;
+    transform:translateY(-4px);
+    box-shadow:0 12px 25px rgba(21,62,23,.25);
+
+}
+
+.active-filter{
+
+    background:#153E17;
+    color:white;
+
+}
+
+
+
+/* =====================================================
+                GALLERY LAYOUT
+===================================================== */
+
+.middle-gallery{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        2fr
+        1fr;
+
+    gap:20px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* =====================================================
+                IMAGE CARDS
+===================================================== */
+
+.gallery-item{
+
+    overflow:hidden;
+
+    border-radius:12px;
+
+    position:relative;
+
+    cursor:pointer;
+
+    background:#f4f4f4;
+
+}
+
+
+
+/* Images */
+
+.gallery-img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:
+        transform .6s ease,
+        filter .4s ease;
+
+}
+
+
+
+/* =====================================================
+                IMAGE HEIGHTS
+===================================================== */
+
+
+/* Top */
+
+.grid.md\:grid-cols-3 .gallery-item{
+
+    height:260px;
+
+}
+
+
+/* Left */
+
+.tall-left{
+
+    height:540px;
+
+}
+
+
+/* Right */
+
+.tall-right{
+
+    height:540px;
+
+}
+
+
+/* G5 G6 */
+
+.center-gallery .grid:first-child .gallery-item{
+
+    height:260px;
+
+}
+
+
+/* G7 G8 G9 */
+
+.center-gallery .grid:last-child .gallery-item{
+
+    height:260px;
+
+}
+
+
+/* Bottom */
+
+.mt-5 .gallery-item{
+
+    height:260px;
+
+}
+
+
+
+/* =====================================================
+                IMAGE HOVER
+===================================================== */
+
+.gallery-item:hover .gallery-img{
+
+    transform:scale(1.1);
+
+    filter:brightness(.75);
+
+}
+
+
+/* Dark Overlay */
+
+.gallery-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.25);
+
+    opacity:0;
+
+    transition:.4s;
+
+    z-index:1;
+
+}
+
+.gallery-item:hover::before{
+
+    opacity:1;
+
+}
+
+
+
+/* Search Icon */
+
+.gallery-item::after{
+
+    content:"🔍";
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%) scale(.6);
+
+    color:white;
+
+    font-size:30px;
+
+    opacity:0;
+
+    transition:.4s;
+
+    z-index:2;
+
+}
+
+.gallery-item:hover::after{
+
+    opacity:1;
+
+    transform:translate(-50%,-50%) scale(1);
+
+}
+
+
+
+/* =====================================================
+                LIGHTBOX
+===================================================== */
+
+#lightbox{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s;
+
+}
+
+#lightbox.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+#lightbox img{
+
+    border-radius:14px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+
+}
+
+
+
+/* Buttons */
+
+#prevBtn,
+#nextBtn{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.1);
+
+    backdrop-filter:blur(8px);
+
+    transition:.3s;
+
+}
+
+#prevBtn:hover,
+#nextBtn:hover{
+
+    background:#153E17;
+
+}
+
+
+#closeBtn{
+
+    transition:.3s;
+
+}
+
+#closeBtn:hover{
+
+    transform:rotate(90deg);
+
+    color:#C8A85D;
+
+}
+
+
+
+/* =====================================================
+                RESPONSIVE
+===================================================== */
+
+@media(max-width:1024px){
+
+.middle-gallery{
+
+    grid-template-columns:1fr;
+
+}
+
+.tall-left,
+.tall-right{
+
+    height:420px;
+
+}
+
+.center-gallery .grid:first-child{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+.center-gallery .grid:last-child{
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+
+}
+
+
+
+@media(max-width:768px){
+
+.filter-btn{
+
+    padding:10px 20px;
+
+    font-size:14px;
+
+}
+
+.grid.md\:grid-cols-3{
+
+    grid-template-columns:1fr;
+
+}
+
+.grid.md\:grid-cols-3 .gallery-item{
+
+    height:260px;
+
+}
+
+.middle-gallery{
+
+    display:block;
+
+}
+
+.tall-left,
+.tall-right{
+
+    height:300px;
+
+    margin-bottom:18px;
+
+}
+
+.center-gallery .grid:first-child{
+
+    grid-template-columns:1fr;
+
+}
+
+.center-gallery .grid:last-child{
+
+    grid-template-columns:1fr;
+
+}
+
+.center-gallery .gallery-item{
+
+    height:220px;
+
+    margin-bottom:18px;
+
+}
+
+.mt-5{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+}
+
+.mt-5 .gallery-item{
+
+    height:260px;
+
+    margin-bottom:18px;
+
+}
+
+}
+    /* ===========================
+   Gallery Filter Buttons
+=========================== */
+
+.filter-btn{
+
+    padding:12px 34px;
+
+    border:1.8px solid #C8A85D;
+
+    border-radius:10px;
+
+    color:#153E17;
+
+    background:white;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    transition:all .35s ease;
+
+}
+
+.filter-btn:hover{
+
+    background:#153E17;
+
+    color:white;
+
+    transform:translateY(-3px) scale(1.05);
+
+    box-shadow:0 12px 30px rgba(21,62,23,.25);
+
+}
+
+.active-filter{
+
+    background:#153E17;
+
+    color:white;
+
+    border-color:#153E17;
+
+    box-shadow:0 10px 25px rgba(21,62,23,.25);
+
+}
+/* ===============================
+        Gallery Animation
+================================ */
+
+.gallery-item{
+
+    transition:
+        opacity .4s ease,
+        transform .4s ease,
+        scale .4s ease;
+
+}
+
+.gallery-item.hide{
+
+    opacity:0;
+
+    transform:scale(.92);
+
+    pointer-events:none;
+
+}
+
+.gallery-item.show{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.filter-btn{
+
+    padding:10px 20px;
+
+    font-size:14px;
+
+}
+
+}
 </style>
 </head>
 <body class="font-secondary bg-white">
@@ -233,127 +747,309 @@
             </p>
 
         </div>
+        
     </section>
 
-    <section class="bg-white py-16">
+    
 
-    <div class="max-w-7xl mx-auto px-6">
+
+       <!-- ====================== GALLERY SECTION ====================== -->
+
+<section id="gallery" class="py-20 bg-white">
+
+    <div class="max-w-7xl mx-auto px-5">
+
+        <!-- Heading -->
+
+        <div class="text-center mb-12">
+
+            <h2 class="font-primary text-4xl md:text-5xl text-[#153E17]">
+                Our Gallery
+            </h2>
+
+            <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                Explore the elegance, flavours and unforgettable experiences
+                at The Garden Plate.
+            </p>
+
+        </div>
 
         <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-5 mb-12">
 
-            <button class="px-8 py-2 border border-[#C8A85D] hover:bg-[#0A4A14] hover:text-white hover:scale-105 transition">
+        <div class="flex flex-wrap justify-center gap-4 mb-14">
+
+            <button class="filter-btn active-filter" data-filter="all">
                 ALL
             </button>
 
-            <button class="px-8 py-2 border border-[#C8A85D] hover:bg-[#0A4A14] hover:text-white hover:scale-105 transition">
+            <button class="filter-btn" data-filter="facade">
                 FACADE
             </button>
 
-            <button class="px-8 py-2 border border-[#C8A85D] hover:bg-[#0A4A14] hover:text-white hover:scale-105 transition">
+            <button class="filter-btn" data-filter="food">
                 FOOD
             </button>
 
-            <button class="px-8 py-2 border border-[#C8A85D] hover:bg-[#0A4A14] hover:text-white hover:scale-105 transition">
+            <button class="filter-btn" data-filter="ambience">
                 AMBIENCE
             </button>
 
-            <button class="px-8 py-2 border border-[#C8A85D] hover:bg-[#0A4A14] hover:text-white hover:scale-105 transition">
+            <button class="filter-btn" data-filter="events">
                 EVENTS
             </button>
 
         </div>
 
-        <!-- Gallery Grid -->
+        <!-- ================= TOP ROW ================= -->
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4">
+        <div class="grid md:grid-cols-3 gap-5 mb-5">
 
-            <!-- Top Row -->
+            <!-- G1 -->
 
-            <div class="lg:col-span-4 overflow-hidden rounded-lg">
+            <div class="gallery-item"
+                 data-category="facade"
+                 data-all="true">
+
                 <img src="./images/G1.png"
-                    onclick="openModal(this.src)"
-                    class="w-full h-64 object-cover cursor-pointer hover:scale-110 transition duration-500">
+                     class="gallery-img"
+                     alt="Facade">
+
             </div>
 
-            <div class="lg:col-span-4 overflow-hidden rounded-lg">
+            <!-- G2 -->
+
+            <div class="gallery-item"
+                 data-category="facade"
+                 data-all="true">
+
                 <img src="./images/G2.png"
-                    onclick="openModal(this.src)"
-                    class="w-full h-64 object-cover cursor-pointer hover:scale-110 transition duration-500">
+                     class="gallery-img"
+                     alt="Facade">
+
             </div>
 
-            <div class="lg:col-span-4 overflow-hidden rounded-lg">
+            <!-- G3 -->
+
+            <div class="gallery-item"
+                 data-category="ambience"
+                 data-all="true">
+
                 <img src="./images/G3.png"
-                    onclick="openModal(this.src)"
-                    class="w-full h-64 object-cover cursor-pointer hover:scale-110 transition duration-500">
+                     class="gallery-img"
+                     alt="Ambience">
+
             </div>
 
-            <!-- Left Tall Image -->
+        </div>
 
-            <div class="lg:col-span-2 lg:row-span-2 overflow-hidden rounded-lg">
+        <!-- ================= MIDDLE SECTION ================= -->
+
+        <div class="middle-gallery">
+
+            <!-- LEFT -->
+
+            <div class="gallery-item tall-left"
+                 data-category="facade"
+                 data-all="true">
+
                 <img src="./images/G4.png"
-                    onclick="openModal(this.src)"
-                    class="w-full h-full object-cover cursor-pointer hover:scale-110 transition duration-500">
+                     class="gallery-img"
+                     alt="Facade">
+
             </div>
 
-            <!-- Center Food Images -->
+            <!-- CENTER -->
 
-            <div class="lg:col-span-4 overflow-hidden rounded-lg">
-                <img src="./images/G5.png"
-                    onclick="openModal(this.src)"
-                    class="w-full h-56 object-cover cursor-pointer hover:scale-110 transition duration-500">
+            <div class="center-gallery">
+
+                <!-- Top -->
+
+                <div class="grid grid-cols-2 gap-5 mb-5">
+
+                    <div class="gallery-item"
+                         data-category="food"
+                         data-all="true">
+
+                        <img src="./images/G5.png"
+                             class="gallery-img"
+                             alt="Food">
+
+                    </div>
+
+                    <div class="gallery-item"
+                         data-category="food"
+                         data-all="true">
+
+                        <img src="./images/G6.png"
+                             class="gallery-img"
+                             alt="Food">
+
+                    </div>
+
+                </div>
+
+                <!-- Bottom -->
+
+                <div class="grid grid-cols-3 gap-5">
+
+                    <div class="gallery-item"
+                         data-category="food"
+                         data-all="false">
+
+                        <img src="./images/G7.png"
+                             class="gallery-img"
+                             alt="Food">
+
+                    </div>
+
+                    <div class="gallery-item"
+                         data-category="food"
+                         data-all="false">
+
+                        <img src="./images/G8.png"
+                             class="gallery-img"
+                             alt="Food">
+
+                    </div>
+
+                    <div class="gallery-item"
+                         data-category="food"
+                         data-all="false">
+
+                        <img src="./images/G9.png"
+                             class="gallery-img"
+                             alt="Food">
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="lg:col-span-4 overflow-hidden rounded-lg">
-                <img src="./images/G6.png"
-                    onclick="openModal(this.src)"
-                    class="w-full h-56 object-cover cursor-pointer hover:scale-110 transition duration-500">
-            </div>
+            <!-- RIGHT -->
 
-            <!-- Right Tall Image -->
+            <div class="gallery-item tall-right"
+                 data-category="ambience"
+                 data-all="true">
 
-            <div class="lg:col-span-2 lg:row-span-2 overflow-hidden rounded-lg">
                 <img src="./images/G10.png"
-                    onclick="openModal(this.src)"
-                    class="w-full h-full object-cover cursor-pointer hover:scale-110 transition duration-500">
+                     class="gallery-img"
+                     alt="Ambience">
+
             </div>
 
-            <!-- Bottom Food Row -->
+        </div>
 
-            <div class="lg:col-span-2 overflow-hidden rounded-lg">
-                <img src="./images/G8.png"
-                    onclick="openModal(this.src)"
-                    class="w-full h-40 object-cover cursor-pointer hover:scale-110 transition duration-500">
+        <!-- ================= BOTTOM ROW ================= -->
+
+        <div class="grid md:grid-cols-3 gap-5 mt-5">
+
+            <div class="gallery-item"
+                 data-category="ambience"
+                 data-all="true">
+
+                <img src="./images/G11.png"
+                     class="gallery-img"
+                     alt="Ambience">
+
             </div>
 
-            <div class="lg:col-span-2 overflow-hidden rounded-lg">
-                <img src="./images/G9.png"
-                    onclick="openModal(this.src)"
-                    class="w-full h-40 object-cover cursor-pointer hover:scale-110 transition duration-500">
+            <div class="gallery-item"
+                 data-category="facade"
+                 data-all="true">
+
+                <img src="./images/G12.png"
+                     class="gallery-img"
+                     alt="Facade">
+
             </div>
 
-            <div class="lg:col-span-2 overflow-hidden rounded-lg">
-                <img src="./images/G7.png"
-                    onclick="openModal(this.src)"
-                    class="w-full h-40 object-cover cursor-pointer hover:scale-110 transition duration-500">
+            <div class="gallery-item"
+                 data-category="ambience"
+                 data-all="true">
+
+                <img src="./images/G13.png"
+                     class="gallery-img"
+                     alt="Ambience">
+
             </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= LIGHTBOX ================= -->
+
+<div id="lightbox"
+     class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[9999]">
+
+    <!-- Close -->
+
+    <button id="closeBtn"
+            class="absolute top-6 right-8 text-white text-5xl">
+
+        &times;
+
+    </button>
+
+    <!-- Previous -->
+
+    <button id="prevBtn"
+            class="absolute left-6 text-white text-6xl">
+
+        &#10094;
+
+    </button>
+
+    <!-- Image -->
+
+    <img id="lightboxImg"
+         src=""
+         class="max-w-[90%] max-h-[85vh] rounded-xl">
+
+    <!-- Next -->
+
+    <button id="nextBtn"
+            class="absolute right-6 text-white text-6xl">
+
+        &#10095;
+
+    </button>
+
+    <!-- Counter -->
+
+    <div id="imageCounter"
+         class="absolute bottom-8 text-white text-lg">
+
+        1 / 13
+
+    </div>
+
+</div>
 
             <!-- Bottom Restaurant Images -->
 
-            <div class="lg:col-span-4 overflow-hidden rounded-lg">
-                <img src="./images/G11.png"
+<div class="gallery-item lg:col-span-4 overflow-hidden rounded-lg"
+     data-category="ambience"
+     data-all="true">
+                     <img src="./images/G11.png"
                     onclick="openModal(this.src)"
                     class="w-full h-56 object-cover cursor-pointer hover:scale-110 transition duration-500">
             </div>
 
-            <div class="lg:col-span-4 overflow-hidden rounded-lg">
-                <img src="./images/G12.png"
+<div class="gallery-item lg:col-span-4 overflow-hidden rounded-lg"
+     data-category="facade"
+     data-all="true">
+                     <img src="./images/G12.png"
                     onclick="openModal(this.src)"
                     class="w-full h-56 object-cover cursor-pointer hover:scale-110 transition duration-500">
             </div>
 
-            <div class="lg:col-span-4 overflow-hidden rounded-lg">
-                <img src="./images/G13.png"
+<div class="gallery-item lg:col-span-4 overflow-hidden rounded-lg"
+     data-category="ambience"
+     data-all="true">                <img src="./images/G13.png"
                     onclick="openModal(this.src)"
                     class="w-full h-56 object-cover cursor-pointer hover:scale-110 transition duration-500">
             </div>
@@ -382,12 +1078,11 @@
     </div>
 
 </section>
-
-<footer class="bg-[#153E17] text-white">
+<footer class="bg-[#153E17] mt-20 text-white">
 
     <div class="max-w-7xl mx-auto px-6 py-16">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ">
 
             <!-- Logo -->
             <div class="flex flex-col justify-center items-start">
@@ -400,33 +1095,67 @@
 
             </div>
 
-            <!-- Quick Links -->
+             <!-- Quick Links -->
+
             <div>
 
-                <h3 class="font-primary text-2xl font-bold mb-6">
+                <h3 class="font-primary text-2xl mb-6">
+
                     QUICK LINKS
+
                 </h3>
 
-                <ul class="space-y-3 font-secondary">
-                     <li><a href="./index.html">HOME</a></li>
-                    <li><a href="./Menu.html">MENU</a></li>
-                    <li><a href="./Gallery.html">GALLERY</a></li>
-                    <li><a href="./About_us.html">ABOUT US</a></li>
-                    <li><a href="./Contact_Us.html">CONTACT US</a></li>
+                <ul class="space-y-4">
+
+                    <li>
+                        <a href="./index.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./Menu.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        Menu
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./Gallery.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        Gallery
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./About_us.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./Contact_Us.html"
+                        class="hover:text-[#A6833E] duration-300">
+                        Contact
+                        </a>
+                    </li>
 
                 </ul>
 
             </div>
 
-            <!-- Contact -->
            
+           <!-- Contact -->
 <div>
 
     <h3 class="font-primary text-2xl font-bold mb-6">
         CONTACT US
     </h3>
 
-    <div class="space-y-4 font-secondary">
+    
+    <div class="space-y-4 font-secondary ">
 <!-- Phone -->
 <div class="flex items-center gap-5">
     <img
@@ -460,15 +1189,14 @@
         Rajasthan, 302004 India
     </p>
 </div>
-
         <!-- Social Media Icons -->
-        <div class="flex gap-4 pt-3">
+        <div class="flex gap-4 pt-3 ">
 
             <a href="#">
                 <img
                     src="./images/twitter.png"
                     alt="Twitter"
-                    class="w-8 h-8 hover:scale-110 transition"
+                   class="w-8 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"
                 >
             </a>
 
@@ -476,15 +1204,14 @@
                 <img
                     src="./images/facebook.png"
                     alt="Facebook"
-                    class="w-8 h-8 hover:scale-110 transition"
-                >
+class="w-8 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"                >
             </a>
 
             <a href="#">
                 <img
                     src="./images/Insta.png"
                     alt="Instagram"
-                    class="w-8 h-8 hover:scale-110 transition"
+                    class="w-8 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"
                 >
             </a>
 
@@ -492,7 +1219,7 @@
                 <img
                     src="./images/utube.png"
                     alt="youtube"
-                    class="w-10 h-8 hover:scale-110 transition"
+                    class="w-10 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"
                 >
             </a>
 
@@ -516,21 +1243,22 @@
                     <p>Monday - Friday</p>
                     <p>11:00 AM - 11:00 PM</p>
 
-                   <div
+                    
+                <div
                 class="mt-8
                  p-1">
 
                     <h4
                     class="font-primary
                     text-xl
-                    mb-2
+                    mb-3
                     text-[#FFF0D2]">
 
                         Reserve Early
 
                     </h4>
 
-                    <p class="text-gray-300 text-sm">
+                    <p class="text-white ">
 
                         Weekend tables fill up quickly.
                         Reserve in advance for the best experience.
@@ -538,7 +1266,6 @@
                     </p>
 
                 </div>
-
                 </div>
 
             </div>
@@ -569,34 +1296,83 @@
     </div>
 
 </footer>
-<div id="imageModal"
-    class="fixed inset-0 bg-black/95 hidden z-50 flex items-center justify-center p-4">
-
-    <span onclick="closeModal()"
-        class="absolute top-6 right-8 text-white text-6xl cursor-pointer">
-        &times;
-    </span>
-
-    <img id="modalImage"
-        class="max-w-full max-h-full rounded-lg">
-</div>
 <script>
-function openModal(imageSrc) {
-    document.getElementById('imageModal').classList.remove('hidden');
-    document.getElementById('modalImage').src = imageSrc;
-    document.body.style.overflow = 'hidden';
-}
 
-function closeModal() {
-    document.getElementById('imageModal').classList.add('hidden');
-    document.body.style.overflow = 'auto';
-}
+/* ===========================
+      Gallery Filter
+=========================== */
 
-// Close modal when clicking outside image
-document.getElementById('imageModal').addEventListener('click', function(e) {
-    if (e.target === this) {
-        closeModal();
-    }
+const filterButtons = document.querySelectorAll(".filter-btn");
+const galleryItems = document.querySelectorAll(".gallery-item");
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        // Remove active button
+
+        filterButtons.forEach(btn =>
+            btn.classList.remove("active-filter")
+        );
+
+        // Add active
+
+        button.classList.add("active-filter");
+
+        const filter = button.dataset.filter;
+
+        galleryItems.forEach(item => {
+
+            item.classList.add("hide");
+
+            setTimeout(() => {
+
+                if(filter === "all"){
+
+                    if(item.dataset.all === "true"){
+
+                        item.style.display="block";
+
+                        item.classList.remove("hide");
+
+                        item.classList.add("show");
+
+                    }
+
+                    else{
+
+                        item.style.display="none";
+
+                    }
+
+                }
+
+                else{
+
+                    if(item.dataset.category===filter){
+
+                        item.style.display="block";
+
+                        item.classList.remove("hide");
+
+                        item.classList.add("show");
+
+                    }
+
+                    else{
+
+                        item.style.display="none";
+
+                    }
+
+                }
+
+            },200);
+
+        });
+
+    });
+
 });
 </script>
 
