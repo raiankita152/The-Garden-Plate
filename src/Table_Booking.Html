@@ -445,6 +445,7 @@ gap-6">
         <!-- Title -->
 
         <select
+        id="title"
             required
             class="input-field
             border
@@ -467,10 +468,11 @@ gap-6">
 
 
         </select>
-
+<small id="titleError" class="text-red-600 text-sm hidden mt-1 block"></small>
         <!-- First Name -->
 
         <input
+          id="firstName"
            type="text"
            required
            maxlength="30"
@@ -488,10 +490,13 @@ gap-6">
             focus:border-[#153E17]
             focus:ring-2
             focus:ring-[#A6833E]/30">
+             <small id="firstNameError" class="text-red-600 text-sm hidden mt-1 block"></small>
+
 
         <!-- Last Name -->
 
         <input
+            id="lastName"
             type="text"
              required
              maxlength="30"
@@ -509,6 +514,7 @@ gap-6">
             focus:border-[#153E17]
             focus:ring-2
             focus:ring-[#A6833E]/30">
+            <small id="lastNameError" class="text-red-600 text-sm hidden mt-1 block"></small>
 
     </div>
 
@@ -527,7 +533,7 @@ Phone Number
 </label>
 
 <input
-
+ id="phone"
 type="tel"
 
 required
@@ -545,6 +551,8 @@ py-3
 outline-none
 focus:border-[#153E17]">
 
+<small id="phoneError" class="text-red-600 text-sm hidden mt-1 block"></small>
+
 </div>
 
 <!-- Date -->
@@ -558,7 +566,7 @@ Date
 </label>
 
 <input
-
+id="date"
 type="date"
 
 required
@@ -573,6 +581,7 @@ px-4
 py-3
 outline-none
 focus:border-[#153E17]">
+<small id="dateError" class="text-red-600 text-sm hidden mt-1 block"></small>
 
 </div>
 <!-- Time -->
@@ -586,6 +595,7 @@ Time
 </label>
 
 <select
+id="time"
 required
 class="input-field
 mt-2
@@ -625,6 +635,7 @@ focus:border-[#153E17]">
 <option>10:00 PM - 11:00 PM</option>
 
 </select>
+<small id="timeError" class="text-red-600 text-sm hidden mt-1 block"></small>
 
 </div>
 
@@ -645,6 +656,7 @@ Member
 </label>
 
 <input
+id="guests"
 type="number"
 required
 min="1"
@@ -663,6 +675,7 @@ outline-none
 focus:border-[#153E17]
 focus:ring-2
 focus:ring-[#A6833E]/30">
+<small id="guestError" class="text-red-600 text-sm hidden mt-1 block"></small>
 
 </div>
 </div>
@@ -1020,52 +1033,7 @@ Close
 
 </div>
 
-<!-- ============================= -->
-<!-- JAVASCRIPT -->
-<!-- ============================= -->
 
-<script>
-
-const bookingForm=document.getElementById("bookingForm");
-
-const successModal=document.getElementById("successModal");
-
-const closeModal=document.getElementById("closeModal");
-const closeIcon=document.getElementById("closeIcon");
-
-bookingForm.addEventListener("submit",(e)=>{
-
-e.preventDefault();
-
-successModal.classList.remove("hidden");
-
-bookingForm.reset();
-
-});
-
-closeModal.addEventListener("click",()=>{
-
-successModal.classList.add("hidden");
-});
-closeIcon.addEventListener("click",()=>{
-
-successModal.classList.add("hidden");
-
-
-});
-
-window.addEventListener("click",(e)=>{
-
-if(e.target===successModal){
-
-successModal.classList.add("hidden");
-
-}
-
-});
-
-
-</script>
 <!-- ================================================= -->
 <!-- FOOTER -->
 <!-- ================================================= -->
@@ -1335,6 +1303,11 @@ successModal.classList.add("hidden");
 
 </footer>
 
+<!-- ============================= -->
+<!-- JAVASCRIPT -->
+<!-- ============================= -->
+
+
 <!-- ================================================= -->
 <!-- MOBILE NAVBAR -->
 <!-- ================================================= -->
@@ -1418,6 +1391,307 @@ link.classList.add(
 );
 
 }
+
+});
+
+const bookingForm = document.getElementById("bookingForm");
+
+const successModal = document.getElementById("successModal");
+const closeModal = document.getElementById("closeModal");
+const closeIcon = document.getElementById("closeIcon");
+
+//======================
+// Inputs
+//======================
+
+const titleInput = document.getElementById("title");
+const firstNameInput = document.getElementById("firstName");
+const lastNameInput = document.getElementById("lastName");
+const phoneInput = document.getElementById("phone");
+const dateInput = document.getElementById("date");
+const timeInput = document.getElementById("time");
+const guestsInput = document.getElementById("guests");
+
+//======================
+// Error Boxes
+//======================
+
+const titleError = document.getElementById("titleError");
+const firstNameError = document.getElementById("firstNameError");
+const lastNameError = document.getElementById("lastNameError");
+const phoneError = document.getElementById("phoneError");
+const dateError = document.getElementById("dateError");
+const timeError = document.getElementById("timeError");
+const guestError = document.getElementById("guestError");
+
+//======================
+// Functions
+//======================
+
+function showError(input, errorBox, message) {
+
+    input.classList.add("border-red-500");
+
+    errorBox.textContent = message;
+
+    errorBox.classList.remove("hidden");
+
+}
+
+function clearError(input, errorBox) {
+
+    input.classList.remove("border-red-500");
+
+    errorBox.textContent = "";
+
+    errorBox.classList.add("hidden");
+
+}
+
+//======================
+// Live Validation
+//======================
+
+// Title
+titleInput.addEventListener("change", function(){
+
+    if(this.value===""){
+
+        showError(titleInput,titleError,
+        "Please select a title.");
+
+    }else{
+
+        clearError(titleInput,titleError);
+
+    }
+
+});
+// First Name
+
+firstNameInput.addEventListener("input", function () {
+
+    const value = this.value.trim();
+
+    if (/^[A-Za-z ]+$/.test(value) && value.length >= 2) {
+
+        clearError(firstNameInput, firstNameError);
+
+    } else {
+
+        showError(firstNameInput, firstNameError,
+            "Only alphabets are allowed.");
+
+    }
+
+});
+
+// Last Name
+lastNameInput.addEventListener("input", function () {
+
+    const value = this.value.trim();
+
+    if (/^[A-Za-z ]+$/.test(value) && value.length >= 2) {
+
+        clearError(lastNameInput, lastNameError);
+
+    } else {
+
+        showError(lastNameInput, lastNameError,
+            "Only alphabets are allowed.");
+
+    }
+
+});
+
+// Phone
+
+phoneInput.addEventListener("input", function () {
+
+    this.value = this.value.replace(/\D/g,"").slice(0,10);
+
+    if (/^\d{10}$/.test(this.value)) {
+
+        clearError(phoneInput, phoneError);
+
+    } else {
+
+        showError(phoneInput, phoneError,
+            "Enter exactly 10 digits.");
+
+    }
+
+});
+
+// Date
+
+dateInput.addEventListener("change", function(){
+
+    if(this.value===""){
+
+        showError(dateInput,dateError,
+        "Please select a date.");
+
+        return;
+
+    }
+
+    const today = new Date();
+    today.setHours(0,0,0,0);
+
+    const selected = new Date(this.value);
+
+    if(selected < today){
+
+        showError(dateInput,dateError,
+        "Past dates are not allowed.");
+
+    }else{
+
+        clearError(dateInput,dateError);
+
+    }
+
+});
+
+// Time
+
+timeInput.addEventListener("change", function(){
+
+    if(this.value===""){
+
+        showError(timeInput,timeError,
+        "Please select a time slot.");
+
+    }else{
+
+        clearError(timeInput,timeError);
+
+    }
+
+});
+
+// Guests
+
+guestsInput.addEventListener("input", function(){
+
+    if(this.value==="" || this.value<1 || this.value>20){
+
+        showError(guestsInput,guestError,
+        "Enter 1 to 20 members.");
+
+    }else{
+
+        clearError(guestsInput,guestError);
+
+    }
+
+});
+
+//======================
+// Submit
+//======================
+
+bookingForm.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    let isValid = true;
+
+    if (titleInput.value === "") {
+
+        showError(titleInput, titleError, "Please select a title.");
+        isValid = false;
+
+    }
+
+    if (firstNameInput.value.trim().length < 2) {
+
+        showError(firstNameInput, firstNameError, "Enter a valid first name.");
+        isValid = false;
+
+    }
+
+    if (lastNameInput.value.trim().length < 2) {
+
+        showError(lastNameInput, lastNameError, "Enter a valid last name.");
+        isValid = false;
+
+    }
+
+    if (!/^\d{10}$/.test(phoneInput.value)) {
+
+        showError(phoneInput, phoneError, "Enter a valid 10-digit phone number.");
+        isValid = false;
+
+    }
+
+    if (dateInput.value === "") {
+
+        showError(dateInput, dateError, "Please select a date.");
+        isValid = false;
+
+    } else {
+
+        const selectedDate = new Date(dateInput.value);
+        const today = new Date();
+
+        today.setHours(0,0,0,0);
+
+        if (selectedDate < today) {
+
+            showError(dateInput, dateError, "Past dates are not allowed.");
+            isValid = false;
+
+        }
+
+    }
+
+    if (timeInput.value === "") {
+
+        showError(timeInput, timeError, "Please select a time slot.");
+        isValid = false;
+
+    }
+
+    if (guestsInput.value === "" || guestsInput.value < 1 || guestsInput.value > 20) {
+
+        showError(guestsInput, guestError, "Guests must be between 1 and 20.");
+        isValid = false;
+
+    }
+
+    if (!isValid) return;
+
+    bookingForm.reset();
+
+    successModal.classList.remove("hidden");
+    successModal.classList.add("flex");
+
+});
+
+//======================
+// Popup Close
+//======================
+
+function closeSuccessPopup() {
+
+    successModal.classList.add("hidden");
+    successModal.classList.remove("flex");
+
+}
+
+closeModal.addEventListener("click", closeSuccessPopup);
+
+closeIcon.addEventListener("click", closeSuccessPopup);
+
+window.addEventListener("click", function (e) {
+
+    if (e.target === successModal) {
+
+        closeSuccessPopup();
+
+    }
 
 });
 

@@ -36,6 +36,15 @@
     box-shadow: 0 20px 45px rgba(0,0,0,.18);
 
 }
+.input-error{
+    border:2px solid #dc2626 !important;
+}
+
+.text-error{
+    color:#dc2626;
+    font-size:14px;
+    margin-top:4px;
+}
 
 /* Smooth fade animation */
 
@@ -64,6 +73,21 @@
     animation:fadeUp .8s ease forwards;
 
 }
+/* ========================= */
+/* Form Validation */
+/* ========================= */
+
+.input-error{
+    border: 2px solid #ef4444 !important;
+}
+
+.error-text{
+    color: #ef4444;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+
 </style>
 </head>
 <body class="font-secondary bg-white">
@@ -287,8 +311,7 @@ class="card-hover bg-[#FFF0D2]/30 border border-[#A6833E] rounded-xl p-8 md:p-10
                     </div>
 
                     <!-- Form -->
-                   <form id="contactForm" class="space-y-6">
-
+                     <form id="contactForm" class="space-y-6" novalidate>
                         <div>
                             <label
                                 class="block mb-2 font-medium text-black">
@@ -298,14 +321,15 @@ class="card-hover bg-[#FFF0D2]/30 border border-[#A6833E] rounded-xl p-8 md:p-10
 
                             <input
                                 type="text"
-id="name"
-name="name"
-placeholder="Enter your Name"
-required
-maxlength="50"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your Name"
+                                required
+                                maxlength="50"
 
                                 class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]">
-                        </div>
+                         <small id="nameError" class="text-red-600 text-sm hidden mt-1 block"></small>
+                         </div>
 
                         <div>
                             <label
@@ -321,6 +345,7 @@ maxlength="50"
                                 placeholder="Enter your Email Address"
                                 required
                                 class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]">
+                            <small id="emailError" class="text-red-600 text-sm hidden mt-1 block"></small>
                         </div>
 
                         <div>
@@ -338,7 +363,8 @@ maxlength="50"
                                 required
                                 maxlength="10"
                                 class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]">
-                        </div>
+                              <small id="phoneError" class="text-red-600 text-sm hidden mt-1 block"></small>
+                            </div>
 
                         <div>
                             <label
@@ -356,8 +382,8 @@ maxlength="50"
                                 <option>Reservation</option>
                                 <option>Feedback</option>
                                 <option>Support</option>
-
                             </select>
+                            <small id="subjectError" class="text-red-600 text-sm hidden mt-1 block"></small>
                         </div>
 
                         <div>
@@ -373,7 +399,8 @@ maxlength="50"
                             required
                             maxlength="500"
                             placeholder="Type Your Message"
-                                class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]"></textarea>
+                            class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]"></textarea>
+                            <small id="messageError" class="text-red-600 text-sm hidden mt-1 block"></small>
                         </div>
 
                         <div class="text-center">
@@ -500,9 +527,6 @@ class="card-hover bg-[#FFF0D2]/30 border border-[#A6833E] rounded-xl p-8 md:p-10
                                     Mon - Fri 11:00 AM - 11:00 PM
                                 </p>
 
-                                <p>
-                                    Sat - Sun 11:00 AM - 12:00 PM
-                                </p>
                             </div>
                         </div>
 
@@ -930,7 +954,7 @@ document.querySelectorAll("#mobile-menu a").forEach(link => {
 </script>
 
 <script>
-const contactForm = document.getElementById("contactForm");
+    const contactForm = document.getElementById("contactForm");
 
 const successModal = document.getElementById("successModal");
 const closeModal = document.getElementById("closeModal");
@@ -942,86 +966,288 @@ const phoneInput = document.getElementById("phone");
 const subjectInput = document.getElementById("subject");
 const messageInput = document.getElementById("message");
 
-/* --------------------------
-   LIVE INPUT RESTRICTIONS
--------------------------- */
+const nameError = document.getElementById("nameError");
+const emailError = document.getElementById("emailError");
+const phoneError = document.getElementById("phoneError");
+const subjectError = document.getElementById("subjectError");
+const messageError = document.getElementById("messageError");
 
-// Name → only letters & spaces
-nameInput.addEventListener("input", function () {
-    this.value = this.value.replace(/[^A-Za-z ]/g, "");
+
+/* ==========================
+   Error Functions
+========================== */
+
+function showError(input, errorBox, message){
+
+    input.classList.add("border-red-500");
+    input.classList.remove("border-[#D9C79A]");
+
+    errorBox.textContent = message;
+    errorBox.classList.remove("hidden");
+
+}
+
+function clearError(input, errorBox){
+
+    input.classList.remove("border-red-500");
+    input.classList.add("border-[#D9C79A]");
+
+    errorBox.textContent = "";
+    errorBox.classList.add("hidden");
+
+}
+
+
+/* ==========================
+   Live Validation
+========================== */
+
+// NAME
+nameInput.addEventListener("input", function(){
+
+    const value = this.value.trim();
+
+    if(value === ""){
+
+        showError(nameInput, nameError, "Name is required.");
+
+    }
+
+    else if(!/^[A-Za-z ]+$/.test(value)){
+
+        showError(nameInput, nameError, "Only alphabets are allowed.");
+
+    }
+
+    else{
+
+        clearError(nameInput, nameError);
+
+    }
+
 });
 
-// Phone → only digits, max 10
-phoneInput.addEventListener("input", function () {
-    this.value = this.value.replace(/\D/g, "").slice(0, 10);
+
+// EMAIL
+emailInput.addEventListener("input",function(){
+
+    const email=this.value.trim();
+
+    if(email===""){
+
+        showError(emailInput,emailError,"Email is required.");
+
+    }
+
+    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+
+        showError(emailInput,emailError,"Enter a valid email address.");
+
+    }
+
+    else{
+
+        clearError(emailInput,emailError);
+
+    }
+
 });
 
-/* Clear validation whenever user edits */
-[nameInput, emailInput, phoneInput, subjectInput, messageInput].forEach(input => {
-    input.addEventListener("input", () => {
-        input.setCustomValidity("");
-    });
 
-    input.addEventListener("change", () => {
-        input.setCustomValidity("");
-    });
+// PHONE
+phoneInput.addEventListener("input",function(){
+
+    this.value=this.value.replace(/\D/g,"").slice(0,10);
+
+    if(this.value===""){
+
+        showError(phoneInput,phoneError,"Phone number is required.");
+
+    }
+
+    else if(this.value.length<10){
+
+        showError(phoneInput,phoneError,"Enter exactly 10 digits.");
+
+    }
+
+    else{
+
+        clearError(phoneInput,phoneError);
+
+    }
+
 });
 
-/* --------------------------
-   FORM SUBMIT
--------------------------- */
 
-contactForm.addEventListener("submit", function (e) {
+// SUBJECT
+subjectInput.addEventListener("change",function(){
+
+    if(this.value===""){
+
+        showError(subjectInput,subjectError,"Please select a subject.");
+
+    }
+
+    else{
+
+        clearError(subjectInput,subjectError);
+
+    }
+
+});
+
+
+// MESSAGE
+messageInput.addEventListener("input",function(){
+
+    const msg=this.value.trim();
+
+    if(msg===""){
+
+        showError(messageInput,messageError,"Message is required.");
+
+    }
+
+    else if(msg.length<10){
+
+        showError(messageInput,messageError,"Minimum 10 characters required.");
+
+    }
+
+    else{
+
+        clearError(messageInput,messageError);
+
+    }
+
+});
+
+
+/* ==========================
+   Submit Form
+========================== */
+
+contactForm.addEventListener("submit",function(e){
 
     e.preventDefault();
 
-    const name = nameInput.value.trim();
-    const email = emailInput.value.trim();
-    const phone = phoneInput.value.trim();
-    const subject = subjectInput.value;
-    const message = messageInput.value.trim();
+    let isValid=true;
+
+    const name=nameInput.value.trim();
+    const email=emailInput.value.trim();
+    const phone=phoneInput.value.trim();
+    const subject=subjectInput.value;
+    const message=messageInput.value.trim();
+
 
     // Name
-    if (!/^[A-Za-z ]+$/.test(name)) {
-        nameInput.setCustomValidity("Only alphabets are allowed.");
-        nameInput.reportValidity();
-        nameInput.focus();
-        return;
+    if(name===""){
+
+        showError(nameInput,nameError,"Name is required.");
+        isValid=false;
+
     }
+
+    else if(!/^[A-Za-z ]+$/.test(name)){
+
+        showError(nameInput,nameError,"Only alphabets are allowed.");
+        isValid=false;
+
+    }
+
+    else{
+
+        clearError(nameInput,nameError);
+
+    }
+
 
     // Email
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        emailInput.setCustomValidity("Enter a valid email address.");
-        emailInput.reportValidity();
-        emailInput.focus();
-        return;
+    if(email===""){
+
+        showError(emailInput,emailError,"Email is required.");
+        isValid=false;
+
     }
+
+    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+
+        showError(emailInput,emailError,"Enter a valid email address.");
+        isValid=false;
+
+    }
+
+    else{
+
+        clearError(emailInput,emailError);
+
+    }
+
 
     // Phone
-    if (!/^\d{10}$/.test(phone)) {
-        phoneInput.setCustomValidity("Enter exactly 10 digits.");
-        phoneInput.reportValidity();
-        phoneInput.focus();
-        return;
+    if(phone===""){
+
+        showError(phoneInput,phoneError,"Phone number is required.");
+        isValid=false;
+
     }
+
+    else if(phone.length!==10){
+
+        showError(phoneInput,phoneError,"Enter exactly 10 digits.");
+        isValid=false;
+
+    }
+
+    else{
+
+        clearError(phoneInput,phoneError);
+
+    }
+
 
     // Subject
-    if (subject === "") {
-        subjectInput.setCustomValidity("Please select a subject.");
-        subjectInput.reportValidity();
-        subjectInput.focus();
-        return;
+    if(subject===""){
+
+        showError(subjectInput,subjectError,"Please select a subject.");
+        isValid=false;
+
     }
+
+    else{
+
+        clearError(subjectInput,subjectError);
+
+    }
+
 
     // Message
-    if (message.length < 10) {
-        messageInput.setCustomValidity("Message must contain at least 10 characters.");
-        messageInput.reportValidity();
-        messageInput.focus();
-        return;
+    if(message===""){
+
+        showError(messageInput,messageError,"Message is required.");
+        isValid=false;
+
     }
 
-    // Everything is valid
+    else if(message.length<10){
+
+        showError(messageInput,messageError,"Minimum 10 characters required.");
+        isValid=false;
+
+    }
+
+    else{
+
+        clearError(messageInput,messageError);
+
+    }
+
+
+    if(!isValid) return;
+
+
+    // Success Popup
 
     contactForm.reset();
 
@@ -1030,24 +1256,35 @@ contactForm.addEventListener("submit", function (e) {
 
 });
 
-/* --------------------------
-   CLOSE POPUP
--------------------------- */
 
-function closeSuccessPopup() {
+/* ==========================
+   Close Success Popup
+========================== */
+
+function closeSuccessPopup(){
+
     successModal.classList.add("hidden");
     successModal.classList.remove("flex");
+
 }
 
-closeModal.addEventListener("click", closeSuccessPopup);
-closeIcon.addEventListener("click", closeSuccessPopup);
+closeModal.addEventListener("click",closeSuccessPopup);
 
-window.addEventListener("click", function (e) {
-    if (e.target === successModal) {
+closeIcon.addEventListener("click",closeSuccessPopup);
+
+window.addEventListener("click",function(e){
+
+    if(e.target===successModal){
+
         closeSuccessPopup();
+
     }
+
 });
 </script>
+
+
+
 <script>
 
 const reveals=document.querySelectorAll(".card-hover");
