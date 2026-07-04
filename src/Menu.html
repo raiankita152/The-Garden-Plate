@@ -130,7 +130,6 @@ transform:scaleX(1);
 }
 
 }
-
     </style>
 
 </head>
@@ -377,7 +376,7 @@ class="hero-title font-primary text-[#FFF0D2] text-5xl md:text-7xl font-bold">
 
         <button
             class="filter-btn card-hover active-filter px-6 py-3 border border-[#153E17] rounded-lg"
-            data-filter="all">
+            data-filter="top">
 
             Top Dishes
 
@@ -418,130 +417,1000 @@ class="filter-btn card-hover px-6 py-3 border border-[#153E17] rounded-lg transi
 
 </section>
 <section class="py-16 px-4">
-
-    <div id="menuContainer"
-        class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-
+<div id="menuContainer"
+class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
         <!-- CARD 1 -->
-        <div class="menu-card starter bg-white rounded-xl border shadow-md hover:shadow-xl transition duration-500 p-6">
+       <div class="menu-card top  starter bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
 
-            <div class="flex flex-col md:flex-row items-center gap-6">
+    <!-- Image -->
+    <div class="relative image-hover">
 
-                <div class="flex-1">
+        <img
+            src="./images/CRISPY CALAMAR RINGS.png"
+            alt="Crispy Calamari Rings"
+            class="w-full h-64 object-cover transition duration-700">
 
-                    <h3 class="font-primary text-2xl font-bold mb-4">
-                        Crispy Calamari Rings
-                    </h3>
+        <!-- Badge -->
+        <span class="absolute top-3 left-3 bg-[#B88A3B] text-white text-xs px-3 py-1 rounded-full">
+            Signature
+        </span>
 
-                    <p class="text-black-600 text-xs font-secondary">
-Tender squid rings lightly coated in seasoned batter and fried until perfectly 
-golden and crispy. Served with a creamy garlic aioli dip for a delightful balance of crunch and flavor.   </p>             </p>
+    </div>
 
-                </div>
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
 
-               <div class="image-hover rounded-lg">
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+            CRISPY CALAMARI RINGS
+        </h3>
 
-                    <img src="./images/Crispy Calamari Rings.jpg"
-                        class="w-52 h-40 object-cover hover:scale-110 transition duration-700">
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+            Tender squid rings lightly coated in seasoned batter and fried
+            until perfectly golden and crispy.
+        </p>
 
-                </div>
+        <div class="flex justify-between items-center mt-6">
 
-            </div>
+            <h4 class="text-2xl font-semibold">
+                ₹1359
+            </h4>
 
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="menu-card beverage bg-white rounded-xl border shadow-md hover:shadow-xl transition duration-500 p-6">
-
-            <div class="flex flex-col md:flex-row items-center gap-6">
-
-                <div class="flex-1">
-
-                    <h3 class="font-primary text-2xl font-bold mb-4">
-                        Caramel Macchiato
-                    </h3>
-
-                    
-                    <p class="text-black-600 text-xs font-secondary">
-                        A luxurious blend of steamed milk and rich espresso, layered with smooth caramel sauce for a perfectly balanced sweetness.
-                         Finished with a caramel drizzle, creating a creamy and indulgent coffee experience.
-                    </p>
-
-                </div>
-
-                <div class="overflow-hidden rounded-lg">
-
-                    <img src="./images/Caramel Macchiato.jpg"
-                        class="w-52 h-40 object-cover hover:scale-110 transition duration-700">
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="menu-card starter bg-white rounded-xl border shadow-md hover:shadow-xl transition duration-500 p-6">
-
-            <div class="flex flex-col md:flex-row items-center gap-6">
-
-                <div class="flex-1">
-
-                    <h3 class="font-primary text-2xl font-bold mb-4">
-                        Crispy Pesarattu
-                    </h3>
-
-                    
-                    <p class="text-black-600 text-xs font-secondary">
-                       A traditional South Indian crepe made from green gram (moong dal), cooked until golden and crispy for a delightful crunch.
-                        Served with fresh coconut chutney and spicy ginger chutney, offering a perfect blend of flavor and authenticity.
-                    </p>
-
-                </div>
-
-                <div class="overflow-hidden rounded-lg">
-
-                    <img src="./images/Crispy Pesarattu.jpg"
-                        class="w-52 h-40 object-cover hover:scale-110 transition duration-700">
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="menu-card main bg-white rounded-xl border shadow-md hover:shadow-xl transition duration-500 p-6">
-
-            <div class="flex flex-col md:flex-row items-center gap-6">
-
-                <div class="flex-1">
-
-                    <h3 class="font-primary text-2xl font-bold mb-4">
-                        Stuffed Chicken Roll
-                    </h3>
-
-                   
-                    <p class="text-black-600 text-xs font-secondary">
-                       Tender chicken breast rolled and stuffed with creamy ricotta cheese, fresh herbs, and aromatic seasonings, then roasted to perfection. Served with garlic butter sauce and seasonal vegetables for a rich and
-                        elegant dining experience
-                    </p>
-
-                </div>
-
-                <div class="overflow-hidden rounded-lg">
-
-                    <img src="./images/Herbed Ricotta Stuffed Chicken Roll.jpg"
-                        class="w-52 h-40 object-cover hover:scale-110 transition duration-700">
-
-                </div>
-
-            </div>
+            <img
+                src="./images/non-veg.png"
+                class="w-6 h-6"
+                alt="Non Veg">
 
         </div>
 
     </div>
 
+</div>
+
+<!-- STARTER -->
+       <div class="menu-card starter bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/idli.png"
+            alt="Idli"
+            class="w-full h-64 object-cover transition duration-700">
+
+        
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+            SOFT CLOUD IDLIS
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+            Soft, fluffy steamed rice cakes served with flavorful sambar and fresh coconut chutney for a wholesome South Indian classic.
+        </p>
+
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1359
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- STARTER -->
+       <div class="menu-card   starter bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/Crispy Chilli Chicken.png"
+            alt="Crispy Chilli Chicken"
+            class="w-full h-64 object-cover transition duration-700">
+
+        
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+            CRISPY CHILLI CHICKEN
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+          Tender chicken tossed in a bold, spicy chilli sauce with crunchy vegetables for the perfect balance of heat and flavor.
+        </p>
+
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1299
+            </h4>
+
+            <img
+                src="./images/non-veg.png"
+                class="w-6 h-6"
+                alt="Non Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- starter-->
+       <div class="menu-card starter bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/CRISPY PESARATTU.png"
+            alt="Crispy Pesarattu"
+            class="w-full h-64 object-cover transition duration-700">
+
+        
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+            CRISPY PESARATTU
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+            A golden, crispy green gram crepe served with flavorful chutneys for an authentic and wholesome South Indian delight.
+        </p>
+
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1359
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- CARD 2 -->
+       <div class="menu-card top main  bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/paneerlababdar.png"
+            alt="Paneer Lababdar"
+            class="w-full h-64 object-cover">
+
+        
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+          PANEER LABABDAR
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+           A rich and creamy paneer dish cooked in a spiced tomato-based sauce.
+        </p>
+
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1199
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--card 5-->
+<div class="menu-card top starter bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/Herb-Crusted Fish Fingers.png"
+            alt="Herb-Crusted Fish Fingers"
+            class="w-full h-64 object-cover">
+
+        <!-- Badge -->
+        <span class="absolute top-3 left-3 bg-[#B88A3B] text-white text-xs px-3 py-1 rounded-full">
+            Best Seller
+        </span>
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+            HERB-CRUSTED FISH FINGERS
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+            Delicately seasoned herb-crusted fish fingers, perfectly golden and crispy.
+        </p>
+
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1059
+            </h4>
+
+            <img
+                src="./images/non-veg.png"
+                class="w-6 h-6"
+                alt="Non Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- STARTER -->
+       <div class="menu-card starter bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/Fiery Cottage Cheese Bites.png"
+            alt="Fiery Cottage Cheese Bites"
+            class="w-full h-64 object-cover transition duration-700">
+
+        
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+           FIERY COTTAGE CHEESE BITES
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+            Crispy cottage cheese bites tossed in a bold blend of fiery spices and peppers for a flavor-packed appetizer.       </p>
+
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1159
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--Card 6-->
+<div class="menu-card  beverage bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/ROSE CITRUS SPARKLER.png"
+            alt="ROSE CITRUS SPARKLER"
+            class="w-full h-64 object-cover">
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+           ROSE CITRUS SPARKLER
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+Delicate rose meets vibrant citrus in a crisp sparkling refreshment.</p>
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1349
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Non Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--Card dessert-->
+<div class="menu-card dessert bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/MIDNIGHT CHOCOLATE SYMPHONY.png"
+            alt="MIDNIGHT CHOCOLATE SYMPHONY"
+            class="w-full h-64 object-cover">
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+         MIDNIGHT CHOCOLATE SYMPHONY
+
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+Velvety dark chocolate mousse layered with delicate cocoa sponge and silky ganache.</p>
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹999
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--Card dessert-->
+<div class="menu-card  dessert bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/Kesar Pistachio Kulfi.png"
+            alt="KESAR PISTACHIO KULFI"
+            class="w-full h-64 object-cover">
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+KESAR PISTACHIO KULFI
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+A creamy traditional kulfi enriched with aromatic saffron and crunchy pistachios for an indulgent frozen treat.</p>
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹999
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+       
+
+
+<!--Card dessert-->
+<div class="menu-card dessert bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/Shahi Tukda Supreme.png"
+            alt="SHAHI TUKDA SUPREME"
+            class="w-full h-64 object-cover">
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+SHAHI TUKDA SUPREME
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+A royal Indian dessert featuring crispy saffron-soaked bread layered with rich rabri and garnished with premium nuts.</p>
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1399
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--Card dessert-->
+<div class="menu-card top dessert bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/Rose & Paan Mousse.png"
+            alt="ROSE & PAAN MOUSSE"
+            class="w-full h-64 object-cover">
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+ROSE & PAAN MOUSSE
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+A silky mousse infused with fragrant rose and refreshing paan flavors for a uniquely Indian dessert experience.</p>
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1149
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--Card 6-->
+<div class="menu-card beverage bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/Hazelnut Signature Brew.png"
+            alt="Hazelnut Signature BreW"
+            class="w-full h-64 object-cover">
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+          HAZELNUT SIGNATURE BREW
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+A rich, aromatic coffee infused with roasted hazelnut notes and a velvety finish.</p>
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1499
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Non Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+ <!-- MAIN COURSE -->
+      <div class="menu-card  main bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/Murg Lababdar.png"
+            alt="Murg Lababdar"
+            class="w-full h-64 object-cover">
+
+        
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+          CHICKEN KALIMIRCHI
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+Tender chicken simmered in a creamy black pepper gravy infused with aromatic Indian spices.        </p>
+
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1389
+            </h4>
+
+            <img
+                src="./images/non-veg.png"
+                class="w-6 h-6"
+                alt="Non Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+ <!-- CARD 4 -->
+      <div class="menu-card  main bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/Chicken Dum Biryani.png"
+            alt="Chicken Dum Biryani"
+            class="w-full h-64 object-cover">
+
+        
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+         CHICKEN DUM BIRYANI
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+Fragrant basmati rice and tender chicken slow-cooked with aromatic spices in the traditional dum style for an unforgettable feast.       </p>
+
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1389
+            </h4>
+
+            <img
+                src="./images/non-veg.png"
+                class="w-6 h-6"
+                alt="Non Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+ <!-- MAIN COURSE -->
+      <div class="menu-card  main bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/HERB & CHEESE STUFFED PEPPERS.png"
+            alt="HERB & CHEESE STUFFED PEPPERS"
+            class="w-full h-64 object-cover">
+
+        
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+         HERB & CHEESE STUFFED PEPPERS
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+Oven-baked bell peppers filled with a savory vegetable stuffing and topped with a golden, bubbly cheese crust.        </p>
+
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1389
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+ <!-- MAIN COURSE-->
+      <div class="menu-card top main bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/saffron vegetable biryani.png"
+            alt="Saffron Vegetable Biryani"
+            class="w-full h-64 object-cover">
+
+        
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+          SAFFRON VEGETABLE BIRYANI
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+Fragrant basmati rice layered with garden-fresh vegetables, saffron, and aromatic spices for a flavorful vegetarian delight.       </p>
+
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1389
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--Card BEVERAGE-->
+<div class="menu-card top beverage bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/Tropical Sunset Punch.png"
+            alt="Tropical Sunset Punch"
+            class="w-full h-64 object-cover">
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+         TROPICAL SUNSET PUNCH
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+A refreshing blend of tropical fruits and a hint of citrus, served over ice.</p>
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1099
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Non Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--Card DESSERT-->
+<div class="menu-card dessert bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/Berry Bliss Bowl.png"
+            alt="Berry Bliss Bowl"
+            class="w-full h-64 object-cover">
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+            BERRY BLISS BOWL
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+A vibrant medley of fresh berries, creamy yogurt, and crunchy granola.</p>  
+      <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1349
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--Card BEVERAGE-->
+<div class="menu-card beverage bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/Blue Lagoon Bliss.jpg"
+            alt="Blue Lagoon Bliss"
+            class="w-full h-64 object-cover">
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+        BLUE LAGOON BLISS
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+A cool, citrusy mocktail with a stunning blue hue that's as refreshing as it is eye-catching.</p>
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1299
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--Card BEVERAGE-->
+<div class="menu-card beverage bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/Belgian Chocolate Shake.jpg"
+            alt="Belgian Chocolate Shake"
+            class="w-full h-64 object-cover">
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+       BELGIAN CHOCOLATE SHAKE
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+A rich, creamy shake with a delightful chocolate flavor that's sure to satisfy your sweet tooth.</p>
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1349
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--Card BEVERAGE-->
+<div class="menu-card beverage bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/Kashmiri Kahwa.png"
+            alt="Kashmiri Kahwa"
+            class="w-full h-64 object-cover">
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+       KASHMIRI KAHWA
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+A fragrant traditional Kashmiri tea infused with saffron, spices, and almonds for a soothing, aromatic experience.</p>
+        <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1199
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--Card MAIN COURSE-->
+<div class="menu-card main bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/mediterranean salad.png"
+            alt="Berry Bliss Bowl"
+            class="w-full h-64 object-cover">
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+         MEDITERRANEAN SALAD
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+Crisp garden vegetables, olives, and feta cheese tossed in a zesty herb vinaigrette.</p>  
+      <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1349
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
+<!--Card DESSERT-->
+<div class="menu-card dessert bg-white rounded-xl border border-[#D9C6A5] overflow-hidden card-hover">
+
+    <!-- Image -->
+    <div class="relative image-hover">
+
+        <img
+            src="./images/tiramisu.png"
+            alt="TIRAMISU"
+            class="w-full h-64 object-cover">
+
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex flex-col h-[260px]">
+
+        <h3 class="font-primary text-2xl font-semibold text-[#222] leading-tight">
+            TIRAMISU
+        </h3>
+
+        <p class="mt-5 text-black-600 text-sm leading-6 flex-grow">
+A heavenly blend of coffee-soaked layers and velvety mascarpone that melts in every bite.</p>  
+      <div class="flex justify-between items-center mt-6">
+
+            <h4 class="text-2xl font-semibold">
+                ₹1599
+            </h4>
+
+            <img
+                src="./images/veg.png"
+                class="w-6 h-6"
+                alt="Veg">
+
+        </div>
+
+    </div>
+
+</div>
 </section>
        <footer class="bg-[#153E17] mt-20 text-white">
 
@@ -788,49 +1657,45 @@ document.querySelectorAll("#mobile-menu a").forEach(link => {
 
 
 /* Filter */
+const filterBtns = document.querySelectorAll(".filter-btn");
+const cards = document.querySelectorAll(".menu-card");
 
-const filterBtns =
-document.querySelectorAll(".filter-btn");
+filterBtns.forEach(btn => {
 
-const cards =
-document.querySelectorAll(".menu-card");
+    btn.addEventListener("click", () => {
 
-filterBtns.forEach(btn=>{
+        filterBtns.forEach(button =>
+            button.classList.remove("active-filter")
+        );
 
-btn.addEventListener("click",()=>{
+        btn.classList.add("active-filter");
 
-filterBtns.forEach(button=>{
+        const filter = btn.dataset.filter;
 
-button.classList.remove("active-filter");
+        cards.forEach(card => {
 
-});
+            if (filter === "all") {
 
-btn.classList.add("active-filter");
+                card.style.display = "block";
 
-const filter =
-btn.dataset.filter;
+            } else if (card.classList.contains(filter)) {
 
-cards.forEach(card=>{
+                card.style.display = "block";
 
-if(
-filter==="all" ||
-card.classList.contains(filter)
-){
+            } else {
 
-card.style.display="block";
+                card.style.display = "none";
 
-}
-else{
+            }
 
-card.style.display="none";
+        });
 
-}
+    });
 
 });
 
-});
-
-});
+// Show Top Dishes on page load
+document.querySelector('[data-filter="top"]').click();
 
 /* Search */
 
