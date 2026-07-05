@@ -915,8 +915,6 @@ class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-a
     placeholder="Enter your Name"
     required
     maxlength="50"
-    pattern="[A-Za-z ]+"
-    title="Only alphabets and spaces are allowed."
     class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]">
 
         </div>
@@ -933,6 +931,7 @@ class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-a
 
                 <div class="rating">
                     <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                     <input type="hidden" name="foodRating" required>
                 </div>
 
             </div>
@@ -945,6 +944,7 @@ class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-a
 
                 <div class="rating">
                     <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                     <input type="hidden" name="serviceRating" required>
                 </div>
 
             </div>
@@ -958,6 +958,7 @@ class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-a
 
                 <div class="rating">
                     <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                     <input type="hidden" name="cleanlinessRating" required>
                 </div>
 
             </div>
@@ -1325,8 +1326,6 @@ feedbackName.addEventListener("input", function () {
 
     this.setCustomValidity("");
 
-    this.value = this.value.replace(/[^A-Za-z ]/g, "");
-
 });
 
 feedbackBtn.addEventListener("click", () => {
@@ -1383,6 +1382,7 @@ function closeFeedback(){
 document.querySelectorAll(".rating").forEach(group=>{
 
     const stars = group.querySelectorAll("span");
+    const input = group.querySelector("input");
 
     let selected = -1;
 
@@ -1401,6 +1401,7 @@ document.querySelectorAll(".rating").forEach(group=>{
         star.addEventListener("click",()=>{
 
             selected=index;
+            input.value = index + 1;
 
         });
 
@@ -1428,22 +1429,51 @@ feedbackForm.addEventListener("submit", function(e){
 
     feedbackName.setCustomValidity("");
 
-    if (!/^[A-Za-z ]+$/.test(name)) {
+  if(name===""){
 
-        feedbackName.setCustomValidity("Only alphabets and spaces are allowed.");
-        feedbackName.reportValidity();
+    feedbackName.setCustomValidity("Please enter your name.");
+    feedbackName.reportValidity();
+    return;
+
+}
+
+if(!/^[A-Za-z ]+$/.test(name)){
+
+    feedbackName.setCustomValidity("Name should contain only alphabets and spaces.");
+    feedbackName.reportValidity();
+    return;
+
+}
+const ratings=document.querySelectorAll(".rating");
+
+for(const rating of ratings){
+
+    const input=rating.querySelector("input");
+
+    if(input.value===""){
+
+        alert("Please give ratings for all sections.");
+
         return;
 
     }
 
-    // Reset the form
-    feedbackForm.reset();
+}
 
-    // Remove selected stars
-    document.querySelectorAll(".rating span").forEach(star=>{
+    // Reset the form
+  feedbackForm.reset();
+
+document.querySelectorAll(".rating").forEach(group=>{
+
+    group.querySelectorAll("span").forEach(star=>{
+
         star.classList.remove("active");
+
     });
 
+    group.querySelector("input").value="";
+
+});
     // Close feedback popup
     closeFeedback();
 

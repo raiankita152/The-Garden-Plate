@@ -20,8 +20,7 @@
     .font-secondary{
         font-family:'Lato';
     }
-    
-    /* Filter buttons: default = outlined, active = filled green (matches BOOK A TABLE button) */
+       /* Filter buttons: default = outlined, active = filled green (matches BOOK A TABLE button) */
     .filter-btn {
         background-color: #fff;
         color: #153E17;
@@ -44,7 +43,6 @@
         overflow: hidden;
         border-radius: 0.5rem;
         cursor: pointer;
-        aspect-ratio: 4 / 3;
     }
     .gallery-item img {
         width: 100%;
@@ -66,23 +64,25 @@
     .gallery-item:hover::after {
         opacity: 1;
     }
-    .gallery-item .zoom-icon {
-        position: absolute;
-        bottom: 14px;
-        left: 14px;
-        color: #FFF0D2;
-        opacity: 0;
-        transform: translateY(8px);
-        transition: all 0.4s ease;
-    }
-    .gallery-item:hover .zoom-icon {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
     /* Grid item sizing: "wide" items take more columns on desktop */
     .gallery-item.size-normal { grid-column: span 2 / span 2; }
     .gallery-item.size-wide   { grid-column: span 3 / span 3; }
+
+    /* Row heights: odd rows (3-per-row / "normal") and even rows
+       (2-per-row / "wide") are controlled independently here.
+       Change these two values to make odd rows shorter/taller. */
+    #gallery-grid {
+        --odd-row-height: 220px;
+        --even-row-height: 320px;
+    }
+    .gallery-item.size-normal { aspect-ratio: unset; height: var(--odd-row-height); }
+    .gallery-item.size-wide   { aspect-ratio: unset; height: var(--even-row-height); }
+    @media (max-width: 767px) {
+        .gallery-item.size-normal,
+        .gallery-item.size-wide {
+            height: 220px;
+        }
+    }
     @media (max-width: 767px) {
         .gallery-item.size-normal,
         .gallery-item.size-wide {
@@ -325,7 +325,6 @@
         </div>
         
     </section>
-    
 <section id="gallery" class="max-w-7xl mx-auto px-4 md:px-6 py-16">
 
     <!-- Filter Tabs -->
@@ -413,7 +412,6 @@
     </figure>
 
 </div>
-
     
  
 <footer class="bg-[#153E17] mt-20 text-white">
@@ -633,9 +631,8 @@ class="w-8 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"    
 
     </div>
 
-</footer>
-<script>
-    (function () {
+</footer><script>
+(function () {
 
     /* ========================================================================
        GALLERY DATA — admin edits this array to add/remove/reorder photos.
@@ -645,23 +642,27 @@ class="w-8 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"    
     // now. Replace each `src` with your real path (e.g. "./images/gallery/facade-1.jpg")
     // before publishing — everything else about the row/column pattern stays identical.
     const galleryPhotos = [
-        { src: "./images/G1.png", category: "facade",   alt: "Garden Plate outdoor seating at night", size: "normal" },
-        { src: "https://picsum.photos/id/292/800/600",  category: "facade",   alt: "Restaurant entrance with warm lighting", size: "normal" },
-        { src: "https://picsum.photos/id/225/800/600",  category: "ambience", alt: "Cozy indoor dining hall",                size: "normal" },
+        { src: "./images/facade2.png", category: "facade",   alt: "Garden Plate outdoor seating at night", size: "normal" },
+        { src: "./images/G3.png", category: "ambience", alt: "Cozy indoor dining hall",                size: "normal" },
+         { src: "./images/facade1.png", category: "facade",   alt: "Restaurant entrance with warm lighting", size: "normal" },
 
-        { src: "https://picsum.photos/id/1080/1200/800", category: "food",     alt: "Signature seafood platter",             size: "wide" },
-        { src: "https://picsum.photos/id/431/1200/800",  category: "food",     alt: "Tiramisu dessert",                      size: "wide" },
+        { src: "./images/Tropical Sunset Punch.png", category: "food",     alt: "Tropical Sunset Punch",             size: "wide" },
+        { src: "./images/MIDNIGHT CHOCOLATE SYMPHONY.png",  category: "food",     alt: "MIDNIGHT CHOCOLATE SYMPHONY dessert",          size: "wide" },
 
-        { src: "https://picsum.photos/id/164/800/600",  category: "ambience", alt: "String lights over the patio",          size: "normal" },
-        { src: "https://picsum.photos/id/195/800/600",  category: "ambience", alt: "Garden path lined with lanterns",       size: "normal" },
-        { src: "https://picsum.photos/id/223/800/600",  category: "ambience", alt: "Rustic dining room interior",           size: "normal" },
+        { src: "./images/G11.png", category: "ambience", alt: "String lights over the patio",          size: "normal" },
+        { src: "./images/ambience3.png", category: "ambience", alt: "Garden path lined with lanterns",       size: "normal" },
+        { src: "./images/G12.png", category: "ambience", alt: "Rustic dining room interior",           size: "normal" },
 
-        { src: "https://picsum.photos/id/312/1200/800", category: "events",   alt: "Private event dome seating",            size: "wide" },
-        { src: "https://picsum.photos/id/365/1200/800", category: "events",   alt: "Bar area set up for an event",          size: "wide" },
+        { src: "./images/event1.png", category: "events",   alt: "event1",            size: "wide" },
+        { src: "./images/event3.png", category: "events",   alt: "event2",          size: "wide" },
 
-        { src: "https://picsum.photos/id/292/800/600",  category: "food",     alt: "Slow-cooked curry in a black bowl",     size: "normal" },
-        { src: "https://picsum.photos/id/163/800/600",  category: "food",     alt: "Fresh green wrap",                      size: "normal" },
-        { src: "https://picsum.photos/id/102/800/600",  category: "food",     alt: "Fried rice bowl",                       size: "normal" },
+       
+        { src: "./images/Herb-Crusted Fish Fingers.png",  category: "food",     alt: "Fish fingers",                      size: "normal" },
+         { src: "./images/Kesar Pistachio Kulfi.png",  category: "food",     alt: "kesar pistachio kulffi",     size: "normal" },
+        { src: "./images/Chicken Dum Biryani.png",  category: "food",     alt: "chiken dum biryani",                       size: "normal" },
+
+{ src: "./images/Herb-Crusted Fish Fingers.png", category: "food", alt: "Chef's special preview", size: "normal", hideFromAll: true },
+{ src: "./images/Herb-Crusted Fish Fingers.png", category: "food", alt: "Chef's special preview", size: "normal", hideFromAll: true },
         // Add more photos here — the grid and filters pick them up automatically.
         // For your real site, swap each src for your own image path.
     ];
@@ -689,13 +690,27 @@ class="w-8 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"    
        ======================================================================== */
     function renderGrid() {
         visiblePhotos = activeFilter === "all"
-            ? galleryPhotos
+            ? galleryPhotos.filter(p => !p.hideFromAll)
             : galleryPhotos.filter(p => p.category === activeFilter);
 
         grid.innerHTML = "";
 
         visiblePhotos.forEach((photo, index) => {
-            const sizeClass = photo.size === "wide" ? "size-wide" : "size-normal";
+
+    // Pattern:
+    // 3 normal
+    // 2 wide
+    // repeat
+
+    const position = index % 5;
+
+    let sizeClass;
+
+    if (position < 3) {
+        sizeClass = "size-normal";
+    } else {
+        sizeClass = "size-wide";
+    }
 
             const item = document.createElement("figure");
             item.className = `gallery-item gallery-fade ${sizeClass}`;
@@ -704,11 +719,6 @@ class="w-8 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"    
 
             item.innerHTML = `
                 <img src="${photo.src}" alt="${photo.alt}" loading="lazy">
-                <span class="zoom-icon">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16zM11 8v6M8 11h6"/>
-                    </svg>
-                </span>
             `;
 
             item.addEventListener("click", () => openLightbox(index));
@@ -770,13 +780,24 @@ class="w-8 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"    
         showLightboxImage();
     }
 
-    btnClose.addEventListener("click", closeLightbox);
-    btnNext.addEventListener("click", showNext);
-    btnPrev.addEventListener("click", showPrev);
+    btnClose.addEventListener("click", (e) => {
+        e.stopPropagation();
+        closeLightbox();
+    });
+    btnNext.addEventListener("click", (e) => {
+        e.stopPropagation();
+        showNext();
+    });
+    btnPrev.addEventListener("click", (e) => {
+        e.stopPropagation();
+        showPrev();
+    });
 
-    // Close when clicking the dark backdrop (but not the image/figure itself)
+    // Close when clicking the dark backdrop (but not the image/figure, and
+    // not the prev/next/close controls themselves)
     lightbox.addEventListener("click", (e) => {
-        if (!figureEl.contains(e.target)) {
+        const clickedControl = e.target.closest("#lightbox-close, #lightbox-prev, #lightbox-next");
+        if (!figureEl.contains(e.target) && !clickedControl) {
             closeLightbox();
         }
     });

@@ -375,6 +375,7 @@ class="card-hover bg-[#FFF0D2]/30 border border-[#A6833E] rounded-xl p-8 md:p-10
 
                             <select
                                 id="subject"
+                                 name="subject"
                                 required
                                 class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]">
 
@@ -395,6 +396,7 @@ class="card-hover bg-[#FFF0D2]/30 border border-[#A6833E] rounded-xl p-8 md:p-10
 
                             <textarea 
                             id="message"
+                            name="message"
                             rows="5"
                             required
                             maxlength="500"
@@ -1014,7 +1016,7 @@ nameInput.addEventListener("input", function(){
 
     else if(!/^[A-Za-z ]+$/.test(value)){
 
-        showError(nameInput, nameError, "Only alphabets are allowed.");
+        showError(nameInput, nameError, "Please enter a valid name.");
 
     }
 
@@ -1040,7 +1042,7 @@ emailInput.addEventListener("input",function(){
 
     else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
 
-        showError(emailInput,emailError,"Enter a valid email address.");
+        showError(emailInput,emailError,"Please enter a valid email address.");
 
     }
 
@@ -1054,25 +1056,29 @@ emailInput.addEventListener("input",function(){
 
 
 // PHONE
-phoneInput.addEventListener("input",function(){
+phoneInput.addEventListener("input", function () {
 
-    this.value=this.value.replace(/\D/g,"").slice(0,10);
+    if (this.value.trim() === "") {
 
-    if(this.value===""){
-
-        showError(phoneInput,phoneError,"Phone number is required.");
+        showError(phoneInput, phoneError, "Phone number is required.");
 
     }
 
-    else if(this.value.length<10){
+    else if (!/^\d+$/.test(this.value)) {
 
-        showError(phoneInput,phoneError,"Enter exactly 10 digits.");
+        showError(phoneInput, phoneError, "Only numbers are allowed.");
 
     }
 
-    else{
+    else if (this.value.length !== 10) {
 
-        clearError(phoneInput,phoneError);
+        showError(phoneInput, phoneError, "Phone number must be exactly 10 digits.");
+
+    }
+
+    else {
+
+        clearError(phoneInput, phoneError);
 
     }
 
@@ -1150,7 +1156,7 @@ contactForm.addEventListener("submit",function(e){
 
     else if(!/^[A-Za-z ]+$/.test(name)){
 
-        showError(nameInput,nameError,"Only alphabets are allowed.");
+        showError(nameInput,nameError,"Please enter a valid name.");
         isValid=false;
 
     }
@@ -1185,16 +1191,30 @@ contactForm.addEventListener("submit",function(e){
 
 
     // Phone
-    if(phone===""){
+    if (phoneInput.value.trim() === "") {
 
-        showError(phoneInput,phoneError,"Phone number is required.");
-        isValid=false;
+    showError(phoneInput, phoneError, "Phone number is required.");
+    isValid = false;
 
-    }
+}
+
+else if (!/^\d+$/.test(phoneInput.value)) {
+
+    showError(phoneInput, phoneError, "Only numbers are allowed.");
+    isValid = false;
+
+}
+
+else if (phoneInput.value.length !== 10) {
+
+    showError(phoneInput, phoneError, "Phone number must be exactly 10 digits.");
+    isValid = false;
+
+}
 
     else if(phone.length!==10){
 
-        showError(phoneInput,phoneError,"Enter exactly 10 digits.");
+        showError(phoneInput,phoneError,"Please enter a valid 10-digit phone number.");
         isValid=false;
 
     }
@@ -1248,11 +1268,26 @@ contactForm.addEventListener("submit",function(e){
 
     // Success Popup
 
+   emailjs.sendForm(
+    "service_e7r3juq",
+    "template_aqnpdom",
+    contactForm
+)
+.then(function () {
+
     contactForm.reset();
 
     successModal.classList.remove("hidden");
     successModal.classList.add("flex");
 
+})
+.catch(function (error) {
+
+    alert("Failed to send message.");
+
+    console.log(error);
+
+});
 });
 
 
@@ -1312,6 +1347,13 @@ reveal();
 
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+emailjs.init({
+    publicKey: "LYGSY1k-BT25e80Xi",
+});
+</script>
 
     
 </body>
