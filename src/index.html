@@ -26,15 +26,10 @@ font-family:'Playfair Display';
 .font-secondary{
 font-family:'Lato';
 }
-
 #heroSlider{
-
     display:flex;
-
-    width:300%;
-
+    width:400%;
     height:100%;
-
 }
 
 #heroSlider img{
@@ -150,12 +145,16 @@ transform:scale(1);
         <img src="./images/home page hero banner.png"
              class="w-full h-full object-cover flex-shrink-0">
 
-        <img src="./images/G12.png"
+        <img src="./images/G1.png"
              class="w-full h-full object-cover flex-shrink-0">
 
-        <img src="./images/G11.png"
+        <img src="./images/ambience3.png"
              class="w-full h-full object-cover flex-shrink-0">
 
+        
+    <!-- Duplicate first image -->
+  <img src="./images/home page hero banner.png"
+     class="w-full h-full object-cover flex-shrink-0">
     </div>
 
     <!-- Overlay -->
@@ -470,7 +469,7 @@ Thoughtful hospitality delivered with care, elegance, and genuine attention.
 
 <!-- ABOUT SECTION -->
 
-<section class="bg-[#F5EED8] py-20 reveal">
+<section class="bg-[#F5EED8] py-14 reveal">
 
 <div class="max-w-7xl mx-auto px-6">
 
@@ -560,7 +559,7 @@ duration-700
 
 <!-- FEATURED DISHES -->
 
-<section class="bg-gray-50 py-20 reveal">
+<section class="bg-gray-50 py-16 reveal">
 
 <div class="max-w-7xl mx-auto px-6">
 
@@ -609,6 +608,8 @@ class="
 bg-white
 rounded-xl
 overflow-hidden
+border-2
+border-[#A6833E]
 shadow-md
 hover:-translate-y-3
 hover:shadow-2xl
@@ -654,6 +655,8 @@ class="
 bg-white
 rounded-xl
 overflow-hidden
+border-2
+border-[#A6833E]
 shadow-md
 hover:-translate-y-3
 hover:shadow-2xl
@@ -699,6 +702,8 @@ class="
 bg-white
 rounded-xl
 overflow-hidden
+border-2
+border-[#A6833E]
 shadow-md
 hover:-translate-y-3
 hover:shadow-2xl
@@ -916,7 +921,7 @@ class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-a
     required
     maxlength="50"
     class="w-full border border-[#D9C79A] rounded px-4 py-3 bg-transparent outline-none focus:border-[#B8913C]">
-
+<p id="nameError" class="text-red-500 text-sm mt-1 hidden"></p>
         </div>
 
         <!-- Ratings -->
@@ -933,7 +938,9 @@ class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-a
                     <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                      <input type="hidden" name="foodRating" required>
                 </div>
-
+               <p class="ratingError text-red-500 text-sm mt-1 hidden">
+    Please give a rating.
+</p>
             </div>
 
             <div>
@@ -946,7 +953,9 @@ class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-a
                     <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                      <input type="hidden" name="serviceRating" required>
                 </div>
-
+                <p class="ratingError text-red-500 text-sm mt-1 hidden">
+    Please give a rating.
+</p>
             </div>
 
 
@@ -960,6 +969,10 @@ class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-a
                     <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                      <input type="hidden" name="cleanlinessRating" required>
                 </div>
+
+                <p class="ratingError text-red-500 text-sm mt-1 hidden">
+    Please give a rating.
+</p>
 
             </div>
 
@@ -976,7 +989,9 @@ class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-a
             </label>
 
             <textarea
+
             id="feedbackMessage"
+            name="comments"
             rows="5"
             placeholder="Tell us about your experience..."
             class="w-full mt-2 border rounded-lg p-3 focus:outline-none focus:border-[#153E17]"></textarea>
@@ -984,8 +999,15 @@ class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-a
         </div>
         <p
     id="feedbackTime"
+   
     class="text-sm text-black-500 mt-4 text-center italic">
 </p>
+          <!-- Hidden input for EmailJS -->
+<input
+type="hidden"
+id="feedbackTimeInput"
+name="feedbackTime">
+
           <button
            type="submit"
            id="submitFeedback"
@@ -1266,10 +1288,10 @@ document.querySelectorAll("#mobile-menu a").forEach(link => {
     link.addEventListener("click", () => {
         mobileMenu.classList.add("hidden");
     });
-});
-const heroSlider = document.getElementById("heroSlider");
+});const heroSlider = document.getElementById("heroSlider");
 
-const totalSlides = heroSlider.children.length;
+const slides = heroSlider.children;
+const totalSlides = slides.length;
 
 let currentSlide = 0;
 
@@ -1277,15 +1299,23 @@ setInterval(() => {
 
     currentSlide++;
 
-    if(currentSlide >= totalSlides){
-        currentSlide = 0;
+    heroSlider.style.transition = "transform 0.7s ease-in-out";
+    heroSlider.style.transform = `translateX(-${currentSlide * 100}vw)`;
+
+    // When the duplicate first image is reached
+    if (currentSlide === totalSlides - 1) {
+
+        setTimeout(() => {
+
+            heroSlider.style.transition = "none";
+            currentSlide = 0;
+            heroSlider.style.transform = `translateX(0)`;
+
+        }, 700);
+
     }
 
-    heroSlider.style.transform =
-        `translateX(-${currentSlide * 100}vw)`;
-
-},3000);
-
+}, 3000);
 
 /* Reveal Animation */
 
@@ -1319,12 +1349,31 @@ const closePopup = document.getElementById("closePopup");
 
 const feedbackForm = document.getElementById("feedbackForm");
 const feedbackName = document.getElementById("feedbackName");
-
+const nameError = document.getElementById("nameError");
 const successPopup = document.getElementById("feedbackSuccess");
 
 feedbackName.addEventListener("input", function () {
 
-    this.setCustomValidity("");
+    const value = this.value.trim();
+
+    if (value === "") {
+
+        nameError.textContent = "Name is required.";
+        nameError.classList.remove("hidden");
+
+    }
+    else if (!/^[A-Za-z ]+$/.test(value)) {
+
+        nameError.textContent = "Only alphabets and spaces are allowed.";
+        nameError.classList.remove("hidden");
+
+    }
+    else {
+
+        nameError.textContent = "";
+        nameError.classList.add("hidden");
+
+    }
 
 });
 
@@ -1370,12 +1419,37 @@ document.addEventListener("keydown",(e)=>{
 
 function closeFeedback(){
 
+    // Reset form
+    feedbackForm.reset();
+
+    // Clear name error
+    nameError.textContent = "";
+    nameError.classList.add("hidden");
+
+     // Hide rating errors
+    document.querySelectorAll(".ratingError").forEach(error => {
+        error.classList.add("hidden");
+    });
+
+    // Reset all ratings
+    document.querySelectorAll(".rating").forEach(group => {
+
+        group.querySelector("input").value = "";
+
+        group.querySelectorAll("span").forEach(star => {
+            star.classList.remove("active");
+        });
+
+    });
+
+    // Hide popup
     feedbackPopup.classList.remove("flex");
     feedbackPopup.classList.add("hidden");
 
-    document.body.style.overflow="auto";
+    document.body.style.overflow = "auto";
 
 }
+
 
 /* Rating System */
 
@@ -1388,40 +1462,31 @@ document.querySelectorAll(".rating").forEach(group=>{
 
     stars.forEach((star,index)=>{
 
-        star.addEventListener("mouseenter",()=>{
+        
+star.addEventListener("click", () => {
 
-            stars.forEach((s,i)=>{
+    selected = index;
+    input.value = index + 1;
 
-                s.classList.toggle("active",i<=index);
+    stars.forEach((s, i) => {
+        s.classList.toggle("active", i <= selected);
+    });
 
-            });
+    // Hide error
+    const error = group.parentElement.querySelector(".ratingError");
+    error.classList.add("hidden");
 
-        });
-
-        star.addEventListener("click",()=>{
-
-            selected=index;
-            input.value = index + 1;
-
-        });
+});
 
     });
 
-    group.addEventListener("mouseleave",()=>{
-
-        stars.forEach((s,i)=>{
-
-            s.classList.toggle("active",i<=selected);
-
-        });
-
-    });
+   
 
 });
 
 /* Submit */
 
-feedbackForm.addEventListener("submit", function(e){
+feedbackForm.addEventListener("submit", function (e) {
 
     e.preventDefault();
 
@@ -1429,67 +1494,117 @@ feedbackForm.addEventListener("submit", function(e){
 
     feedbackName.setCustomValidity("");
 
-  if(name===""){
+    // Name Validation
+    if (name === "") {
 
-    feedbackName.setCustomValidity("Please enter your name.");
-    feedbackName.reportValidity();
-    return;
-
-}
-
-if(!/^[A-Za-z ]+$/.test(name)){
-
-    feedbackName.setCustomValidity("Name should contain only alphabets and spaces.");
-    feedbackName.reportValidity();
-    return;
-
-}
-const ratings=document.querySelectorAll(".rating");
-
-for(const rating of ratings){
-
-    const input=rating.querySelector("input");
-
-    if(input.value===""){
-
-        alert("Please give ratings for all sections.");
-
+        nameError.textContent = "Name is required.";
+        nameError.classList.remove("hidden");
+        feedbackName.focus();
         return;
 
     }
 
+    if (!/^[A-Za-z ]+$/.test(name)) {
+
+        nameError.textContent = "Enter a valid name.";
+        nameError.classList.remove("hidden");
+        feedbackName.focus();
+        return;
+
+    }
+
+    // Rating Validation
+  const ratings = document.querySelectorAll(".rating");
+let ratingValid = true;
+
+ratings.forEach(group => {
+
+    const input = group.querySelector("input");
+    const error = group.parentElement.querySelector(".ratingError");
+
+    if (input.value === "") {
+
+        error.classList.remove("hidden");
+        ratingValid = false;
+
+    } else {
+
+        error.classList.add("hidden");
+
+    }
+
+});
+
+if (!ratingValid) {
+    return;
 }
+    // Store submission time
+    document.getElementById("feedbackTimeInput").value =
+        new Date().toLocaleString("en-IN");
 
-    // Reset the form
-  feedbackForm.reset();
+    // Send Email
+    emailjs.sendForm(
+        "service_1qkyhep",
+        "template_ljiyn5b",
+        feedbackForm
+    )
 
-document.querySelectorAll(".rating").forEach(group=>{
+    .then(function () {
 
-    group.querySelectorAll("span").forEach(star=>{
+        feedbackForm.reset();
 
-        star.classList.remove("active");
+           // Hide all rating error messages
+    document.querySelectorAll(".ratingError").forEach(error => {
+        error.classList.add("hidden");
+    });
+    
+        nameError.textContent = "";
+        nameError.classList.add("hidden");
+
+        document.querySelectorAll(".rating").forEach(group => {
+
+            group.querySelectorAll("span").forEach(star => {
+
+                star.classList.remove("active");
+
+            });
+
+            group.querySelector("input").value = "";
+
+        });
+
+        closeFeedback();
+
+        successPopup.classList.remove("hidden");
+        successPopup.classList.add("flex");
+
+        setTimeout(() => {
+
+            successPopup.classList.remove("flex");
+            successPopup.classList.add("hidden");
+
+        }, 3000);
+
+    })
+
+    .catch(function (error) {
+
+        console.log(error);
+
+        alert("Failed to send feedback.");
 
     });
 
-    group.querySelector("input").value="";
-
 });
-    // Close feedback popup
-    closeFeedback();
 
-    // Show success popup
-    successPopup.classList.remove("hidden");
-    successPopup.classList.add("flex");
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-    // Hide success popup after 3 seconds
-    setTimeout(() => {
-
-        successPopup.classList.remove("flex");
-        successPopup.classList.add("hidden");
-
-    }, 3000);
-
+<script>
+emailjs.init({
+    publicKey: "oIyNmhaxw8JTH_XTq"
 });
+</script>
 
 
 </script>
