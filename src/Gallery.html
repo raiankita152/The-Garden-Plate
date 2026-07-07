@@ -664,6 +664,7 @@ class="w-8 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"    
 { src: "./images/Shahi Nizami Kofta.png", category: "food", alt: "Shahi Nizami Kofta", size: "normal", hideFromAll: true },
 { src: "./images/CRISPY PESARATTU.png", category: "food", alt: "Crispy Pesarattu", size: "normal", hideFromAll: true },
 { src: "./images/Chicken Chettinad.png", category: "food", alt: "Chicken Chettinad", size: "normal", hideFromAll: true },
+{ src: "./images/home page hero banner.png", category: "ambience", alt: "Rustic dining room interior", size: "normal", hideFromAll: true },
         // Add more photos here — the grid and filters pick them up automatically.
         // For your real site, swap each src for your own image path.
     ];
@@ -817,6 +818,59 @@ class="w-8 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"    
     renderGrid();
 
 })();
+</script>
+
+
+<script>
+/* Mobile Menu */
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+
+menuBtn.addEventListener("click", () => {
+
+    mobileMenu.classList.toggle("hidden");
+
+});
+
+// Close menu after clicking any link
+
+document.querySelectorAll("#mobile-menu a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        mobileMenu.classList.add("hidden");
+
+    });
+
+});
+
+</script>
+<script>
+
+const reveals=document.querySelectorAll(".fade");
+
+function reveal(){
+
+const windowHeight=window.innerHeight;
+
+reveals.forEach(item=>{
+
+const top=item.getBoundingClientRect().top;
+
+if(top<windowHeight-100){
+
+item.classList.add("show");
+
+}
+
+});
+
+}
+
+window.addEventListener("scroll",reveal);
+
+reveal();
+
 </script>
 
 
