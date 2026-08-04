@@ -1306,6 +1306,14 @@ document.addEventListener("click", function (e) {
 
 });
 
+// Close mobile menu when user scrolls
+window.addEventListener("scroll", function () {
+
+    if (!mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.add("hidden");
+    }
+
+});
 const heroSlider = document.getElementById("heroSlider");
 
 const slides = heroSlider.children;
