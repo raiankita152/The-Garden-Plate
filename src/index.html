@@ -1288,7 +1288,25 @@ document.querySelectorAll("#mobile-menu a").forEach(link => {
     link.addEventListener("click", () => {
         mobileMenu.classList.add("hidden");
     });
-});const heroSlider = document.getElementById("heroSlider");
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener("click", function (e) {
+
+    const isClickInsideMenu = mobileMenu.contains(e.target);
+    const isClickOnMenuButton = menuBtn.contains(e.target);
+
+    if (
+        !mobileMenu.classList.contains("hidden") &&
+        !isClickInsideMenu &&
+        !isClickOnMenuButton
+    ) {
+        mobileMenu.classList.add("hidden");
+    }
+
+});
+
+const heroSlider = document.getElementById("heroSlider");
 
 const slides = heroSlider.children;
 const totalSlides = slides.length;
@@ -1351,6 +1369,18 @@ const feedbackForm = document.getElementById("feedbackForm");
 const feedbackName = document.getElementById("feedbackName");
 const nameError = document.getElementById("nameError");
 const successPopup = document.getElementById("feedbackSuccess");
+
+// Close success popup when clicking outside the popup box
+successPopup.addEventListener("click", function (e) {
+
+    if (e.target === successPopup) {
+
+        successPopup.classList.remove("flex");
+        successPopup.classList.add("hidden");
+
+    }
+
+});
 
 feedbackName.addEventListener("input", function () {
 
