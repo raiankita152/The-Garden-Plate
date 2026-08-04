@@ -958,6 +958,32 @@ document.querySelectorAll("#mobile-menu a").forEach(link => {
 
 });
 
+
+// Close mobile menu when clicking outside
+document.addEventListener("click", function (e) {
+
+    const isClickInsideMenu = mobileMenu.contains(e.target);
+    const isClickOnMenuButton = menuBtn.contains(e.target);
+
+    if (
+        !mobileMenu.classList.contains("hidden") &&
+        !isClickInsideMenu &&
+        !isClickOnMenuButton
+    ) {
+        mobileMenu.classList.add("hidden");
+    }
+
+});
+
+// Close mobile menu when user scrolls
+window.addEventListener("scroll", function () {
+
+    if (!mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.add("hidden");
+    }
+
+});
+
 </script>
 
 <script>
