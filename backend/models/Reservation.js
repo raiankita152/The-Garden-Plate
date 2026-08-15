@@ -8,7 +8,6 @@ required: true,
 enum: ["Mr.", "Mrs.", "Ms."]
 },
 
-```
 firstName: {
   type: String,
   required: true,
@@ -59,7 +58,7 @@ status: {
   enum: ["Pending", "Confirmed", "Cancelled"],
   default: "Pending"
 }
-```
+
 
 },
 {
