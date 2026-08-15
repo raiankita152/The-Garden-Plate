@@ -5,33 +5,39 @@ require("dotenv").config();
 
 const reservationRoutes = require("./routes/reservationRoutes");
 
-
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
+// Routes
 app.use("/api/reservations", reservationRoutes);
-
-// Connect MongoDB
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("MongoDB Connected Successfully!");
-  })
-  .catch((error) => {
-    console.error("MongoDB Connection Error:", error.message);
-  });
 
 // Test Route
 app.get("/", (req, res) => {
-  res.send("The Garden Plate Backend is Running!");
+res.send("The Garden Plate Backend is Running!");
 });
 
-// Start Server
+// Connect MongoDB and then start server
+const startServer = async () => {
+try {
+await mongoose.connect(process.env.MONGO_URI);
+
+```
+console.log("MongoDB Connected Successfully!");
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+```
+
+} catch (error) {
+console.error("MongoDB Connection Error:", error.message);
+}
+};
+
+startServer();
+
