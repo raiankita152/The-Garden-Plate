@@ -1,0 +1,59 @@
+
+<nav class="gp-navbar fixed top-0 left-0 w-full z-50">
+  <div class="bg-black/30 backdrop-blur-xl border-b border-white/10 shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+
+      <a href="./index.html" aria-label="The Garden Plate Home">
+        <img
+          src="./images/WHITE TRANSPARENT Restaurant Logo (1).png"
+          alt="The Garden Plate logo"
+          class="w-20 h-20 object-cover"
+        >
+      </a>
+
+      <ul class="hidden md:flex items-center gap-8 lg:gap-12 text-white font-medium">
+        <li><a data-page="home" href="./index.html" class="gp-nav-link">HOME</a></li>
+        <li><a data-page="menu" href="./Menu.html" class="gp-nav-link">MENU</a></li>
+        <li><a data-page="gallery" href="./Gallery.html" class="gp-nav-link">GALLERY</a></li>
+        <li><a data-page="about" href="./About_us.html" class="gp-nav-link">ABOUT US</a></li>
+        <li><a data-page="contact" href="./Contact_Us.html" class="gp-nav-link">CONTACT US</a></li>
+      </ul>
+
+      <a href="./Table_Booking.html"
+         class="hidden md:inline-block bg-[#153E17] hover:bg-[#A6833E] text-white px-6 py-3 rounded-lg transition duration-300">
+        BOOK A TABLE
+      </a>
+
+      <button
+        id="gp-menu-btn"
+        type="button"
+        class="md:hidden text-white p-2"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="gp-mobile-menu">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor"
+             stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="gp-mobile-menu"
+         class="hidden md:hidden bg-black/90 backdrop-blur-xl">
+      <ul class="flex flex-col text-center text-white font-medium">
+        <li><a data-page="home" href="./index.html" class="gp-nav-link block py-4 hover:bg-[#153E17]">HOME</a></li>
+        <li><a data-page="menu" href="./Menu.html" class="gp-nav-link block py-4 hover:bg-[#153E17]">MENU</a></li>
+        <li><a data-page="gallery" href="./Gallery.html" class="gp-nav-link block py-4 hover:bg-[#153E17]">GALLERY</a></li>
+        <li><a data-page="about" href="./About_us.html" class="gp-nav-link block py-4 hover:bg-[#153E17]">ABOUT US</a></li>
+        <li><a data-page="contact" href="./Contact_Us.html" class="gp-nav-link block py-4 hover:bg-[#153E17]">CONTACT US</a></li>
+        <li class="py-5">
+          <a href="./Table_Booking.html"
+             class="inline-block bg-[#153E17] hover:bg-[#A6833E] text-white px-6 py-3 rounded-lg transition">
+            BOOK A TABLE
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
