@@ -1,10 +1,14 @@
-<html>
-    <head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Gallery</title>
-<link rel="icon" type="image/png" href="./images/favicon.png">
+    <meta name="description" content="Explore The Garden Plate's food, ambience, restaurant facade, and events gallery.">
+
+    <link rel="icon" type="image/png" href="./images/favicon.png">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,898 +16,187 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-    .font-primary{
-        font-family:'Playfair Display';
-    }
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="./style.css">
 
-    .font-secondary{
-        font-family:'Lato';
-    }
-       /* Filter buttons: default = outlined, active = filled green (matches BOOK A TABLE button) */
-    .filter-btn {
-        background-color: #fff;
-        color: #153E17;
-        border: 1px solid #153E17;
-    }
-    .filter-btn:hover {
-        background-color: #A6833E;
-        color: #fff;
-        border-color: #A6833E;
-    }
-    .filter-btn.active-filter {
-        background-color: #153E17;
-        color: #fff;
-        border-color: #153E17;
-    }
+    <!-- Shared Components -->
+    <script src="./js/components.js" defer></script>
 
-    /* Grid item hover zoom */
-    .gallery-item {
-        position: relative;
-        overflow: hidden;
-        border-radius: 0.5rem;
-        cursor: pointer;
-    }
-    .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.6s ease, filter 0.6s ease;
-    }
-    .gallery-item:hover img {
-        transform: scale(1.12);
-    }
-    .gallery-item::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(21,62,23,0.55), rgba(21,62,23,0) 55%);
-        opacity: 0;
-        transition: opacity 0.4s ease;
-    }
-    .gallery-item:hover::after {
-        opacity: 1;
-    }
-    /* Grid item sizing: "wide" items take more columns on desktop */
-    .gallery-item.size-normal { grid-column: span 2 / span 2; }
-    .gallery-item.size-wide   { grid-column: span 3 / span 3; }
-
-    /* Row heights: odd rows (3-per-row / "normal") and even rows
-       (2-per-row / "wide") are controlled independently here.
-       Change these two values to make odd rows shorter/taller. */
-    #gallery-grid {
-        --odd-row-height: 220px;
-        --even-row-height: 320px;
-    }
-    .gallery-item.size-normal { aspect-ratio: unset; height: var(--odd-row-height); }
-    .gallery-item.size-wide   { aspect-ratio: unset; height: var(--even-row-height); }
-    @media (max-width: 767px) {
-        .gallery-item.size-normal,
-        .gallery-item.size-wide {
-            height: 220px;
-        }
-    }
-    @media (max-width: 767px) {
-        .gallery-item.size-normal,
-        .gallery-item.size-wide {
-            grid-column: span 1 / span 1;
-        }
-    }
-
-    /* Simple fade for grid re-render on filter change */
-    .gallery-fade {
-        animation: galleryFadeIn 0.45s ease both;
-    }
-    @keyframes galleryFadeIn {
-        from { opacity: 0; transform: translateY(8px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
-
-    #lightbox.flex-visible {
-        display: flex;
-    }
-
-    #lightbox-img {
-        animation: lightboxZoom 0.35s ease both;
-    }
-    @keyframes lightboxZoom {
-        from { opacity: 0; transform: scale(0.94); }
-        to   { opacity: 1; transform: scale(1); }
-    }
-</style>
+    <!-- Gallery Functionality -->
+    <script src="./js/gallery.js" defer></script>
 </head>
+
 <body class="font-secondary bg-white">
 
-    <!-- HERO SECTION -->
+    <!-- Shared Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
     <section class="relative h-[450px] md:h-[350px] overflow-hidden">
 
-        <!-- Background Image -->
-        <img src="./images/Gallery Banner.png"
-            alt="Restaurant"
-            class="absolute inset-0 w-full h-full object-cover">
-<!-- Overlay -->
+        <img
+            src="./images/Gallery Banner.png"
+            alt="The Garden Plate restaurant gallery"
+            class="absolute inset-0 w-full h-full object-cover"
+            fetchpriority="high"
+        >
 
-<div class="absolute inset-0 bg-black/45"></div>
-          <!-- Glass Navbar -->
-<nav class="fixed top-0 left-0 w-full z-50">
+        <div class="absolute inset-0 bg-black/45"></div>
 
-    <div class="bg-black/30 backdrop-blur-xl border-b border-white/10 shadow-xl">
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
 
-        <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
-
-            <!-- Logo -->
-            <div class="flex items-center gap-4">
-                   <a href="./index.html">
-
-                <img
-                    src="./images/WHITE TRANSPARENT Restaurant Logo (1).png"
-                    alt="logo"
-                    class="w-20 h-20 rounded-full object-cover">
-                </a>
-            </div>
-            
-
-            <!-- Desktop Menu -->
-            <ul class="hidden md:flex gap-14 text-white font-secondary font-medium ">
-
-                <li>
-                    <a href="./index.html"
-                        class="transition duration-300 hover:text-[#A6833E]">
-                        HOME
-                    </a>
-                </li>
-
-                <li>
-                    <a href="./Menu.html"
-                        class="transition duration-300 hover:text-[#A6833E]">
-                        MENU
-                    </a>
-                </li>
-
-                <li>
-                    <a href="./Gallery.html"
-                        class="text-[#A6833E] font-semibold">
-                        GALLERY
-                    </a>
-                </li>
-
-                <li>
-                    <a href="./About_us.html"
-                        class="transition duration-300 hover:text-[#A6833E]">
-                        ABOUT US
-                    </a>
-                </li>
-
-                <li>
-                    <a href="./Contact_Us.html"
-                        class="transition duration-300 hover:text-[#A6833E]">
-                        CONTACT US
-                    </a>
-                </li>
-
-            </ul>
-
-            <!-- Book Button -->
-            <div class="hidden md:block">
-
-                <a href="./Table_Booking.html">
-
-                    <button class="
-                    bg-[#153E17]
-                    px-6 py-3
-                    rounded-lg
-                    text-white
-                    hover:bg-[#A6833E]
-                    transition
-                    duration-300">
-
-                        BOOK A TABLE
-
-                    </button>
-
-                </a>
-
-            </div>
-
-            <!-- Hamburger -->
-            <button
-                id="menu-btn"
-                class="md:hidden text-white">
-
-                <svg
-                    class="w-8 h-8"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24">
-
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M4 6h16M4 12h16M4 18h16"/>
-
-                </svg>
-
-            </button>
-
-        </div>
-
-        <!-- Mobile Menu -->
-
-        <div
-            id="mobile-menu"
-            class="hidden md:hidden bg-black/80 backdrop-blur-xl">
-
-            <ul class="flex flex-col text-center text-white font-medium">
-
-                <li class="border-b border-white/10">
-                    <a href="./index.html"
-                        class="block py-4 hover:bg-[#153E17] transition">
-                        HOME
-                    </a>
-                </li>
-
-                <li class="border-b border-white/10">
-                    <a href="./Menu.html"
-                        class="block py-4 hover:bg-[#153E17] transition">
-                        MENU
-                    </a>
-                </li>
-
-                <li class="border-b border-white/10">
-                    <a href="./Gallery.html"
-                        class="block py-4 hover:bg-[#153E17] transition">
-                        GALLERY
-                    </a>
-                </li>
-
-                <li class="border-b border-white/10">
-                    <a href="./About_us.html"
-                        class="block py-4 hover:bg-[#153E17] transition">
-                        ABOUT US
-                    </a>
-                </li>
-
-                <li class="border-b border-white/10">
-                    <a href="./Contact_Us.html"
-                        class="block py-4 hover:bg-[#153E17] transition">
-                        CONTACT US
-                    </a>
-                </li>
-
-                <li class="py-5">
-
-                    <a href="./Table_Booking.html">
-
-                        <button class="
-                        bg-[#153E17]
-                        px-6 py-3
-                        rounded-lg
-                        text-white
-                        hover:bg-[#24482D]
-                        transition">
-
-                            BOOK A TABLE
-
-                        </button>
-
-                    </a>
-
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-</nav>
-
-    
-        <!-- Hero Content -->
-        <div
-            class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-
-            <h1
-                class="font-primary text-[#FFF0D2] text-5xl md:text-7xl font-bold">
+            <h1 class="font-primary text-[#FFF0D2] text-5xl md:text-7xl font-bold">
                 Gallery
             </h1>
 
-<div class="flex items-center justify-center gap-3 mt-4">
+            <div class="flex items-center justify-center gap-3 mt-4">
+                <div class="w-20 h-[2px] bg-[#FFF0D2]"></div>
 
-    <div class="w-20 h-[2px] bg-[#FFF0D2]"></div>
+                <img
+                    src="./images/G_Vector.png"
+                    alt=""
+                    aria-hidden="true"
+                    class="w-7 h-8"
+                >
 
-    <img src="./images/G_Vector.png" class="w-7 h-8">
+                <div class="w-20 h-[2px] bg-[#FFF0D2]"></div>
+            </div>
 
-    <div class="w-20 h-[2px] bg-[#FFF0D2]"></div>
-
-</div>
-            <p class="text-[#FFF0D2] text-lg md:text-2xl text-center">
+            <p class="text-[#FFF0D2] text-lg md:text-2xl mt-4">
                 A glimpse into our world of flavor, elegance, and unforgettable moments.
             </p>
 
         </div>
-        
     </section>
-<section id="gallery" class="max-w-7xl mx-auto px-4 md:px-6 py-16">
 
-    <!-- Filter Tabs -->
-    <div class="flex flex-wrap items-center justify-center gap-3 mb-10" id="gallery-filters">
-        <button
-            data-filter="all"
-            class="filter-btn active-filter px-6 py-2 rounded-md text-sm font-secondary font-semibold tracking-wide transition duration-300">
-            ALL
-        </button>
-        <button
-            data-filter="facade"
-            class="filter-btn px-6 py-2 rounded-md text-sm font-secondary font-semibold tracking-wide transition duration-300">
-            FACADE
-        </button>
-        <button
-            data-filter="food"
-            class="filter-btn px-6 py-2 rounded-md text-sm font-secondary font-semibold tracking-wide transition duration-300">
-            FOOD
-        </button>
-        <button
-            data-filter="ambience"
-            class="filter-btn px-6 py-2 rounded-md text-sm font-secondary font-semibold tracking-wide transition duration-300">
-            AMBIENCE
-        </button>
-        <button
-            data-filter="events"
-            class="filter-btn px-6 py-2 rounded-md text-sm font-secondary font-semibold tracking-wide transition duration-300">
-            EVENTS
-        </button>
-    </div>
+    <!-- Gallery Section -->
+    <main>
+        <section id="gallery" class="max-w-7xl mx-auto px-4 md:px-6 py-16">
 
-    <!-- Photo Grid (populated by JS from galleryPhotos array) -->
-    <div
-        id="gallery-grid"
-        class="grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-5">
-        <!-- JS injects <figure> items here -->
-    </div>
+            <h2 class="font-primary text-3xl md:text-4xl text-center text-[#153E17] mb-8">
+                Our Gallery
+            </h2>
 
-</section>
+            <!-- Category Filters -->
+            <div
+                id="gallery-filters"
+                class="flex flex-wrap items-center justify-center gap-3 mb-10"
+                aria-label="Filter gallery photos"
+            >
+                <button type="button" data-filter="all" aria-pressed="true"
+                    class="filter-btn active-filter px-6 py-2 rounded-md text-sm font-secondary font-semibold tracking-wide transition duration-300">
+                    ALL
+                </button>
 
-<!-- Lightbox Overlay -->
-<div
-    id="lightbox"
-    class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm px-4">
+                <button type="button" data-filter="facade" aria-pressed="false"
+                    class="filter-btn px-6 py-2 rounded-md text-sm font-secondary font-semibold tracking-wide transition duration-300">
+                    FACADE
+                </button>
 
-    <!-- Close button -->
-    <button
-        id="lightbox-close"
-        aria-label="Close"
-        class="absolute top-5 right-5 md:top-8 md:right-8 text-white/80 hover:text-[#A6833E] transition duration-300 z-10">
-        <svg class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-    </button>
+                <button type="button" data-filter="food" aria-pressed="false"
+                    class="filter-btn px-6 py-2 rounded-md text-sm font-secondary font-semibold tracking-wide transition duration-300">
+                    FOOD
+                </button>
 
-    <!-- Previous -->
-    <button
-        id="lightbox-prev"
-        aria-label="Previous image"
-        class="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-[#A6833E] transition duration-300 z-10">
-        <svg class="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-        </svg>
-    </button>
+                <button type="button" data-filter="ambience" aria-pressed="false"
+                    class="filter-btn px-6 py-2 rounded-md text-sm font-secondary font-semibold tracking-wide transition duration-300">
+                    AMBIENCE
+                </button>
 
-    <!-- Next -->
-    <button
-        id="lightbox-next"
-        aria-label="Next image"
-        class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-[#A6833E] transition duration-300 z-10">
-        <svg class="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-        </svg>
-    </button>
-
-    <!-- Image + caption -->
-    <figure class="max-w-5xl w-full flex flex-col items-center" id="lightbox-figure">
-        <img
-            id="lightbox-img"
-            src=""
-            alt=""
-            class="max-h-[80vh] w-auto object-contain rounded-md shadow-2xl select-none">
-        <figcaption id="lightbox-caption" class="text-[#FFF0D2] font-secondary text-sm md:text-base mt-4 text-center"></figcaption>
-        <p class="text-white/50 text-xs mt-2 font-secondary" id="lightbox-counter"></p>
-    </figure>
-
-</div>
-    
- 
-<footer class="bg-[#153E17] mt-20 text-white">
-
-    <div class="max-w-7xl mx-auto px-6 py-16">
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ">
-
-            <!-- Logo -->
-            <div class="flex flex-col justify-center items-start">
-
-                <img
-                    src="./images/TRANSPARENT Restaurant Logo (1).png"
-                    alt="logo"
-                    class="w-32 mx-auto md:mx-0"
-                >
-
+                <button type="button" data-filter="events" aria-pressed="false"
+                    class="filter-btn px-6 py-2 rounded-md text-sm font-secondary font-semibold tracking-wide transition duration-300">
+                    EVENTS
+                </button>
             </div>
 
-             <!-- Quick Links -->
+            <!-- Photos are generated by gallery.js -->
+            <div
+                id="gallery-grid"
+                class="grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-5"
+                aria-live="polite"
+            ></div>
 
-            <div>
-
-                <h3 class="font-primary text-2xl mb-6">
-
-                    QUICK LINKS
-
-                </h3>
-
-                <ul class="space-y-4">
-
-                    <li>
-                        <a href="./index.html"
-                        class="hover:text-[#A6833E] duration-300">
-                        Home
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="./Menu.html"
-                        class="hover:text-[#A6833E] duration-300">
-                        Menu
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="./Gallery.html"
-                        class="hover:text-[#A6833E] duration-300">
-                        Gallery
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="./About_us.html"
-                        class="hover:text-[#A6833E] duration-300">
-                        About Us
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="./Contact_Us.html"
-                        class="hover:text-[#A6833E] duration-300">
-                        Contact Us
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-           
-           <!-- Contact -->
-<div>
-
-    <h3 class="font-primary text-2xl font-bold mb-6">
-        CONTACT US
-    </h3>
-
-    
-    <div class="space-y-4 font-secondary ">
-<!-- Phone -->
-<div class="flex items-center gap-5">
-    <img
-        src="./images/F_Phone.png"
-        alt="Phone"
-        class="w-5 h-5"
-    >
-    <p>+91 7492003870</p>
-</div>
-
-<!-- Email -->
-<div class="flex items-center gap-5">
-    <img
-        src="./images/F_Gmail.png"
-        alt="Email"
-        class="w-6 h-5"
-        
-    >
-    <p>contact@tgp.com</p>
-</div>
-
-<!-- Location -->
-<div class="flex items-start gap-5">
-    <img
-        src="./images/F_Location.png"
-        alt="Location"
-        class="w-7 h-9 mt-1"
-    >
-    <p>
-        Adarsh Nagar, Jaipur,<br>
-        Rajasthan, 302004 India
-    </p>
-</div>
-        <!-- Social Media Icons -->
-        <div class="flex gap-4 pt-3 ">
-
-            <a href="#">
-                <img
-                    src="./images/twitter.png"
-                    alt="Twitter"
-                   class="w-8 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"
-                >
-            </a>
-
-            <a href="#">
-                <img
-                    src="./images/facebook.png"
-                    alt="Facebook"
-class="w-8 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"                >
-            </a>
-
-            <a href="#">
-                <img
-                    src="./images/Insta.png"
-                    alt="Instagram"
-                    class="w-8 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"
-                >
-            </a>
-
-            <a href="#">
-                <img
-                    src="./images/utube.png"
-                    alt="youtube"
-                    class="w-10 h-8 transition duration-300 hover:scale-125 hover:-translate-y-1"
-                >
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-            
-
-            <!-- Opening Hours -->
-            <div>
-
-                <h3 class="font-primary text-2xl font-bold mb-6">
-                    OPENING HOURS
-                </h3>
-
-                <div class="space-y-4 font-secondary">
-
-                    <p>Monday - Sunday</p>
-                    <p>11:00 AM - 11:00 PM</p>
-
-                    
-                <div
-                class="mt-8
-                 p-1">
-
-                    <h4
-                    class="font-primary
-                    text-xl
-                    mb-3
-                    text-[#FFF0D2]">
-
-                        Reserve Early
-
-                    </h4>
-
-                    <p class="text-white ">
-
-                        Weekend tables fill up quickly.
-                        Reserve in advance for the best experience.
-
-                    </p>
-
-                </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- Bottom Footer -->
-
-    <div class="border-t border-white/20 py-4">
-
-        <div class="max-w-7xl mx-auto px-6
-                    flex flex-col md:flex-row
-                    justify-between items-center gap-4">
-
-            <p class="font-secondary text-sm">
-                © 2026 The Garden Plate. All Rights Reserved.
+            <p id="gallery-empty" class="hidden text-center text-gray-500 py-10">
+                No photos found in this category.
             </p>
 
-            <div class="flex gap-6 text-sm font-secondary">
-              <a href="./Privacy_Policy.html"
-class="hover:text-[#A6833E] duration-300">
-    Privacy Policy
-</a>
-                <a href="./Term_Condition.html"
-class="hover:text-[#A6833E] duration-300">
-    Terms & Conditions
-</a>
-            </div>
+        </section>
+    </main>
 
-        </div>
+    <!-- Lightbox -->
+    <div
+        id="lightbox"
+        class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm px-4"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Gallery image viewer"
+    >
+
+        <button
+            id="lightbox-close"
+            type="button"
+            aria-label="Close image viewer"
+            class="absolute top-5 right-5 md:top-8 md:right-8 text-white/80 hover:text-[#A6833E] transition duration-300 z-10"
+        >
+            <svg class="w-9 h-9" fill="none" stroke="currentColor"
+                stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+
+        <button
+            id="lightbox-prev"
+            type="button"
+            aria-label="Previous image"
+            class="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-[#A6833E] transition duration-300 z-10"
+        >
+            <svg class="w-10 h-10 md:w-12 md:h-12" fill="none"
+                stroke="currentColor" stroke-width="1.5"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15 19l-7-7 7-7"/>
+            </svg>
+        </button>
+
+        <button
+            id="lightbox-next"
+            type="button"
+            aria-label="Next image"
+            class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-[#A6833E] transition duration-300 z-10"
+        >
+            <svg class="w-10 h-10 md:w-12 md:h-12" fill="none"
+                stroke="currentColor" stroke-width="1.5"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"/>
+            </svg>
+        </button>
+
+        <figure id="lightbox-figure" class="max-w-5xl w-full flex flex-col items-center">
+            <img
+                id="lightbox-img"
+                src=""
+                alt=""
+                class="max-h-[80vh] max-w-full w-auto object-contain rounded-md shadow-2xl select-none"
+            >
+
+            <figcaption
+                id="lightbox-caption"
+                class="text-[#FFF0D2] font-secondary text-sm md:text-base mt-4 text-center"
+            ></figcaption>
+
+            <p
+                id="lightbox-counter"
+                class="text-white/50 text-xs mt-2 font-secondary"
+                aria-live="polite"
+            ></p>
+        </figure>
 
     </div>
 
-</footer><script>
-(function () {
-
-    /* ========================================================================
-       GALLERY DATA — admin edits this array to add/remove/reorder photos.
-       ======================================================================== */
-    // NOTE: the picsum.photos URLs below are only DEMO placeholders so you can
-    // preview the exact grid pattern from your screenshot in a browser right
-    // now. Replace each `src` with your real path (e.g. "./images/gallery/facade-1.jpg")
-    // before publishing — everything else about the row/column pattern stays identical.
-    const galleryPhotos = [
-        { src: "./images/facade2.png", category: "facade",   alt: "Garden Plate outdoor look", size: "normal" },
-        { src: "./images/G3.png", category: "ambience", alt: "Cozy indoor dining hall",                size: "normal" },
-         { src: "./images/facade1.png", category: "facade",   alt: "Restaurant entrance with warm lighting", size: "normal" },
-
-        { src: "./images/Tropical Sunset Punch.png", category: "food",     alt: "Tropical Sunset Punch",             size: "wide" },
-        { src: "./images/MIDNIGHT CHOCOLATE SYMPHONY.png",  category: "food",     alt: "Midnight Chocolate Symphony",          size: "wide" },
-
-        { src: "./images/G11.png", category: "ambience", alt: "String lights over the patio",          size: "normal" },
-        { src: "./images/ambience3.png", category: "ambience", alt: "Garden path lined with lanterns",       size: "normal" },
-        { src: "./images/G12.png", category: "ambience", alt: "Rustic dining room interior",           size: "normal" },
-
-        { src: "./images/event1.png", category: "events",   alt: "event",            size: "wide" },
-        { src: "./images/event3.png", category: "events",   alt: "event",          size: "wide" },
-
-       
-        { src: "./images/Herb-Crusted Fish Fingers.png",  category: "food",     alt: "Fish fingers",                      size: "normal" },
-         { src: "./images/Kesar Pistachio Kulfi.png",  category: "food",     alt: "Kesar Pistachio Kulffi",     size: "normal" },
-        { src: "./images/Chicken Dum Biryani.png",  category: "food",     alt: "Chiken Dum Biryani",                       size: "normal" },
-
-{ src: "./images/Shahi Nizami Kofta.png", category: "food", alt: "Shahi Nizami Kofta", size: "normal", hideFromAll: true },
-{ src: "./images/CRISPY PESARATTU.png", category: "food", alt: "Crispy Pesarattu", size: "normal", hideFromAll: true },
-{ src: "./images/Chicken Chettinad.png", category: "food", alt: "Chicken Chettinad", size: "normal", hideFromAll: true },
-{ src: "./images/home page hero banner.png", category: "ambience", alt: "Rustic dining room interior", size: "normal", hideFromAll: true },
-        
-    ];
-
-    /* ========================================================================
-       DOM refs
-       ======================================================================== */
-    const grid          = document.getElementById("gallery-grid");
-    const filterBtns     = document.querySelectorAll(".filter-btn");
-    const lightbox        = document.getElementById("lightbox");
-    const lightboxImg     = document.getElementById("lightbox-img");
-    const lightboxCaption = document.getElementById("lightbox-caption");
-    const lightboxCounter = document.getElementById("lightbox-counter");
-    const btnClose         = document.getElementById("lightbox-close");
-    const btnPrev           = document.getElementById("lightbox-prev");
-    const btnNext             = document.getElementById("lightbox-next");
-    const figureEl              = document.getElementById("lightbox-figure");
-
-    let activeFilter = "all";
-    let visiblePhotos = [...galleryPhotos]; // photos currently shown, in order
-    let currentIndex = 0;
-
-    /* ========================================================================
-       RENDER GRID
-       ======================================================================== */
-    function renderGrid() {
-        visiblePhotos = activeFilter === "all"
-            ? galleryPhotos.filter(p => !p.hideFromAll)
-            : galleryPhotos.filter(p => p.category === activeFilter);
-
-        grid.innerHTML = "";
-
-        visiblePhotos.forEach((photo, index) => {
-
-    // Pattern:
-    // 3 normal
-    // 2 wide
-    // repeat
-
-    const position = index % 5;
-
-    let sizeClass;
-
-    if (position < 3) {
-        sizeClass = "size-normal";
-    } else {
-        sizeClass = "size-wide";
-    }
-
-            const item = document.createElement("figure");
-            item.className = `gallery-item gallery-fade ${sizeClass}`;
-            item.style.animationDelay = `${index * 40}ms`;
-            item.setAttribute("data-index", index);
-
-            item.innerHTML = `
-                <img src="${photo.src}" alt="${photo.alt}" loading="lazy">
-            `;
-
-            item.addEventListener("click", () => openLightbox(index));
-            grid.appendChild(item);
-        });
-    }
-
-    /* ========================================================================
-       FILTER BUTTONS
-       ======================================================================== */
-    filterBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            filterBtns.forEach(b => b.classList.remove("active-filter"));
-            btn.classList.add("active-filter");
-            activeFilter = btn.getAttribute("data-filter");
-            renderGrid();
-        });
-    });
-
-    /* ========================================================================
-       LIGHTBOX
-       ======================================================================== */
-    function openLightbox(index) {
-        currentIndex = index;
-        showLightboxImage();
-        lightbox.classList.remove("hidden");
-        lightbox.classList.add("flex-visible");
-        document.body.style.overflow = "hidden"; // lock background scroll
-    }
-
-    function closeLightbox() {
-        lightbox.classList.add("hidden");
-        lightbox.classList.remove("flex-visible");
-        document.body.style.overflow = "";
-    }
-
-    function showLightboxImage() {
-        const photo = visiblePhotos[currentIndex];
-        lightboxImg.src = photo.src;
-        lightboxImg.alt = photo.alt;
-        lightboxCaption.textContent = photo.alt;
-        lightboxCounter.textContent = `${currentIndex + 1} / ${visiblePhotos.length}`;
-
-        // restart zoom-in animation on each image change
-        lightboxImg.classList.remove("gallery-fade");
-        void lightboxImg.offsetWidth; // reflow to restart animation
-        lightboxImg.style.animation = "none";
-        void lightboxImg.offsetWidth;
-        lightboxImg.style.animation = "";
-    }
-
-    function showNext() {
-        currentIndex = (currentIndex + 1) % visiblePhotos.length;
-        showLightboxImage();
-    }
-
-    function showPrev() {
-        currentIndex = (currentIndex - 1 + visiblePhotos.length) % visiblePhotos.length;
-        showLightboxImage();
-    }
-
-    btnClose.addEventListener("click", (e) => {
-        e.stopPropagation();
-        closeLightbox();
-    });
-    btnNext.addEventListener("click", (e) => {
-        e.stopPropagation();
-        showNext();
-    });
-    btnPrev.addEventListener("click", (e) => {
-        e.stopPropagation();
-        showPrev();
-    });
-
-    // Close when clicking the dark backdrop (but not the image/figure, and
-    // not the prev/next/close controls themselves)
-    lightbox.addEventListener("click", (e) => {
-        const clickedControl = e.target.closest("#lightbox-close, #lightbox-prev, #lightbox-next");
-        if (!figureEl.contains(e.target) && !clickedControl) {
-            closeLightbox();
-        }
-    });
-
-    // Keyboard support: Esc to close, arrows to navigate
-    document.addEventListener("keydown", (e) => {
-        if (lightbox.classList.contains("hidden")) return;
-        if (e.key === "Escape") closeLightbox();
-        if (e.key === "ArrowRight") showNext();
-        if (e.key === "ArrowLeft") showPrev();
-    });
-
-    /* ========================================================================
-       INIT
-       ======================================================================== */
-    renderGrid();
-
-})();
-</script>
-
-
-<script>
-/* Mobile Menu */
-const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
-
-menuBtn.addEventListener("click", () => {
-
-    mobileMenu.classList.toggle("hidden");
-
-});
-
-
-// Close mobile menu when clicking outside
-document.addEventListener("click", function (e) {
-
-    const isClickInsideMenu = mobileMenu.contains(e.target);
-    const isClickOnMenuButton = menuBtn.contains(e.target);
-
-    if (
-        !mobileMenu.classList.contains("hidden") &&
-        !isClickInsideMenu &&
-        !isClickOnMenuButton
-    ) {
-        mobileMenu.classList.add("hidden");
-    }
-
-});
-
-// Close mobile menu when user scrolls
-window.addEventListener("scroll", function () {
-
-    if (!mobileMenu.classList.contains("hidden")) {
-        mobileMenu.classList.add("hidden");
-    }
-
-});
-
-// Close menu after clicking any link
-
-document.querySelectorAll("#mobile-menu a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        mobileMenu.classList.add("hidden");
-
-    });
-
-});
-
-</script>
-<script>
-
-const reveals=document.querySelectorAll(".fade");
-
-function reveal(){
-
-const windowHeight=window.innerHeight;
-
-reveals.forEach(item=>{
-
-const top=item.getBoundingClientRect().top;
-
-if(top<windowHeight-100){
-
-item.classList.add("show");
-
-}
-
-});
-
-}
-
-window.addEventListener("scroll",reveal);
-
-reveal();
-
-</script>
-
-
-    </body>
-    </html>
+    <!-- Shared Footer -->
+    <div id="footer-placeholder"></div>
+
+</body>
+</html>
