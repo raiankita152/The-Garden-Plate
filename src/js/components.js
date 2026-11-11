@@ -19,33 +19,41 @@ async function loadComponent(selector, filePath) {
 }
 
 async function initializeComponents() {
+
+  // Load shared navbar and footer.
+  // These paths are correct for HTML files inside src/.
   await Promise.all([
     loadComponent("#navbar-placeholder", "./components/navbar.html"),
     loadComponent("#footer-placeholder", "./components/footer.html")
   ]);
 
-  // Highlight the current page in the navbar.
+  // Identify the current page.
   const currentFile = window.location.pathname
     .split("/")
     .pop()
     .toLowerCase();
 
+  // Page mapping.
   const pageMap = {
     "index.html": "home",
     "menu.html": "menu",
     "gallery.html": "gallery",
     "about_us.html": "about",
-    "contact_us.html": "contact"
+    "contact_us.html": "contact",
+    "table_booking.html": "booking"
   };
 
   const activePage = pageMap[currentFile];
 
+  // Highlight the active navigation link.
   if (activePage) {
     document.querySelectorAll(".gp-nav-link").forEach(link => {
+
       if (link.dataset.page === activePage) {
         link.classList.add("text-[#A6833E]", "font-semibold");
         link.setAttribute("aria-current", "page");
       }
+
     });
   }
 
@@ -54,11 +62,15 @@ async function initializeComponents() {
   const mobileMenu = document.getElementById("gp-mobile-menu");
 
   if (menuButton && mobileMenu) {
+
     menuButton.addEventListener("click", () => {
+
       const isHidden = mobileMenu.classList.toggle("hidden");
 
       menuButton.setAttribute("aria-expanded", String(!isHidden));
+
     });
+
   }
 }
 

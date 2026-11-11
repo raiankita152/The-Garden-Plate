@@ -1,0 +1,30 @@
+import express from "express";
+
+const router = express.Router();
+
+// GET /api/live?lat=28.61&lon=77.20
+router.get("/", async (req, res) => {
+  const lat = req.query.lat || 28.6139; // default: Delhi
+  const lon = req.query.lon || 77.209;
+
+  try {
+    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m`;
+    const airUrl = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&current=pm10,pm2_5,us_aqi`;
+
+    const [w, a] = await Promise.all([
+      fetch(weatherUrl).then((r) => r.json()),
+      fetch(airUrl).then((r) => r.json()),
+    ]);
+
+    res.json({
+      source: "open-meteo",
+      updatedAt: new Date().toISOString(),
+      weather: w.current,
+      air: a.current,
+    });
+  } catch (err) {
+    res.status(502).json({ error: "Live data unavailable", detail: err.message });
+  }
+});
+
+export default router;
